@@ -1,0 +1,37 @@
+@element .content-wrapper--shrink {
+  .sidebar > span {
+    display: block;
+  }
+}
+
+@element .sidebar and (min-width: 140px) {
+  .timeline > ul > li {
+    height: 75px;
+  }
+
+  .img-container {
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .text-container {
+    display: block;
+  }
+
+  .sidebar > span {
+    display: none;
+  }
+}
+
+@element .sidebar and (min-width: 180px) {
+  .timeline > ul > li {
+    height: 100px;
+  }
+}
+
+@element .sidebar and (min-width: 250px) {
+  .timeline > ul > li {
+    height: 130px;
+  }
+}
