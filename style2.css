@@ -22,7 +22,7 @@ body {
 
 .page {
 	background: #66c6ff;
-	position: fixed;
+	position: relative;
 	width: calc(100vw + 100vh);
 	height: 100px;
 	display: flex;
@@ -30,18 +30,26 @@ body {
 	justify-content: center;
 }
 
-.page--current {
+.page-1 {
 	background: #96c800;
-  transform: rotate(25deg) translate(0%, 10%);
+  transform: rotate(25deg) translate(-2%, 10%);
 }
 
-.page--next {
-	transform: rotate(25deg) translate(-5%, 130%);
+.page-2 {
+	transform: rotate(25deg) translate(-10%, 35%);
+}
+
+.page-3 {
+	transform: rotate(25deg) translate(-20%, 63%);
+}
+
+.page-4 {
+	transform: rotate(25deg) translate(-28%, 92%);
 }
 
 @media (orientation: portrait) {
 	.page {
-		width: calc(100vh); 
+		width: calc(100vh);
 	}
 
 	@media (min-aspect-ratio: 5/8) {
@@ -50,11 +58,19 @@ body {
 		}
 	}
 
-	.page--current {
+	.page-1 {
 	  transform: rotate(25deg) translate(-10%, 10%);
 	}
 
-	.page--next {
-		transform: rotate(25deg) translate(-15%, 130%);
+	.page-2 {
+		transform: rotate(25deg) translate(-18%, 35%);
+	}
+
+	.page-3 {
+		transform: rotate(25deg) translate(-25%, 63%);
+	}
+
+	.page-4 {
+		transform: rotate(25deg) translate(-32%, 92%);
 	}
 }
