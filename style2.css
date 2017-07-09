@@ -30,21 +30,73 @@ body {
 	justify-content: center;
 }
 
+@keyframes swing
+{
+	50%
+	{
+		top: 10px
+	}
+	0%, 100%
+	{
+		top: 0px;
+	}
+}
+
+.page:hover {
+	animation: swing .5s ease;
+}
+
 .page-1 {
 	background: #96c800;
   transform: rotate(25deg) translate(-2%, 10%);
+	transition: transform .5s cubic-bezier(.78,-0.58,1,.51);
+}
+
+.page-1.appear {
+	transform: rotate(0deg) translate(0, 0);
+}
+
+.page-1.disappear {
+	transform: rotate(25deg) translate(-2%, -400%);
 }
 
 .page-2 {
 	transform: rotate(25deg) translate(-10%, 35%);
+	transition: transform .5s cubic-bezier(.78,-0.58,1,.51) .3s;
+}
+
+.page-2.appear {
+	transform: rotate(0deg) translate(0, -100%);
+}
+
+.page-2.disappear {
+	transform: rotate(25deg) translate(-10%, -500%);
 }
 
 .page-3 {
 	transform: rotate(25deg) translate(-20%, 63%);
+	transition: transform .5s cubic-bezier(.78,-0.58,1,.51) .6s;
+}
+
+.page-3.appear {
+	transform: rotate(0deg) translate(0, -200%);
+}
+
+.page-3.disappear {
+	transform: rotate(25deg) translate(-20%, -600%);
 }
 
 .page-4 {
 	transform: rotate(25deg) translate(-28%, 92%);
+	transition: transform .5s cubic-bezier(.78,-0.58,1,.51) .9s;
+}
+
+.page-4.appear {
+	transform: rotate(0deg) translate(0, -300%);
+}
+
+.page-4.disappear {
+	transform: rotate(25deg) translate(-28%, -700%);
 }
 
 @media (orientation: portrait) {

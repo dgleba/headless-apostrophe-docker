@@ -13,16 +13,16 @@
   <body>
   	<main class="container">
   		<div class="pages">
-  			<div class="page page-1">
+  			<div class="page page-1" onclick="displayPage1()">
   				test label
   			</div><!-- /page -->
-  			<div class="page page-2">
+  			<div class="page page-2" onclick="displayPage2()">
   				test label 2
   			</div>
-				<div class="page page-3">
+				<div class="page page-3" onclick="displayPage3()">
   				test label 3
   			</div>
-				<div class="page page-4">
+				<div class="page page-4" onclick="displayPage4()">
   				test label 4
   			</div>
   		</div><!-- /pages -->
@@ -31,4 +31,34 @@
   		</nav>
   	</main>
   </body>
+
+	<script>
+		const displayPage4 = () => {
+			document.querySelector('.page-1').classList.add('disappear')
+			document.querySelector('.page-2').classList.add('disappear')
+			document.querySelector('.page-3').classList.add('disappear')
+			document.querySelector('.page-4').classList.add('appear')
+		}
+
+		const displayPage3 = () => {
+			document.querySelector('.page-1').classList.add('disappear')
+			document.querySelector('.page-2').classList.add('disappear')
+			document.querySelector('.page-3').classList.add('appear')
+			document.querySelector('.page-4').classList.add('disappear')
+		}
+
+		const displayPage2 = () => {
+			document.querySelector('.page-1').classList.add('disappear')
+			document.querySelector('.page-2').classList.add('appear')
+			document.querySelector('.page-3').classList.add('disappear')
+			document.querySelector('.page-4').classList.add('disappear')
+		}
+
+		const displayPage1 = () => {
+			document.querySelector('.page-1').classList.add('appear')
+			document.querySelector('.page-2').classList.add('disappear')
+			document.querySelector('.page-3').classList.add('disappear')
+			document.querySelector('.page-4').classList.add('disappear')
+		}
+	</script>
 </html>
