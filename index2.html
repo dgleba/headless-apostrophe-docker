@@ -34,31 +34,31 @@
 
 	<script>
 		const displayPage4 = () => {
-			document.querySelector('.page-1').classList.add('disappear')
-			document.querySelector('.page-2').classList.add('disappear')
-			document.querySelector('.page-3').classList.add('disappear')
-			document.querySelector('.page-4').classList.add('appear')
+			document.querySelector('.page-1').classList.toggle('disappear')
+			document.querySelector('.page-2').classList.toggle('disappear')
+			document.querySelector('.page-3').classList.toggle('disappear')
+			document.querySelector('.page-4').classList.toggle('appear')
 		}
 
 		const displayPage3 = () => {
-			document.querySelector('.page-1').classList.add('disappear')
-			document.querySelector('.page-2').classList.add('disappear')
-			document.querySelector('.page-3').classList.add('appear')
-			document.querySelector('.page-4').classList.add('disappear')
+			document.querySelector('.page-1').classList.toggle('disappear')
+			document.querySelector('.page-2').classList.toggle('disappear')
+			document.querySelector('.page-3').classList.toggle('appear')
+			document.querySelector('.page-4').classList.toggle('disappear')
 		}
 
 		const displayPage2 = () => {
-			document.querySelector('.page-1').classList.add('disappear')
-			document.querySelector('.page-2').classList.add('appear')
-			document.querySelector('.page-3').classList.add('disappear')
-			document.querySelector('.page-4').classList.add('disappear')
+			document.querySelector('.page-1').classList.toggle('disappear')
+			document.querySelector('.page-2').classList.toggle('appear')
+			document.querySelector('.page-3').classList.toggle('disappear')
+			document.querySelector('.page-4').classList.toggle('disappear')
 		}
 
 		const displayPage1 = () => {
-			document.querySelector('.page-1').classList.add('appear')
-			document.querySelector('.page-2').classList.add('disappear')
-			document.querySelector('.page-3').classList.add('disappear')
-			document.querySelector('.page-4').classList.add('disappear')
+			document.querySelector('.page-1').classList.toggle('appear')
+			document.querySelector('.page-2').classList.toggle('disappear')
+			document.querySelector('.page-3').classList.toggle('disappear')
+			document.querySelector('.page-4').classList.toggle('disappear')
 		}
 	</script>
 </html>
