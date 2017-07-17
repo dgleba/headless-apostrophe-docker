@@ -9,10 +9,7 @@
 {% block title %}Apostrophe Boilerplate{% endblock %}
 
 {% block extraHead %}
-  {#
-    This block outputs its contents in the HTML document's <head>.
-    It is a good place to put <script> <link> and <meta> tags.
-  #}
+  <link rel="stylesheet" href="/css/bundle.css"/>
 {% endblock %}
 
 {% block beforeMain %}
@@ -34,4 +31,8 @@
   {#
     This would be a great place to put a footer.
   #}
+{% endblock %}
+
+{% block extraBody %}
+  <script src="/js/bundle.js"></script>
 {% endblock %}

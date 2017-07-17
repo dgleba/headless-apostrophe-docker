@@ -8,12 +8,23 @@
 {% block title %}{{ super() }} | Home{% endblock %}
 
 {% block main %}
-  <div class="main-content">
-    <h3>Hello world!
-      {% if not data.user %}
-        <a class="login-link" href="/login">Login</a>
-      {% endif %}
-    </h3>
-    <p>This is a very barebones Apostrophe project. Now, get to work and make a real website!</p>
-  </div>
+  <main class="container">
+  		<div class="pages">
+  			<div class="page page-1" page="1">
+  				test label
+  			</div><!-- /page -->
+  			<div class="page page-2" page="2">
+  				test label 2
+  			</div>
+				<div class="page page-3" page="3">
+  				test label 3
+  			</div>
+				<div class="page page-4" page="4">
+  				test label 4
+  			</div>
+  		</div><!-- /pages -->
+  		<nav class="pagenav">
+  			<!-- buttons that will trigger the overlay animations -->
+  		</nav>
+  	</main>
 {% endblock %}
