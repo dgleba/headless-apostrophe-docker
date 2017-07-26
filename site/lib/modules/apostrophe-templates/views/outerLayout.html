@@ -1,9 +1,3 @@
-{#
-  An empty global layout to be extended by your page templates. This file extends
-  Apostrophe's outerLayoutBase template, which we don't recommend overriding, unless
-  you're a pro!
-#}
-
 {% extends "outerLayoutBase.html" %}
 
 {% block title %}Apostrophe Boilerplate{% endblock %}
@@ -12,25 +6,24 @@
   <link rel="stylesheet" href="/css/bundle.css"/>
 {% endblock %}
 
+{% set RTEConfig = {
+    toolbar: ['Styles', 'Bold', 'Italic', 'Link', 'NumberedList', 'BulletedList', 'Undo', 'Redo'],
+    styles: [
+      { name: 'Paragraphe', element: 'p' },
+      { name: 'Paragraphe 2', element: 'h5' },
+      { name: 'Title', element: 'h3' },
+      { name: 'Subtitle', element: 'h4' }
+    ]
+  }
+%}
+
 {% block beforeMain %}
-  {#
-    We recommend you use the beforeMain block for global page components
-    like headers or navigation.
-  #}
 {% endblock %}
 
 {% block main %}
-  {#
-    Usually, your page templates in the apostrophe-pages module will override
-    this block. It's safe to assume this is where your page-specific content
-    should go.
-  #}
 {% endblock %}
 
 {% block afterMain %}
-  {#
-    This would be a great place to put a footer.
-  #}
 {% endblock %}
 
 {% block extraBody %}

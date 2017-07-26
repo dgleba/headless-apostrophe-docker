@@ -1,6 +1,6 @@
-const styleLoaders = require('./style-loaders')
 const path = require('path')
 const defaultOptions = require('./default-options.js')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 /**
  * Create a base webpack configuration
@@ -37,15 +37,11 @@ module.exports = function (options) {
           }
         },
         {
-          test: /\.vue$/,
-          loader: 'vue-loader',
-          options: {
-            loaders: styleLoaders.vueStyleLoaders({
-              sourceMap: true,
-              extract: !dev,
-              minimize: !dev
-            })
-          }
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract({
+            loader: [ 'css-loader', 'sass-loader' ],
+            fallbackLoader: 'style-loader'
+          })
         },
         {
           test: /\.js$/,
@@ -73,26 +69,6 @@ module.exports = function (options) {
             name: assetsPath(options.output.svg)
           }
         },
-        // {
-        //   test: /\.(png|jpe?g|gif)(\?.*)?$/,
-        //   loader: 'image-webpack-loader',
-        //   options: {
-        //     gifsicle: {
-        //       interlaced: false,
-        //     },
-        //     optipng: {
-        //       optimizationLevel: options.dev ? 7 : 1,
-        //     },
-        //     pngquant: {
-        //       quality: '65-90',
-        //       speed: 4
-        //     },
-        //     mozjpeg: {
-        //       progressive: true,
-        //       quality: 65
-        //     }
-        //   }
-        // },
         {
           test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
           loader: 'url-loader',

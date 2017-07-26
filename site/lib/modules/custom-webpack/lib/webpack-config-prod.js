@@ -7,7 +7,6 @@ const makeBaseConfig = require('./webpack-config-base.js')
 const merge = require('webpack-merge')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const path = require('path')
-const styleLoaders = require('./style-loaders')
 const webpack = require('webpack')
 
 module.exports = function (options) {
@@ -22,13 +21,6 @@ module.exports = function (options) {
   const assetsPath = (_path) => path.posix.join(options.assetsSubDirectory, _path)
 
   var webpackConfig = merge(baseWebpackConfig, {
-    module: {
-      rules: styleLoaders.styleLoaders({
-        minimize: true,
-        sourceMap: true,
-        extract: true
-      })
-    },
     devtool: options.productionSourceMap ? '#source-map' : false,
     output: {
       path: options.assetsRoot,

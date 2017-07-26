@@ -8,23 +8,34 @@
 {% block title %}{{ super() }} | Home{% endblock %}
 
 {% block main %}
-  <main class="container">
-  		<div class="pages">
-  			<div class="page page-1" page="1">
-  				test label
-  			</div><!-- /page -->
-  			<div class="page page-2" page="2">
-  				test label 2
-  			</div>
-				<div class="page page-3" page="3">
-  				test label 3
-  			</div>
-				<div class="page page-4" page="4">
-  				test label 4
-  			</div>
-  		</div><!-- /pages -->
-  		<nav class="pagenav">
-  			<!-- buttons that will trigger the overlay animations -->
-  		</nav>
-  	</main>
+	<main class="at">
+    <div class="at__pages">
+      <div class="page page-1" page="1">
+        test label
+      </div><!-- /page -->
+      <div class="page page-2" page="2">
+        test label 2
+      </div>
+      <div class="page page-3" page="3">
+        test label 3
+      </div>
+      <div class="page page-4" page="4">
+        test label 4
+      </div>
+    </div><!-- /pages -->
+    <nav class="pagenav">
+      <!-- buttons that will trigger the overlay animations -->
+    </nav>
+	</main>
+
+	{#<div>
+		{{ apos.area(data.page, 'body', {
+			widgets: {
+				'apostrophe-rich-text': RTEConfig,
+				'apostrophe-images': {
+					size: 'full'
+				}
+			}
+		}) }}
+	</div>#}
 {% endblock %}
