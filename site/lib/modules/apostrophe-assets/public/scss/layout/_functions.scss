@@ -1,0 +1,64 @@
+// -------- Animations --------
+
+@keyframes swing
+{
+	50%
+	{
+		top: 10px
+	}
+	0%, 100%
+	{
+		top: 0px;
+	}
+}
+
+// -------- Placeholders --------
+
+%menu-placeholder {
+	background: #66c6ff;
+	position: relative;
+	width: calc(100vw + 100vh);
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		animation: swing .5s ease;
+	}
+}
+
+// -------- Mixins --------
+
+// creates menus as [namespace]__menu--1, [namespace]__menu--2, ...
+@mixin menu-mixin ($steps) {
+	$x: -2%;
+	$y: 7%;
+	$ybis: 0%;
+	$yter: -400%;
+	$startTime: 0s;
+
+	@for $i from 0 to $steps {
+		&--#{$i + 1} {
+			$loopX: $x + $i * -8;
+			$loopY: $y + $i * 28;
+			$loopYbis: $ybis + $i * -100;
+			$loopYter: $yter + $i * -100;
+			$loopStartTime: $startTime + $i * 0.3;
+
+			@extend %menu-placeholder;
+			@if $i + 1 == 1 { background: #96c800; }
+
+			transform: rotate(25deg) translate($loopX, $loopY);
+			transition: transform .5s cubic-bezier(.78,-0.58,1,.51) $loopStartTime;
+
+			&.appear {
+				transform: rotate(0deg) translate(0, $loopYbis);
+			}
+
+			&.disappear {
+				transform: rotate(25deg) translate($loopX, $loopYter);
+			}
+		}
+	}
+}

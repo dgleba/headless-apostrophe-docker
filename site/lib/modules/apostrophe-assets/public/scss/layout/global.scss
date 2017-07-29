@@ -1,0 +1,57 @@
+@import 'functions.scss';
+
+html,
+body {
+	min-height: 100vh;
+	min-width: 100vw;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+.at {
+	position: relative;
+	height: 100vh;
+  overflow: hidden;
+
+  &__menus {
+    position: fixed;
+    max-width: 100vh;
+    max-height: 100%;
+    margin: 0 auto;
+	}
+
+	&__menu {
+		// creates menus as [namespace]__menu--1, [namespace]__menu--2, ...
+		// and manages appear/disappear classes when clicking menu
+		@include menu-mixin(4)
+	}
+}
+
+@media (orientation: portrait) {
+	.page {
+		width: calc(100vh);
+	}
+
+	@media (min-aspect-ratio: 5/8) {
+		.page {
+			width: calc(150vh);
+		}
+	}
+
+	.page-1 {
+	  transform: rotate(25deg) translate(-10%, 10%);
+	}
+
+	.page-2 {
+		transform: rotate(25deg) translate(-18%, 35%);
+	}
+
+	.page-3 {
+		transform: rotate(25deg) translate(-25%, 63%);
+	}
+
+	.page-4 {
+		transform: rotate(25deg) translate(-32%, 92%);
+	}
+}

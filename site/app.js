@@ -10,4 +10,4 @@ var apos = require('apostrophe')({
     // Add custom apostrophe-modules and their respective configuration here!
     'custom-webpack': {}
   }
-});
+})
