@@ -1,6 +1,7 @@
 const defaultOptions = require('./default-options.js')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const makeBaseConfig = require('./webpack-config-base.js')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
@@ -18,15 +19,12 @@ module.exports = function (options) {
   return Object.assign({}, merge(baseWebpackConfig, {
     devtool: options.devDevtool,
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env': options.env
-      }),
+      new webpack.DefinePlugin({ 'process.env': options.env }),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new FriendlyErrorsPlugin(),
-      new ExtractTextPlugin({
-        filename: assetsPath(options.output.css)
-      }),
+      new ExtractTextPlugin({ filename: assetsPath(options.output.css) }),
+      new StyleLintPlugin(),
     ]
   }), {
     // Add client dev tools (mostly HMR)

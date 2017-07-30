@@ -1,6 +1,6 @@
 const path = require('path')
 const defaultOptions = require('./default-options.js')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 /**
  * Create a base webpack configuration
@@ -9,7 +9,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
  */
 module.exports = function (options) {
   options = defaultOptions(options)
-  const { context, assetsRoot, entry, assetsSubDirectory, dev } = options
+  const { context, assetsRoot, entry, assetsSubDirectory } = options
 
   // Helper to resolve assets path (client relative url)
   const assetsPath = (_path) => path.posix.join(assetsSubDirectory, _path)
@@ -38,10 +38,11 @@ module.exports = function (options) {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract({
-            loader: [ 'css-loader', 'sass-loader' ],
-            fallbackLoader: 'style-loader'
-          })
+          loader: ExtractTextPlugin.extract([
+              { loader: 'css-loader' }, //, options: { minimize: true } },
+              { loader: 'postcss-loader', options: { plugins: [require('autoprefixer')] } },
+              { loader: 'sass-loader' }
+          ])
         },
         {
           test: /\.js$/,
