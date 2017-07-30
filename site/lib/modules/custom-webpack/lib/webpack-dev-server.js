@@ -60,7 +60,10 @@ module.exports = function webpackDevServer (webpackConfig, options = {}) {
 
   // dedicated watcher
   if (devWatchReload && devWatchReload.paths && devWatchReload.paths.length) {
-    let watcher = chokidar.watch(devWatchReload.paths, devWatchReload.options || {})
+    let watcher = chokidar.watch(
+      devWatchReload.paths,
+      devWatchReload.options || {}
+    )
     watcher.on('change', function () {
       hotMiddleware.publish({ action: 'reload' })
     })
@@ -85,7 +88,7 @@ module.exports = function webpackDevServer (webpackConfig, options = {}) {
     app.use(proxyMiddleware(proxyConf.filter || context, proxyConf))
   })
 
-  app.ready = new Promise((resolve) => devMiddleware.waitUntilValid(resolve))
+  app.ready = new Promise(resolve => devMiddleware.waitUntilValid(resolve))
 
   return app
 }

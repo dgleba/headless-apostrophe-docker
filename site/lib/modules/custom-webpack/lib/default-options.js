@@ -39,9 +39,7 @@ const DEFAULT = {
       './lib/modules/apostrophe-assets/public/img/*',
       './lib/modules/**/[^_]*.scss'
     ],
-    server: [
-      './lib/modules/**/server.js',
-    ],
+    server: ['./lib/modules/**/server.js']
   },
 
   // Asset subdirectory in the asset root
@@ -64,7 +62,7 @@ const DEFAULT = {
     img: 'img/[name].[ext]',
     font: 'fonts/[name].[ext]',
     svg: 'svg/[name].[ext]',
-    index: 'index-raw.html',
+    index: 'index-raw.html'
   },
   env: {
     // Default depends on the dev or the prod config maker :

@@ -42,20 +42,22 @@ module.exports = function (options) {
   // enable disk cache for (rebuild speed)
   if (options.cacheDirectory) {
     fs.ensureDirSync(options.cacheDirectory)
-    baseSSR.plugins.push(new HardSourceWebpackPlugin({
-      cacheDirectory: `${options.cacheDirectory}/[confighash]`,
-      recordsPath: `${options.cacheDirectory}/[confighash]/records.json`,
-      configHash: function (webpackConfig) {
-        return require('node-object-hash')().hash(webpackConfig)
-      },
-      // Optional field. This field determines when to throw away the whole
-      // cache if for example npm modules were updated.
-      environmentHash: {
-        root: options.context,
-        directories: ['node_modules'],
-        files: ['package.json'],
-      }
-    }))
+    baseSSR.plugins.push(
+      new HardSourceWebpackPlugin({
+        cacheDirectory: `${options.cacheDirectory}/[confighash]`,
+        recordsPath: `${options.cacheDirectory}/[confighash]/records.json`,
+        configHash: function (webpackConfig) {
+          return require('node-object-hash')().hash(webpackConfig)
+        },
+        // Optional field. This field determines when to throw away the whole
+        // cache if for example npm modules were updated.
+        environmentHash: {
+          root: options.context,
+          directories: ['node_modules'],
+          files: ['package.json']
+        }
+      })
+    )
   }
 
   return options.serverEntries.map(entry => {
@@ -73,7 +75,7 @@ module.exports = function (options) {
       },
       resolve: {
         alias: entry.alias || {}
-      },
+      }
       // plugins: [
       //   new VueSSRPlugin({ filename: path.basename(entry.output) })
       // ]

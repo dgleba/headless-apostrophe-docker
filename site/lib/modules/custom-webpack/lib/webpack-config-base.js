@@ -12,7 +12,7 @@ module.exports = function (options) {
   const { context, assetsRoot, entry, assetsSubDirectory } = options
 
   // Helper to resolve assets path (client relative url)
-  const assetsPath = (_path) => path.posix.join(assetsSubDirectory, _path)
+  const assetsPath = _path => path.posix.join(assetsSubDirectory, _path)
 
   return {
     context: context,
@@ -39,9 +39,12 @@ module.exports = function (options) {
         {
           test: /\.scss$/,
           loader: ExtractTextPlugin.extract([
-              { loader: 'css-loader' }, //, options: { minimize: true } },
-              { loader: 'postcss-loader', options: { plugins: [require('autoprefixer')] } },
-              { loader: 'sass-loader' }
+            { loader: 'css-loader' }, //, options: { minimize: true } },
+            {
+              loader: 'postcss-loader',
+              options: { plugins: [require('autoprefixer')] }
+            },
+            { loader: 'sass-loader' }
           ])
         },
         {

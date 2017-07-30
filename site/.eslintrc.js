@@ -9,11 +9,12 @@ module.exports = {
   env: {
     browser: true,
   },
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
-  // required to lint *.vue files
+  extends: [
+    'standard', // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
+  ],
   plugins: [
-    'html'
+    'html', // required to lint *.vue files
+    'prettier'
   ],
   globals: {
     describe: true,

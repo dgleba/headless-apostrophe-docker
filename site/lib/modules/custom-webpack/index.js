@@ -24,7 +24,10 @@ module.exports = {
   alias: 'webpack',
 
   beforeConstruct (self, options) {
-    const wpOptions = defaultOptions({ context: options.apos.rootDir }, options.webpack || {})
+    const wpOptions = defaultOptions(
+      { context: options.apos.rootDir },
+      options.webpack || {}
+    )
 
     self.entries = {
       server: [],
@@ -36,7 +39,8 @@ module.exports = {
      */
     self.pushClientEntry = function (entry) {
       // Convert to a normalized path relative to current working directory (in order to prevent double entries)
-      let normalEntry = '.' + path.sep + path.relative(process.cwd(), path.resolve(entry))
+      let normalEntry =
+        '.' + path.sep + path.relative(process.cwd(), path.resolve(entry))
       if (!self.entries.client.includes(normalEntry)) {
         self.entries.client.push(normalEntry)
       }
@@ -47,7 +51,8 @@ module.exports = {
      */
     self.pushServerEntry = function (entry) {
       // Convert to a normalized path relative to current working directory (in order to prevent double entries)
-      let normalEntry = '.' + path.sep + path.relative(process.cwd(), path.resolve(entry))
+      let normalEntry =
+        '.' + path.sep + path.relative(process.cwd(), path.resolve(entry))
       if (!self.entries.client.includes(normalEntry)) {
         self.entries.server.push(normalEntry)
       }
@@ -119,35 +124,50 @@ module.exports = {
      * --watch   Activate watch mode (default: false)
      * --dev     Use the dev configuration (default: false use the prod config)
      */
-    self.apos.tasks.add('custom', 'webpack',
+    self.apos.tasks.add(
+      'custom',
+      'webpack',
       'Generate a modern bundle process based on webpack. Does not replace apostrophe-assets for now.',
       async function (apos, argv, callback) {
         let spinner = ora('Webpack Bundler')
         spinner.start()
         try {
-          const wpOptions = defaultOptions({ context: apos.rootDir }, options.webpack || {}, {
-            watch: argv.watch,
-            dev: argv.dev,
-            report: argv.report,
-            entry: [...self.entries.client],
-            serverEntries: [...self.entries.server]
-          })
+          const wpOptions = defaultOptions(
+            { context: apos.rootDir },
+            options.webpack || {},
+            {
+              watch: argv.watch,
+              dev: argv.dev,
+              report: argv.report,
+              entry: [...self.entries.client],
+              serverEntries: [...self.entries.server]
+            }
+          )
 
           // Store all promised bundlers
           let tasks = []
 
           // Add client bundler (if any entries)
           if (wpOptions.entry.length && !argv.server) {
-            const wpConfigWeb = wpOptions.dev ? makeWebpackConfigDev(wpOptions) : makeWebpackConfigProd(wpOptions)
+            const wpConfigWeb = wpOptions.dev
+              ? makeWebpackConfigDev(wpOptions)
+              : makeWebpackConfigProd(wpOptions)
             console.info('Add webpack bundler for client side', wpOptions.entry)
-            tasks.push(() => webpackBundler(wpConfigWeb, { watch: wpOptions.watch }))
+            tasks.push(() =>
+              webpackBundler(wpConfigWeb, { watch: wpOptions.watch })
+            )
           }
 
           // Add a server bundler (if any entries)
           if (wpOptions.serverEntries.length && !argv.client) {
             const wpConfigSsr = makeWebpackConfigSsr(wpOptions)
-            console.info('Add webpack bundler for server side', wpOptions.serverEntries)
-            tasks.push(() => webpackBundler(wpConfigSsr, { watch: wpOptions.watch }))
+            console.info(
+              'Add webpack bundler for server side',
+              wpOptions.serverEntries
+            )
+            tasks.push(() =>
+              webpackBundler(wpConfigSsr, { watch: wpOptions.watch })
+            )
           }
 
           await Promise.all(tasks.map(f => f()))
@@ -172,27 +192,38 @@ module.exports = {
      *
      * --port <number>   Set the dev server port (default: 3001)
      */
-    self.apos.tasks.add('custom', 'webpack-dev-server',
+    self.apos.tasks.add(
+      'custom',
+      'webpack-dev-server',
       'Start a webpack dev server',
       async function (apos, argv, callback) {
         let spinner = ora('Webpack Bundler')
         spinner.start()
 
         // See ./lib/default-options.js for details
-        const wpOptions = defaultOptions({ context: apos.rootDir }, options.webpack || {}, {
-          entry: [...self.entries.client],
-          serverEntries: [...self.entries.server],
-          devServerPort: argv.port
-        })
+        const wpOptions = defaultOptions(
+          { context: apos.rootDir },
+          options.webpack || {},
+          {
+            entry: [...self.entries.client],
+            serverEntries: [...self.entries.server],
+            devServerPort: argv.port
+          }
+        )
         const proxyTable = wpOptions.proxyTable || []
         const devWatchReload = wpOptions.devWatchReload || null
 
         try {
           const wpConfigWeb = makeWebpackConfigDev(wpOptions)
-          const app = webpackDevServer(wpConfigWeb, { proxyTable, devWatchReload })
+          const app = webpackDevServer(wpConfigWeb, {
+            proxyTable,
+            devWatchReload
+          })
 
           let promises = []
-          console.info('Start webpack dev server', { port: wpOptions.devServerPort })
+          console.info('Start webpack dev server', {
+            port: wpOptions.devServerPort
+          })
           app.listen(wpOptions.devServerPort)
           promises.push(app.ready)
 
@@ -212,8 +243,16 @@ module.exports = {
         }
         console.error()
         console.error(chalk.bold.bgGreen('  Ready  '))
-        console.error(chalk.bold('Webpack dev server ready on http://localhost:%s'), wpOptions.devServerPort)
-        console.error(chalk.grey('Please make sure to start apostrophe application according to proxyTable config (eg. By using `npm run dev:app` in another terminal)'), proxyTable)
+        console.error(
+          chalk.bold('Webpack dev server ready on http://localhost:%s'),
+          wpOptions.devServerPort
+        )
+        console.error(
+          chalk.grey(
+            'Please make sure to start apostrophe application according to proxyTable config (eg. By using `npm run dev:app` in another terminal)'
+          ),
+          proxyTable
+        )
         spinner.stop()
       }
     )

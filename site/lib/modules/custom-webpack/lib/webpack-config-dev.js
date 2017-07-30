@@ -14,20 +14,26 @@ module.exports = function (options) {
   options.dev = true
 
   const baseWebpackConfig = makeBaseConfig(options)
-  const assetsPath = (_path) => path.posix.join(options.assetsSubDirectory, _path)
+  const assetsPath = _path => path.posix.join(options.assetsSubDirectory, _path)
 
-  return Object.assign({}, merge(baseWebpackConfig, {
-    devtool: options.devDevtool,
-    plugins: [
-      new webpack.DefinePlugin({ 'process.env': options.env }),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin(),
-      new FriendlyErrorsPlugin(),
-      new ExtractTextPlugin({ filename: assetsPath(options.output.css) }),
-      new StyleLintPlugin(),
-    ]
-  }), {
-    // Add client dev tools (mostly HMR)
-    entry: baseWebpackConfig.entry.concat([path.resolve(__dirname, './dev-client')]),
-  })
+  return Object.assign(
+    {},
+    merge(baseWebpackConfig, {
+      devtool: options.devDevtool,
+      plugins: [
+        new webpack.DefinePlugin({ 'process.env': options.env }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new FriendlyErrorsPlugin(),
+        new ExtractTextPlugin({ filename: assetsPath(options.output.css) }),
+        new StyleLintPlugin()
+      ]
+    }),
+    {
+      // Add client dev tools (mostly HMR)
+      entry: baseWebpackConfig.entry.concat([
+        path.resolve(__dirname, './dev-client')
+      ])
+    }
+  )
 }

@@ -49,7 +49,8 @@
       }
 
       transform: rotate(25deg) translate($loopX, $loopY);
-      transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStartTime;
+      transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51)
+        $loopStartTime;
 
       &.appear {
         transform: rotate(0deg) translate(0, $loopYbis);

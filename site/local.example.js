@@ -4,7 +4,6 @@
 // deployments in our stagecoach recipe
 
 module.exports = {
-
   // Absolute URL is only necessary with s3
   // uploadsUrl: '/uploads',
 
@@ -36,4 +35,4 @@ module.exports = {
     // but this is not necessary. They can all go in the uri option like this:
     // mongodb://user:password@host:port/dbname
   }
-};
+}

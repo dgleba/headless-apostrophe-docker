@@ -18,7 +18,7 @@ module.exports = function (options) {
   const baseWebpackConfig = makeBaseConfig(options)
 
   // Helper to resolve assets path (client relative url)
-  const assetsPath = (_path) => path.posix.join(options.assetsSubDirectory, _path)
+  const assetsPath = _path => path.posix.join(options.assetsSubDirectory, _path)
 
   var webpackConfig = merge(baseWebpackConfig, {
     devtool: options.productionSourceMap ? '#source-map' : false,
@@ -72,7 +72,7 @@ module.exports = function (options) {
         },
         // necessary to consistently work with multiple chunks via CommonsChunkPlugin (disabled for now)
         chunksSortMode: 'dependency'
-      }),
+      })
       // // split vendor js into its own file
       // new webpack.optimize.CommonsChunkPlugin({
       //   name: 'vendor',
@@ -105,25 +105,30 @@ module.exports = function (options) {
   // enable disk cache for (rebuild speed)
   if (options.cacheDirectory) {
     fs.ensureDirSync(options.cacheDirectory)
-    webpackConfig.plugins.push(new HardSourceWebpackPlugin({
-      cacheDirectory: `${options.cacheDirectory}/[confighash]`,
-      recordsPath: `${options.cacheDirectory}/[confighash]/records.json`,
-      configHash: function (webpackConfig) {
-        return require('node-object-hash')().hash(webpackConfig)
-      },
-      // Optional field. This field determines when to throw away the whole
-      // cache if for example npm modules were updated.
-      environmentHash: {
-        root: options.context,
-        directories: ['node_modules'],
-        files: ['package.json'],
-      }
-    }))
+    webpackConfig.plugins.push(
+      new HardSourceWebpackPlugin({
+        cacheDirectory: `${options.cacheDirectory}/[confighash]`,
+        recordsPath: `${options.cacheDirectory}/[confighash]/records.json`,
+        configHash: function (webpackConfig) {
+          return require('node-object-hash')().hash(webpackConfig)
+        },
+        // Optional field. This field determines when to throw away the whole
+        // cache if for example npm modules were updated.
+        environmentHash: {
+          root: options.context,
+          directories: ['node_modules'],
+          files: ['package.json']
+        }
+      })
+    )
   }
 
   if (options.report) {
-    var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-    webpackConfig.plugins.push(new BundleAnalyzerPlugin(options.bundleAnalyzerReport || {}))
+    var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+      .BundleAnalyzerPlugin
+    webpackConfig.plugins.push(
+      new BundleAnalyzerPlugin(options.bundleAnalyzerReport || {})
+    )
   }
 
   return webpackConfig

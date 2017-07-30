@@ -10,7 +10,6 @@
 //
 
 module.exports = {
-
   shortName: 'site',
 
   title: 'site',
@@ -30,12 +29,10 @@ module.exports = {
     // }
   },
 
-
   //
   // Modules overrides:
   //
   modules: {
-
     'custom-webpack': {
       webpack: {
         // Proxy rules for the webpack dev server (to server apostrophe backend
@@ -52,8 +49,5 @@ module.exports = {
     }
   },
 
-  env: {
-
-  }
-
+  env: {}
 }
