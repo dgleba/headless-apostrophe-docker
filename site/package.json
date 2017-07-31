@@ -10,15 +10,9 @@
     "dev:app": "node-dev app.js",
     "dev:webpack-dev-server": "node app custom:webpack-dev-server",
     "webpack": "node app custom:webpack",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "linters": {
-      "**/*.{scss,js}": [
-        "prettier-standard",
-        "git add"
-      ]
-    }
+    "format": "./node_modules/.bin/prettier-standard '**/*.{scss,js}'",
+    "format:style": "./node_modules/.bin/prettier-standard '**/*.scss'",
+    "format:js": "./node_modules/.bin/prettier-standard '**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -68,9 +62,7 @@
     "hard-source-webpack-plugin": "^0.4.3",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.4",
-    "husky": "^0.14.3",
     "istanbul": "^0.4.5",
-    "lint-staged": "^4.0.2",
     "mocha": "^3.1.2",
     "node-dev": "^3.1.2",
     "node-object-hash": "^1.2.0",

@@ -40,7 +40,7 @@
       $loopY: $y + $i * 28;
       $loopYbis: $ybis + $i * -100;
       $loopYter: $yter + $i * -100;
-      $loopStartTime: $startTime + $i * 0.3;
+      $loopStart: $startTime + $i * 0.3;
 
       @extend %menu-placeholder;
 
@@ -49,8 +49,7 @@
       }
 
       transform: rotate(25deg) translate($loopX, $loopY);
-      transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51)
-        $loopStartTime;
+      transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStart;
 
       &.appear {
         transform: rotate(0deg) translate(0, $loopYbis);
