@@ -1,1 +1,7 @@
-.DS_Store
+locales
+npm-debug.log
+data
+/public
+temp/uploadfs
+node_modules
+.jshintrc
