@@ -1,0 +1,12 @@
+image: node:8.2.0
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - npm install
+          - npm format
+          - npm webpack
+          - npm start
