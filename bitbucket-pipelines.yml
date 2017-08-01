@@ -7,6 +7,6 @@ pipelines:
           - node
         script:
           - npm install
-          - npm format
-          - npm webpack
+          - npm run format
+          - npm run webpack
           - npm start
