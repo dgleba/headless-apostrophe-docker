@@ -1,4 +1,4 @@
-image: node:8.2.0
+image: node:8
 
 pipelines:
   default:
@@ -7,6 +7,4 @@ pipelines:
           - node
         script:
           - npm install
-          - npm run format
-          - npm run webpack
           - npm start

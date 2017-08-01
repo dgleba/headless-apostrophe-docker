@@ -5,3 +5,4 @@ data
 temp/uploadfs
 node_modules
 .jshintrc
+.DS_Store

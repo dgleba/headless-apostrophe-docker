@@ -14,7 +14,6 @@ module.exports = {
   ],
   plugins: [
     'html', // required to lint *.vue files
-    'prettier'
   ],
   globals: {
     describe: true,
