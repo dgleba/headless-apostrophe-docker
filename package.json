@@ -42,7 +42,7 @@
     "globby": "^6.1.0",
     "npm-run-all": "^4.0.2",
     "ora": "^1.2.0",
-    "uploadfs": "^1.5.0"
+    "uploadfs": "1.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
