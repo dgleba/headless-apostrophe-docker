@@ -11,9 +11,18 @@
     "format": "npm run format:js && npm run format:css",
     "format:css": "./node_modules/.bin/prettier-standard 'lib/**/*.scss' && ./node_modules/.bin/stylelint 'lib/**/*.scss' --fix",
     "format:js": "./node_modules/.bin/prettier-standard '**/*.js'",
+    "precommit": "lint-staged",
     "prestart": "npm run clean && npm run format && npm run webpack",
     "start": "node app.js",
     "webpack": "node app custom:webpack"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -52,7 +61,9 @@
     "hard-source-webpack-plugin": "^0.4.3",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.4",
+    "husky": "^0.14.3",
     "istanbul": "^0.4.5",
+    "lint-staged": "^4.0.2",
     "mocha": "^3.1.2",
     "node-dev": "^3.1.2",
     "node-object-hash": "^1.2.0",
