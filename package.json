@@ -17,7 +17,6 @@
     "webpack": "node app custom:webpack"
   },
   "lint-staged": {
-    "linters": {
       "**/*.js": [
         "format:js",
         "git add"
@@ -26,7 +25,6 @@
         "format:css",
         "git add"
       ]
-    }
   },
   "repository": {
     "type": "git",
