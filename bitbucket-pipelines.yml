@@ -12,3 +12,10 @@ pipelines:
           - npm shrinkwrap
           - npm install
           - npm start
+        services:
+          - mongo
+
+definitions:
+  services:
+    mongo:
+      image: mongo
