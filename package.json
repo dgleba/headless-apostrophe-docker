@@ -18,12 +18,13 @@
   },
   "lint-staged": {
     "**/*.js": [
-      "format:js"
+      "format:js",
+      "git add"
     ],
     "lib/**/*.scss": [
-      "format:css"
-    ],
-    "*": "git add"
+      "format:css",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
