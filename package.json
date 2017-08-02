@@ -21,6 +21,11 @@
       "**/*.js": [
         "prettier-standard",
         "git add"
+      ],
+      "lib/**/*.scss": [
+        "prettier-standard",
+        "stylelint --fix",
+        "git add"
       ]
     }
   },
