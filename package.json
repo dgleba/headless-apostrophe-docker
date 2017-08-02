@@ -12,7 +12,7 @@
     "format:css": "prettier-standard 'lib/**/*.scss' && stylelint 'lib/**/*.scss' --fix",
     "format:js": "prettier-standard '**/*.js'",
     "precommit": "lint-staged",
-    "prestart": "npm run clean && npm run format && npm run webpack",
+    "restart": "npm run clean && npm run format && npm run webpack",
     "start": "node app.js",
     "webpack": "node app custom:webpack"
   },
