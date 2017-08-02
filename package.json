@@ -19,12 +19,11 @@
   "lint-staged": {
     "linters": {
       "**/*.js": [
-        "prettier-standard",
+        "format:js",
         "git add"
       ],
       "lib/**/*.scss": [
-        "prettier-standard",
-        "stylelint --fix",
+        "format:css",
         "git add"
       ]
     }
