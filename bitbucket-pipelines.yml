@@ -6,5 +6,9 @@ pipelines:
         caches:
           - node
         script:
+          - npm cache clean --force
+          - rm -rf node_modules
+          - rm npm-shrinkwrap.json
+          - npm shrinkwrap
           - npm install
           - npm start
