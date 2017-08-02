@@ -15,9 +15,9 @@ module.exports = {
   title: 'site',
 
   // Mongo db:
-  // mongo: {
-  //   uri: process.env.MONGODB || 'mongodb://127.0.0.1:27017/site'
-  // },
+  mongo: {
+    uri: process.env.MONGODB || 'mongodb://127.0.0.1:27017/site'
+  },
 
   // Client runtime configs
   client: {
