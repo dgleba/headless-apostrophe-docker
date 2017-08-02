@@ -8,6 +8,6 @@ var apos = require('apostrophe')({
 
   modules: {
     // Add custom apostrophe-modules and their respective configuration here!
-    'custom-webpack': {}
+    // 'custom-webpack': {}
   }
 })
