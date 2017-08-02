@@ -18,9 +18,14 @@
   },
   "lint-staged": {
     "linters": {
-      "**/*.js": "format:js",
-      "lib/**/*.scss": "format:css",
-      "*": "git add"
+      "**/*.js": [
+        "format:js",
+        "git add"
+      ],
+      "lib/**/*.scss": [
+        "format:css",
+        "git add"
+      ]
     }
   },
   "repository": {
