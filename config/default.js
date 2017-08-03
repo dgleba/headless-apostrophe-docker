@@ -8,15 +8,15 @@
 // create a ./local.js file with your own overrides. Note, that the local.js
 // file does not needs to contains all the configuration keys: just the overrides.
 //
-
+const name = 'site'
 module.exports = {
-  shortName: 'site',
+  shortName: name,
 
-  title: 'site',
+  title: name,
 
   // Mongo db:
   mongo: {
-    uri: process.env.MONGODB || 'mongodb://127.0.0.1:27017/site'
+    uri: process.env.MONGODB || `mongodb://127.0.0.1:27017/${name}`
   },
 
   // Client runtime configs
