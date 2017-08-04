@@ -23,7 +23,11 @@
     "webpack:prod": "NODE_ENV=production npm run webpack"
   },
   "lint-staged": {
-    "**/*.js": [
+    "lib/**/*.js": [
+      "format:js",
+      "git add"
+    ],
+    "app.js": [
       "format:js",
       "git add"
     ],
