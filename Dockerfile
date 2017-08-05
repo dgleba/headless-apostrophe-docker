@@ -13,4 +13,4 @@ VOLUME /app/data
 VOLUME /app/public/uploads
 
 EXPOSE 3000
-CMD [ "npm", "run", "build" ]
+CMD [ "npm", "start" ]

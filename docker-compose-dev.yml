@@ -1,0 +1,29 @@
+falkodev-site-db:
+  container_name: falkodev-site-db
+  image: mongo
+  command: --smallfiles --rest
+  ports:
+  - 27017:27017
+  volumes:
+  - mongodata:/data/db
+
+falkodev-site-dev:
+  container_name: falkodev-site-dev
+  build: .
+  command: sh ./scripts/docker-dev.sh
+  ports:
+  - 3000:3000
+  - 3001:3001
+  links:
+  - falkodev-site-db
+  volumes:
+  - ./:/app
+  - ./data:/app/data
+  - publicdata:/app/public
+  - ./public/uploads:/app/public/uploads
+  - /app/node_modules
+  working_dir: /app
+  environment:
+    MONGODB: mongodb://falkodev-site-db:27017/site
+    NODE_ENV: development
+    NODE_APP_INSTANCE: docker
