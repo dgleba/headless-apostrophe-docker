@@ -12,7 +12,8 @@ var apos = require('apostrophe')({
       uri: config.get('mongo.uri')
     },
     // Add custom apostrophe-modules and their respective configuration here!
-    'custom-init': {},
-    'custom-webpack': {}
+    init: {},
+    menu: {},
+    'webpack-custom': {}
   }
 })

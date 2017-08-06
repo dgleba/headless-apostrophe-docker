@@ -23,6 +23,14 @@
   &:hover {
     animation: swing 0.5s ease;
   }
+
+  @media (orientation: portrait) {
+    width: calc(100vh);
+
+    @media (min-aspect-ratio: 5/8) {
+      width: calc(150vh);
+    }
+  }
 }
 
 // -------- Mixins --------
@@ -53,6 +61,10 @@
 
       &.appear {
         transform: rotate(0deg) translate(0, $loopYbis);
+
+        @media (orientation: portrait) and (min-aspect-ratio: 5/8) {
+          transform: rotate(0deg) translate(-10%, $loopYbis);
+        }
       }
 
       &.disappear {

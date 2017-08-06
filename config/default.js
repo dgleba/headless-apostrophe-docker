@@ -1,6 +1,6 @@
 // Main configuration file (based on node-config)
 // See https://github.com/lorenwest/node-config
-
+//
 // Be sure to understand the configuration mechanism of node-config before applying
 // changes in this file.
 //
@@ -34,7 +34,7 @@ module.exports = {
   // Modules overrides:
   //
   modules: {
-    'custom-webpack': {
+    'webpack-custom': {
       webpack: {
         // Proxy rules for the webpack dev server (to server apostrophe backend
         proxyTable: {

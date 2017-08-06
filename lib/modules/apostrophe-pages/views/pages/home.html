@@ -10,18 +10,13 @@
 {% block main %}
 	<main class="at">
     <div class="at__menus">
-      <div class="at__menu--1" page="1">
-        test label
-      </div>
-      <div class="at__menu--2" page="2">
-        test label 2
-      </div>
-      <div class="at__menu--3" page="3">
-        test label 3
-      </div>
-      <div class="at__menu--4" page="4">
-        test label 4
-      </div>
+      {% if data.global._menus %}
+        {% for menu in data.global._menus %}
+          <div class="at__menu--{{ loop.index }}" page="{{ loop.index }}">
+            {{ menu.title }}
+          </div>
+        {% endfor %}
+      {% endif %}
     </div><!-- /pages -->
     <nav class="pagenav">
       <!-- buttons that will trigger the overlay animations -->

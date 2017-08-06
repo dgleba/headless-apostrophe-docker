@@ -24,7 +24,7 @@ body {
   &__menu {
     // creates menus as [namespace]__menu--1, [namespace]__menu--2, ...
     // and manages appear/disappear classes when clicking menu
-    @include menu-mixin(4);
+    @include menu-mixin($menu-count);
   }
 }
 
