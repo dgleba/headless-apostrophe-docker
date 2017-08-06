@@ -1,6 +1,6 @@
 const config = require('config')
 
-var apos = require('apostrophe')({
+let apos = require('apostrophe')({
   shortName: config.get('shortName'),
   title: config.get('title'),
 
@@ -12,8 +12,9 @@ var apos = require('apostrophe')({
       uri: config.get('mongo.uri')
     },
     // Add custom apostrophe-modules and their respective configuration here!
-    init: {},
     menu: {},
-    'webpack-custom': {}
+    'webpack-custom': {
+      webpack: config.get('modules.webpack-custom')
+    }
   }
 })

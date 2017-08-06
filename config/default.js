@@ -35,18 +35,23 @@ module.exports = {
   //
   modules: {
     'webpack-custom': {
-      webpack: {
         // Proxy rules for the webpack dev server (to server apostrophe backend
         proxyTable: {
           '/': 'http://localhost:3000'
         },
 
         // Default webpack entries
-        entry: []
+        entry: [],
 
         // See custom-webpack/lib/default-options.js documentation for many
         // other overrideable options
-      }
+        loaders: {
+          sass: {
+            options: {
+              data: '$menu-count: 1;'
+            }
+          }
+        }
     }
   },
 
