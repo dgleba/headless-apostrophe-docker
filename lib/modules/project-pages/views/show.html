@@ -1,0 +1,28 @@
+{% extends data.outerLayout %}
+
+{% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
+
+{% block main %}
+  <main class="at">
+    <nav class="at_menu">
+      <div class="at_menu__2 at_menu__2--appear-page">
+        {{ data.page.title }}
+      </div>
+    </nav>
+
+    <section class="slideup">
+      <h2>{{ data.piece.title }}
+      <div>
+        {{ apos.area(data.piece, 'description') }}
+      </div>
+      <div>
+        {{ apos.area(data.piece, 'content') }}
+      </div>
+      </h2>
+    </section>
+
+    {% import 'apostrophe-pager:macros.html' as pager with context %}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </main>
+
+{% endblock %}

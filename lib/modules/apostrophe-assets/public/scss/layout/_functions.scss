@@ -1,3 +1,6 @@
+// ----- Global variables -----
+$menuHeight: 100px;
+
 // -------- Animations --------
 @keyframes swing {
   50% {
@@ -10,18 +13,52 @@
   }
 }
 
+@keyframes slideup {
+  from {
+    margin-top: $menuHeight;
+  }
+
+  to {
+    margin-top: 0;
+  }
+}
+
+@keyframes arrow-anim {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotate(180deg);
+  }
+
+  100% {
+    transform: translateX(-1rem) rotate(180deg);
+    opacity: 0;
+  }
+}
+
 // -------- Placeholders --------
 %menu-placeholder {
   background: #66c6ff;
   position: relative;
   width: calc(100vw + 100vh);
-  height: 100px;
+  height: $menuHeight;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   &:hover {
     animation: swing 0.5s ease;
+
+    .at_back_icon {
+      &--hidden {
+        opacity: 1;
+        animation: arrow-anim 2.5s ease infinite;
+      }
+
+      &__circle {
+        stroke-dashoffset: 100;
+      }
+    }
   }
 
   @media (orientation: portrait) {
@@ -43,7 +80,7 @@
   $startTime: 0s;
 
   @for $i from 0 to $steps {
-    &--#{$i + 1} {
+    &__#{$i + 1} {
       $loopX: $x + $i * -8;
       $loopY: $y + $i * 28;
       $loopYbis: $ybis + $i * -100;
@@ -59,7 +96,7 @@
       transform: rotate(25deg) translate($loopX, $loopY);
       transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStart;
 
-      &.appear {
+      &--appear {
         transform: rotate(0deg) translate(0, $loopYbis);
 
         @media (orientation: portrait) and (min-aspect-ratio: 5/8) {
@@ -67,7 +104,11 @@
         }
       }
 
-      &.disappear {
+      &--appear-page {
+        transform: rotate(0deg) translate(0, 0);
+      }
+
+      &--disappear {
         transform: rotate(25deg) translate($loopX, $loopYter);
       }
     }

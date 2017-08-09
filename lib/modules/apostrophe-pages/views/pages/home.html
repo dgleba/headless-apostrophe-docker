@@ -1,36 +1,26 @@
-{#
-  This is an example home page template. It inherits and extends a layout template
-  that lives in lib/modules/apostrophe-templates/views/outerLayout.html
-#}
-
 {% extends data.outerLayout %}
 
-{% block title %}{{ super() }} | Home{% endblock %}
+{% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
 {% block main %}
 	<main class="at">
-    <div class="at__menus">
+    <div class="at_menu">
       {% if data.global._menus %}
         {% for menu in data.global._menus %}
-          <div class="at__menu--{{ loop.index }}" page="{{ loop.index }}">
+
+          {% set slug = '/' %}
+          {% for page in data.page._children %} {# browse pages #}
+            {% if page._id === menu.pageId %}    {# compare with linked pages to menus #}
+              {% set slug = page.slug %}         {# get slug if existing #}
+            {% endif %}
+          {% endfor %}
+
+          <nav class="at_menu__{{ loop.index }}" page={{ loop.index }} url={{ slug }}>
             {{ menu.title }}
-          </div>
+          </nav>
+
         {% endfor %}
       {% endif %}
-    </div><!-- /pages -->
-    <nav class="pagenav">
-      <!-- buttons that will trigger the overlay animations -->
-    </nav>
+    </div><!-- menus -->
 	</main>
-
-	{#<div>
-		{{ apos.area(data.page, 'body', {
-			widgets: {
-				'apostrophe-rich-text': RTEConfig,
-				'apostrophe-images': {
-					size: 'full'
-				}
-			}
-		}) }}
-	</div>#}
 {% endblock %}
