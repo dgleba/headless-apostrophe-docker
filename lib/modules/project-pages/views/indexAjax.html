@@ -1,11 +1,11 @@
+{% import "apostrophe-templates:nav.html" as nav %}
+
 <main class="at">
   <nav class="at_menu">
-    <div class="at_menu__2 at_menu__2--appear-page">
-      {{ data.page.title }}
-    </div>
+    {{ nav.menubar(data.global._menus, 2) }}
   </nav>
 
-  <section class="slideup">
+  <section class="at_content slide-up">
     {% for piece in data.pieces %}
       <h4><a href="{{ piece._url }}">{{ piece.title }}</a></h4>
     {% endfor %}

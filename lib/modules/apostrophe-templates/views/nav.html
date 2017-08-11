@@ -1,20 +1,49 @@
 {% macro icon(class) %}
-  <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-    <g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
-      <circle class="at_back_icon__circle" cx="16" cy="16" r="15.12"></circle>
-      <path class="at_back_icon__arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path>
+  <svg class="{{ class }}">
+    <g>
+      <circle cx="16" cy="16" r="15.12"></circle>
+      <path d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path>
     </g>
   </svg>
 {% endmacro %}
 
-{% macro menubar(number, title) %}
-<nav class="at_menu">
-  <div class="at_menu__{{ number }} at_menu__{{ number }}--appear">
-    <div class="at_back">
-      {{ icon("at_back_icon") }}
-      {{ icon("at_back_icon at_back_icon--hidden") }}
-    </div>
-    {{ title }}
-  </div>
-</nav>
+{% macro menubar(menus, children) %}
+
+  {% if (children | int) === children %} {# if children is an integer, it's coming from a single page, otherwise from home #}
+    {% set onePage = true %}
+  {% endif %}
+
+  <nav class="at_menu {%- if onePage %} at_menu--appear {%- endif %}">
+      {% for menu in menus %}
+
+        {% set slug = '/' %}
+        {% if not onePage %}                  {# if home template #}
+          {% for page in children %}          {# browse pages #}
+            {% if page._id === menu.pageId %} {# compare with linked pages to menus #}
+              {% set slug = page.slug %}      {# get slug if existing #}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        <nav
+          class="at_menu__{{ loop.index }}
+            {%- if onePage -%}
+              {% if children === loop.index %} at_menu__{{ loop.index }}--appear at_menu__{{ loop.index }}--appeared
+              {%- else %} at_menu__{{ loop.index  }}--disappear{%- endif -%}
+            {% endif %}"
+          page={{ loop.index }}
+          url={{ slug }}
+          active="{% if onePage -%} false {%- else -%} true {%- endif -%}"
+        >
+          {% if onePage %}
+            <div class="at_back">
+              {{ icon("at_back_icon") }}
+              {{ icon("at_back_icon at_back_icon--hidden") }}
+            </div>
+          {% endif %}
+          <span>{{ menu.title }}</span>
+        </nav>
+
+      {% endfor %}
+  </nav>
 {% endmacro %}

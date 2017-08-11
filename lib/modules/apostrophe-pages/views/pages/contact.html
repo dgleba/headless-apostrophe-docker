@@ -1,11 +1,13 @@
 {% extends data.outerLayout %}
 {% import "apostrophe-templates:nav.html" as nav %}
+
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
 {% block main %}
 	<main class="at">
-    {{ nav.menubar(1, data.page.title) }}
-    <section class="slideup">
+    {{ nav.menubar(data.global._menus, 1) }}
+
+    <section class="at_content slide-up">
       Content sur<br>plusieurs lignes<br><br>
       Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
       Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>

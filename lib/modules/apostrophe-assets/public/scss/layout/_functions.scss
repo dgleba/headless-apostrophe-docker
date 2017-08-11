@@ -1,5 +1,6 @@
 // ----- Global variables -----
 $menuHeight: 100px;
+$sidePadding: 1vw;
 
 // -------- Animations --------
 @keyframes swing {
@@ -13,17 +14,41 @@ $menuHeight: 100px;
   }
 }
 
-@keyframes slideup {
-  from {
+@keyframes slideUp {
+  0% {
     margin-top: $menuHeight;
+    opacity: 0;
   }
 
-  to {
+  100% {
     margin-top: 0;
+    opacity: 1;
   }
 }
 
-@keyframes arrow-anim {
+@keyframes slideDown {
+  0% {
+    margin-top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: $menuHeight;
+    opacity: 0;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    left: 79%;
+  }
+
+  100% {
+    left: 80%;
+  }
+}
+
+@keyframes arrowAnim {
   0% {
     opacity: 1;
     transform: translateX(0) rotate(180deg);
@@ -43,7 +68,7 @@ $menuHeight: 100px;
   height: $menuHeight;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-right: $sidePadding;
   cursor: pointer;
 
   &:hover {
@@ -52,10 +77,10 @@ $menuHeight: 100px;
     .at_back_icon {
       &--hidden {
         opacity: 1;
-        animation: arrow-anim 2.5s ease infinite;
+        animation: arrowAnim 2.5s ease infinite;
       }
 
-      &__circle {
+      g circle {
         stroke-dashoffset: 100;
       }
     }
@@ -71,8 +96,11 @@ $menuHeight: 100px;
 }
 
 // -------- Mixins --------
-// creates menus as [namespace]__menu--1, [namespace]__menu--2, ...
+// creates menus as [namespace]_menu__1, [namespace]_menu__2, ...
 @mixin menu-mixin ($steps) {
+  @if $steps < 4 {
+    $steps: 4;
+  }
   $x: -2%;
   $y: 7%;
   $ybis: 0%;
@@ -80,6 +108,7 @@ $menuHeight: 100px;
   $startTime: 0s;
 
   @for $i from 0 to $steps {
+    // i.e at_menu__1
     &__#{$i + 1} {
       $loopX: $x + $i * -8;
       $loopY: $y + $i * 28;
@@ -96,16 +125,30 @@ $menuHeight: 100px;
       transform: rotate(25deg) translate($loopX, $loopY);
       transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStart;
 
-      &--appear {
-        transform: rotate(0deg) translate(0, $loopYbis);
-
-        @media (orientation: portrait) and (min-aspect-ratio: 5/8) {
-          transform: rotate(0deg) translate(-10%, $loopYbis);
-        }
+      // page title in menu bar on home page
+      span {
+        position: relative;
+        left: 50%;
       }
 
-      &--appear-page {
-        transform: rotate(0deg) translate(0, 0);
+      &--appear {
+        transform: rotate(0deg) translate(0, $loopYbis);
+      }
+
+      &--appeared {
+        width: 100%;
+        cursor: default;
+
+        // page title in menu bar on single page
+        span {
+          left: 80%;
+          animation: slideRight 2s;
+        }
+
+        &:hover {
+          // no swing animation when on a page
+          animation: swing 0s;
+        }
       }
 
       &--disappear {

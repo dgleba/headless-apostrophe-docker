@@ -1,26 +1,15 @@
 {% extends data.outerLayout %}
+{% import "apostrophe-templates:nav.html" as nav %}
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
 {% block main %}
 	<main class="at">
-    <div class="at_menu">
-      {% if data.global._menus %}
-        {% for menu in data.global._menus %}
+    {{ nav.menubar(data.global._menus, data.page._children) }}
 
-          {% set slug = '/' %}
-          {% for page in data.page._children %} {# browse pages #}
-            {% if page._id === menu.pageId %}    {# compare with linked pages to menus #}
-              {% set slug = page.slug %}         {# get slug if existing #}
-            {% endif %}
-          {% endfor %}
+    <section class="at_content slide-up">
+      Content de la home
+    </section>
 
-          <nav class="at_menu__{{ loop.index }}" page={{ loop.index }} url={{ slug }}>
-            {{ menu.title }}
-          </nav>
-
-        {% endfor %}
-      {% endif %}
-    </div><!-- menus -->
 	</main>
 {% endblock %}
