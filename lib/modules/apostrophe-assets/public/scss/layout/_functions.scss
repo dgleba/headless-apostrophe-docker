@@ -1,6 +1,6 @@
 // ----- Global variables -----
 $menuHeight: 100px;
-$sidePadding: 1vw;
+$defaultPadding: 1vw;
 
 // -------- Animations --------
 @keyframes swing {
@@ -40,11 +40,21 @@ $sidePadding: 1vw;
 
 @keyframes slideRight {
   0% {
-    left: 79%;
+    padding-right: 3vw;
   }
 
   100% {
-    left: 80%;
+    padding-right: $defaultPadding;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    padding-left: 3vw;
+  }
+
+  100% {
+    padding-left: $defaultPadding;
   }
 }
 
@@ -68,13 +78,13 @@ $sidePadding: 1vw;
   height: $menuHeight;
   display: flex;
   align-items: center;
-  padding-right: $sidePadding;
+  padding-right: $defaultPadding;
   cursor: pointer;
 
   &:hover {
     animation: swing 0.5s ease;
 
-    .at_back_icon {
+    .at_menu__back .icon {
       &--hidden {
         opacity: 1;
         animation: arrowAnim 2.5s ease infinite;
@@ -125,24 +135,21 @@ $sidePadding: 1vw;
       transform: rotate(25deg) translate($loopX, $loopY);
       transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStart;
 
-      // page title in menu bar on home page
-      span {
-        position: relative;
-        left: 50%;
-      }
-
       &--appear {
         transform: rotate(0deg) translate(0, $loopYbis);
       }
 
       &--appeared {
+        display: flex;
+        flex-direction: row;
         width: 100%;
         cursor: default;
 
         // page title in menu bar on single page
-        span {
-          left: 80%;
-          animation: slideRight 2s;
+        .title {
+          animation: slideRight 1s ease-in-out;
+          margin-left: auto;
+          padding: $defaultPadding;
         }
 
         &:hover {

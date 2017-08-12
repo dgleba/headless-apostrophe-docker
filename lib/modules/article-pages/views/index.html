@@ -1,0 +1,8 @@
+{% extends data.outerLayout %}
+{% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
+
+{% block main %}
+  <div data-apos-ajax-context="project">
+    {% include "indexAjax.html" %}
+  </div>
+{% endblock %}

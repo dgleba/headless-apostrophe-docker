@@ -87,5 +87,24 @@ module.exports = {
       cyan: '\x1b[46m',
       white: '\x1b[47m'
     }
+  },
+
+  RTEConfig: {
+    toolbar: [
+      'Styles',
+      'Bold',
+      'Italic',
+      'Link',
+      'NumberedList',
+      'BulletedList',
+      'Undo',
+      'Redo'
+    ],
+    styles: [
+      { name: 'Paragraphe', element: 'p' },
+      { name: 'Paragraphe 2', element: 'h5' },
+      { name: 'Title', element: 'h3' },
+      { name: 'Subtitle', element: 'h4' }
+    ]
   }
 }

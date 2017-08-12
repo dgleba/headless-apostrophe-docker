@@ -34,43 +34,49 @@ body {
     // creates menus as at_menu__1, at_menu__2, ...
     // and manages appear/disappear classes when clicking menu
     @include menu-mixin($menu-count);
-  }
 
-  &_back {
-    position: absolute;
-    left: $sidePadding;
-    top: $menuHeight / 3;
-    cursor: pointer;
+    // back button
+    &__back {
+      padding: $defaultPadding;
+      cursor: pointer;
+      animation: slideLeft 1s ease-in-out;
 
-    &_icon {
-      width: 32px;
-      height: 32px;
-      position: relative;
-      top: -1px;
-      transition: transform 0.8s ease;
-      vertical-align: middle;
-      transform: rotate(180deg);
-
-      g {
-        fill: none;
-        stroke: #fff;
-        stroke-width: 1.5;
-        stroke-linejoin: round;
-        stroke-miterlimit: 10;
-
-        circle {
-          transition: stroke-dashoffset 0.8s ease;
-          stroke-dasharray: 100;
-          stroke-dashoffset: 0;
-        }
+      &.breadcrumb {
+        padding-left: 0;
+        margin-left: -25px;
+        animation: none;
       }
 
-      &--hidden {
-        opacity: 0;
-        left: -35px;
+      .icon {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        top: -1px;
+        transition: transform 0.8s ease;
+        vertical-align: middle;
+        transform: rotate(180deg);
 
-        g circle {
-          stroke-opacity: 0;
+        g {
+          fill: none;
+          stroke: #fff;
+          stroke-width: 1.5;
+          stroke-linejoin: round;
+          stroke-miterlimit: 10;
+
+          circle {
+            transition: stroke-dashoffset 0.8s ease;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 0;
+          }
+        }
+
+        &--hidden {
+          opacity: 0;
+          left: -35px;
+
+          g circle {
+            stroke-opacity: 0;
+          }
         }
       }
     }

@@ -36,12 +36,13 @@
           active="{% if onePage -%} false {%- else -%} true {%- endif -%}"
         >
           {% if onePage %}
-            <div class="at_back">
-              {{ icon("at_back_icon") }}
-              {{ icon("at_back_icon at_back_icon--hidden") }}
-            </div>
+            <span class="at_menu__back">
+              {{ icon("at_menu icon") }}
+              {{ icon("at_menu icon icon--hidden") }}
+            </span>
+            <span class="at_menu__back breadcrumb">Accueil</span>
           {% endif %}
-          <span>{{ menu.title }}</span>
+          <span class="at_menu title">{{ menu.title }}</span>
         </nav>
 
       {% endfor %}

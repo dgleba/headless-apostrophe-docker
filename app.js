@@ -12,8 +12,14 @@ let apos = require('apostrophe')({
       uri: config.get('mongo.uri')
     },
     // Add custom apostrophe-modules and their respective configuration here!
-    // article: {},
-    // 'article-pages': {},
+    article: {},
+    'article-pages': {
+      extend: 'apostrophe-pieces-pages'
+    },
+    career: {},
+    'career-pages': {
+      extend: 'apostrophe-pieces-pages'
+    },
     menu: {},
     project: {},
     'project-pages': {
