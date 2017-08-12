@@ -78,6 +78,7 @@ $defaultPadding: 1vw;
   height: $menuHeight;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-right: $defaultPadding;
   cursor: pointer;
 
@@ -135,19 +136,28 @@ $defaultPadding: 1vw;
       transform: rotate(25deg) translate($loopX, $loopY);
       transition: transform 0.5s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStart;
 
+      .at_menu__back {
+        // hide back button if no other class than .at_menu__X
+        display: none;
+      }
+
       &--appear {
         transform: rotate(0deg) translate(0, $loopYbis);
+
+        .at_menu__back {
+          // display back button when .at_menu__X--appear
+          display: block;
+        }
       }
 
       &--appeared {
-        display: flex;
         flex-direction: row;
         width: 100%;
         cursor: default;
 
         // page title in menu bar on single page
         .title {
-          animation: slideRight 1s ease-in-out;
+          animation: slideRight 2s ease-in-out;
           margin-left: auto;
           padding: $defaultPadding;
         }
@@ -160,6 +170,10 @@ $defaultPadding: 1vw;
 
       &--disappear {
         transform: rotate(25deg) translate($loopX, $loopYter);
+
+        .at_menu__back {
+          display: none;
+        }
       }
     }
   }
