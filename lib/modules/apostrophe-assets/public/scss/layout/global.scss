@@ -28,7 +28,7 @@ body {
     max-height: 100vh;
 
     &--appear {
-      height: $menuHeight;
+      height: $menu-height;
     }
 
     // creates menus as at_menu__1, at_menu__2, ...
@@ -37,14 +37,13 @@ body {
 
     // back button
     &__back {
-      padding: $defaultPadding;
+      padding: $default-padding;
       cursor: pointer;
-      animation: slideLeft 1s ease-in-out;
 
       &.breadcrumb {
+        animation: slideLeft 2s ease-in-out;
         padding-left: 0;
-        margin-left: -25px;
-        animation: none;
+        margin-right: $margin-right-x-small;
       }
 
       .icon {
@@ -82,3 +81,5 @@ body {
     }
   }
 }
+
+@import 'media-queries.scss';
