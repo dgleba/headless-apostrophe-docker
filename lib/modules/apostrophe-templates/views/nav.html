@@ -30,19 +30,19 @@
             {%- if onePage -%}
               {% if children === loop.index %} at_menu__{{ loop.index }}--appear at_menu__{{ loop.index }}--appeared
               {%- else %} at_menu__{{ loop.index  }}--disappear{%- endif -%}
-            {% endif %}"
+            {%- else %} attr
+            {%- endif -%}"
           page={{ loop.index }}
           url={{ slug }}
-          active="{% if onePage -%} false {%- else -%} true {%- endif -%}"
         >
           {% if onePage %}
-            <span class="at_menu__back">
-              {{ icon("at_menu icon") }}
-              {{ icon("at_menu icon icon--hidden") }}
+            <span class="at_menu__back attr-1-level">
+              {{ icon("at_menu icon attr-2-levels") }}
+              {{ icon("at_menu icon icon--hidden attr-2-levels") }}
             </span>
-            <span class="at_menu__back breadcrumb">Accueil</span>
+            <span class="at_menu__back breadcrumb attr-1-level">Accueil</span>
           {% endif %}
-          <span class="at_menu title">{{ menu.title }}</span>
+          <span class="at_menu title {%- if not onePage %} attr-1-level {%- endif %}">{{ menu.title }}</span>
         </nav>
 
       {% endfor %}
