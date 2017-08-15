@@ -9,15 +9,16 @@
 
 {% macro menubar(menus, children) %}
 
+  {% set homePage = true %}
   {% if (children | int) === children %} {# if children is an integer, it's coming from a single page, otherwise from home #}
-    {% set onePage = true %}
+    {% set homePage = false %}
   {% endif %}
 
-  <nav class="at_menu {%- if onePage %} at_menu--appear {%- endif %}">
+  <nav class="at_menu {%- if not homePage %} at_menu--appear {%- endif %}">
       {% for menu in menus %}
 
         {% set slug = '/' %}
-        {% if not onePage %}                  {# if home template #}
+        {% if homePage %}                  {# if home template #}
           {% for page in children %}          {# browse pages #}
             {% if page._id === menu.pageId %} {# compare with linked pages to menus #}
               {% set slug = page.slug %}      {# get slug if existing #}
@@ -27,22 +28,24 @@
 
         <nav
           class="at_menu__{{ loop.index }}
-            {%- if onePage -%}
+            {%- if homePage %} attr
+            {%- else -%}
               {% if children === loop.index %} at_menu__{{ loop.index }}--appear at_menu__{{ loop.index }}--appeared
               {%- else %} at_menu__{{ loop.index  }}--disappear{%- endif -%}
-            {%- else %} attr
             {%- endif -%}"
           page={{ loop.index }}
           url={{ slug }}
         >
-          {% if onePage %}
+          {% if not homePage %}
             <span class="at_menu__back attr-1-level">
               {{ icon("at_menu icon attr-2-levels") }}
               {{ icon("at_menu icon icon--hidden attr-2-levels") }}
             </span>
             <span class="at_menu__back breadcrumb attr-1-level">Accueil</span>
           {% endif %}
-          <span class="at_menu title {%- if not onePage %} attr-1-level {%- endif %}">{{ menu.title }}</span>
+          <span class="at_menu title {%- if homePage %} attr-1-level {%- endif %}" title="{%- if homePage -%} {{ menu.title }} {%- else -%} Accueil {%- endif -%}">
+            {{ menu.title }}
+          </span>
         </nav>
 
       {% endfor %}
