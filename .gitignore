@@ -1,11 +1,7 @@
 locales
 npm-debug.log
 data
-/public/css
-/public/js
-/public/modules
-/public/upload
-/public/*
+/public
 temp/uploadfs
 node_modules
 .jshintrc
