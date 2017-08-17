@@ -29,7 +29,11 @@
       &.breadcrumb {
         animation: slideLeft 2s ease-in-out;
         top: 42px;
-        margin-left: 40px;
+        margin-left: 45px;
+
+        .breadcrumb--root {
+          margin-right: 2px;
+        }
       }
 
       .icon {

@@ -7,7 +7,7 @@
   </svg>
 {% endmacro %}
 
-{% macro menubar(menus, children) %}
+{% macro menubar(menus, children, showPageTitle) %}
 
   {% set homePage = true %}
   {% if (children | int) === children %} {# if children is an integer, it's coming from a single page, otherwise from home #}
@@ -37,14 +37,17 @@
           url={{ slug }}
         >
           {% if not homePage %}
-            <span class="at_menu__back attr-1-level">
-              {{ icon("at_menu icon attr-2-levels") }}
-              {{ icon("at_menu icon icon--hidden attr-2-levels") }}
+            <span class="at_menu__back" page={{ loop.index }} url="/ {%- if showPageTitle -%} {{ menu.slug }} {%- endif -%}">
+              {{ icon("at_menu icon") }}
+              {{ icon("at_menu icon icon--hidden") }}
             </span>
-            <span class="at_menu__back breadcrumb attr-1-level">Accueil</span>
+            <div class="at_menu__back breadcrumb">
+              <span class="breadcrumb--root" page={{ loop.index }} url="/">Accueil</span>
+              {%- if showPageTitle %} / <span class="breadcrumb--list" page={{ loop.index }} url="{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
+            </div>
           {% endif %}
           <span class="at_menu title {%- if homePage %} attr-1-level {%- endif %}" title="{%- if homePage -%} {{ menu.title }} {%- else -%} Accueil {%- endif -%}">
-            {{ menu.title }}
+            {%- if showPageTitle -%} {{ showPageTitle }} {%- else -%} {{ menu.title }} {%- endif -%}
           </span>
         </nav>
 
