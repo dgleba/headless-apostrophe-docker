@@ -43,7 +43,7 @@
             </span>
             <div class="at_menu__back breadcrumb">
               <span class="breadcrumb--root" page={{ loop.index }} url="/">Accueil</span>
-              {%- if showPageTitle %} / <span class="breadcrumb--list" page={{ loop.index }} url="{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
+              {%- if showPageTitle %} / <span class="breadcrumb--list" page={{ loop.index }} url="/{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
             </div>
           {% endif %}
           <span class="at_menu title {%- if homePage %} attr-1-level {%- endif %}" title="{%- if homePage -%} {{ menu.title }} {%- else -%} Accueil {%- endif -%}">
