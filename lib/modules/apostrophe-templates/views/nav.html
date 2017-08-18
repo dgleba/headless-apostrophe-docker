@@ -28,7 +28,7 @@
 
         <nav
           class="at_menu__{{ loop.index }}
-            {%- if homePage %} attr
+            {%- if homePage %} at_menu__{{ loop.index }}--disappear
             {%- else -%}
               {% if children === loop.index %} at_menu__{{ loop.index }}--appear at_menu__{{ loop.index }}--appeared
               {%- else %} at_menu__{{ loop.index  }}--disappear{%- endif -%}
@@ -46,7 +46,7 @@
               {%- if showPageTitle %} / <span class="breadcrumb--list" page={{ loop.index }} url="/{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
             </div>
           {% endif %}
-          <span class="at_menu title {%- if homePage %} attr-1-level {%- endif %}" title="{%- if homePage -%} {{ menu.title }} {%- else -%} Accueil {%- endif -%}">
+          <span class="at_menu title" title="{%- if homePage -%} {{ menu.title }} {%- else -%} Accueil {%- endif -%}">
             {%- if showPageTitle -%} {{ showPageTitle }} {%- else -%} {{ menu.title }} {%- endif -%}
           </span>
         </nav>
