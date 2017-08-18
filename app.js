@@ -11,6 +11,7 @@ let apos = require('apostrophe')({
     'apostrophe-db': {
       uri: config.get('mongo.uri')
     },
+    'apostrophe-areas': {},
     // Add custom apostrophe-modules and their respective configuration here!
     article: {},
     'article-pages': {
