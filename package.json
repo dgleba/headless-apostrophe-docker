@@ -34,9 +34,6 @@
     "type": "git",
     "url": ""
   },
-  "engines": {
-    "node": "8.2.0"
-  },
   "author": "Anthony Tarlao @falkodev",
   "license": "MIT",
   "dependencies": {
