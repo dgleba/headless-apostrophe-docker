@@ -1,20 +1,52 @@
-{% extends "outerLayoutBase.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Anthony Tarlao | Développeur web et mobile{% endblock %}</title>
+    {% if data.user %}
+      {{ apos.assets.stylesheets(data.when) }}
+    {% endif %}
 
-{% block title %}Anthony Tarlao | Développeur web et mobile{% endblock %}
+    {% block standardHead %}
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
 
-{% block extraHead %}
-  <link rel="stylesheet" href="/css/bundle.css"/>
-{% endblock %}
+    {% block extraHead %}
+      <link rel="stylesheet" href="/css/bundle.css"/>
+    {% endblock %}
+  </head>
 
-{% block beforeMain %}
-{% endblock %}
+  <body class="{{ data.aposBodyClasses }} {% block bodyClass %} {% endblock %}">
+    {% block apostropheMenu %}
+      {{ apos.adminBar.output() }}
+    {% endblock %}
 
-{% block main %}
-{% endblock %}
+    {% if data.user %}
+      <div class="apos-ui">
+        <div class="apos-context-menu-container">
+          {{ apos.pages.publishMenu({ publishMenu: data.publishMenu, page: data.page, piece: data.piece, bottom: true }) }}
+          {{ apos.pages.menu({ contextMenu: data.contextMenu, page: data.page, bottom: true })}}
+          {{ apos.pages.afterContextMenu() }}
+        </div>
+      </div>
+    {% endif %}
 
-{% block afterMain %}
-{% endblock %}
+    <div class="apos-refreshable" data-apos-refreshable>
+      {% block beforeMain %}{% endblock %}
+      {% block main %}{% endblock %}
+      {% block afterMain %}{% endblock %}
+    </div>
 
-{% block extraBody %}
-  <script src="/js/bundle.js"></script>
-{% endblock %}
+    {% if data.user %}
+      {{ apos.assets.templates(data.when) }}
+      {{ apos.assets.scripts(data.when) }}
+      <script type="text/javascript">
+        {{ data.js.globalCalls }}
+        {{ data.js.reqCalls }}
+      </script>
+    {% endif %}
+
+    {% block extraBody %}
+      <script src="/js/bundle.js"></script>
+    {% endblock %}
+  </body>
+</html>
