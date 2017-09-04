@@ -30,6 +30,12 @@ module.exports = {
     // }
   },
 
+  // webpack: {
+  //   output: {
+  //     index: 'index-raw.html'
+  //   }
+  // },
+
   //
   // Modules overrides:
   //

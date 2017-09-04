@@ -1,10 +1,20 @@
+@font-face {
+  font-family: 'Meedori Sans Light';
+  src: url('../../fonts/Meedori Sans Light.ttf') format('truetype');
+}
+
 html,
 body {
   min-height: 100vh;
   min-width: 100vw;
-  overflow: hidden;
+  // overflow: hidden;
   padding: 0;
   margin: 0;
+  // background-color: #f8f9fa;
+  // background: linear-gradient(to top, #e5eec1 0%, white 90%);
+  background: #f7f6f5;
+  color: white;
+  font-family: 'Meedori Sans Light', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .slide-up {
