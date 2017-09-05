@@ -8,6 +8,7 @@
 // create a ./local.js file with your own overrides. Note, that the local.js
 // file does not needs to contains all the configuration keys: just the overrides.
 //
+const path = require('path')
 const name = 'site'
 
 module.exports = {
@@ -30,11 +31,22 @@ module.exports = {
     // }
   },
 
-  // webpack: {
-  //   output: {
-  //     index: 'index-raw.html'
-  //   }
-  // },
+  webpack: {
+    // output: {
+    //   index: 'index-raw.html'
+    // },
+    plugins: {
+      split: {
+        config: [{
+          name: 'home',
+          path: path.join(__dirname, '../lib/modules/apostrophe-pages/public/js/home')
+        }, {
+          name: 'home-vendor',
+          path: path.resolve(__dirname, '../node_modules/gsap')
+        }]
+      }
+    }
+  },
 
   //
   // Modules overrides:
