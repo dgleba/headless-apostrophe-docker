@@ -31,23 +31,6 @@ module.exports = {
     // }
   },
 
-  webpack: {
-    // output: {
-    //   index: 'index-raw.html'
-    // },
-    plugins: {
-      split: {
-        config: [{
-          name: 'home',
-          path: path.join(__dirname, '../lib/modules/apostrophe-pages/public/js/home')
-        }, {
-          name: 'home-vendor',
-          path: path.resolve(__dirname, '../node_modules/gsap')
-        }]
-      }
-    }
-  },
-
   //
   // Modules overrides:
   //
