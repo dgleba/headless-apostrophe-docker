@@ -7,10 +7,7 @@
 	<main class="at">
     {{ nav.menubar(data.global._menus, data.page._children) }}
 
-    <section class="at_content slide-up" style="color: grey;">
-      <div style="padding-bottom: 10px">Welcome</div>
-      <div style="font-size: 42px;border-top: 2px solid transparent;width:fit-content; border-image: linear-gradient(to right, #4F7F8F 0%, #77BCD4 100%);border-image-slice: 1;padding-top: 5px;">Anthony Tarlao - Problem solver</div><br><br>
-      <div>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</div>
+    <section class="at_content slide-up">
       <div>
         <svg id="intro" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          viewBox="0 0 1186.4 662.8" style="enable-background:new 0 0 1186.4 662.8;" xml:space="preserve" display="none">
@@ -46,11 +43,18 @@
             <path style="fill:#202021;stroke:#050606;stroke-miterlimit:10;" d="M770.8,510.3H413c-3.2,0-5.8-2.6-5.8-5.8V284.2
               c0-6.1,4.9-11,11-11h350.6c6.4,0,11.7,5.2,11.7,11.7v215.8C780.4,506,776.1,510.3,770.8,510.3z"/>
             <rect x="423.3" y="286.1" style="fill:#434445;stroke:#070808;stroke-miterlimit:10;" width="341" height="211.3"/>
-            <text x="450" y="350"
+            <text id="text_start" x="450" y="350"
               font-family="Verdana"
-              font-size="25">
-          Bonjour tout le monde!
-        </text>
+              font-size="25"></text>
+            <text id="text_line_1" x="475" y="375"
+            font-family="Verdana"
+            font-size="25"></text>
+            <text id="text_line_2" x="475" y="400"
+            font-family="Verdana"
+            font-size="25"></text>
+            <text id="text_end" x="450" y="425"
+            font-family="Verdana"
+            font-size="25"></text>
             <path style="fill:#C7C6C6;stroke:#070808;stroke-width:2;stroke-miterlimit:10;" d="M518.9,596.3l1,5.6c0.2,1.3,1.3,2.2,2.6,2.2
               h138.2c2.9,0,5.4-2.1,5.9-4.9l0-0.1c0.2-1-0.6-1.8-1.5-1.8L518.9,596.3z"/>
             <path style="fill:#A3A3A2;stroke:#070808;stroke-miterlimit:10;" d="M544.1,575.1l-25.4,20.3c-1.3,1.1-0.6,3.3,1.2,3.3l145.5-0.4
@@ -182,6 +186,9 @@
           </g>
         </svg>
       </div>
+      <div style="padding-bottom: 10px">Welcome</div>
+      <div style="font-size: 42px;border-top: 2px solid transparent;width:fit-content; border-image: linear-gradient(to right, #4F7F8F 0%, #77BCD4 100%);border-image-slice: 1;padding-top: 5px;">Anthony Tarlao - Problem solver</div><br><br>
+      <div>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</div>
     </section>
 	</main>
 {% endblock %}
