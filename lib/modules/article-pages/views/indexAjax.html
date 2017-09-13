@@ -1,9 +1,7 @@
 {% import "apostrophe-templates:nav.html" as nav %}
 
 <main class="at">
-  <nav class="at_menu">
-    {{ nav.menubar(data.global._menus, 3) }}
-  </nav>
+  {{ nav.menubar(data.global._menus, 3) }}
 
   <section class="at_content slide-up">
     {% for piece in data.pieces %}
