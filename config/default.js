@@ -8,8 +8,43 @@
 // create a ./local.js file with your own overrides. Note, that the local.js
 // file does not needs to contains all the configuration keys: just the overrides.
 //
-const path = require('path')
+// const path = require('path')
 const name = 'site'
+const park = [
+  {
+    slug: '/',
+    published: true,
+    _defaults: {
+      title: 'Accueil',
+      type: 'home'
+    },
+    type: 'home'
+  },
+  {
+    slug: '/contact',
+    published: true,
+    type: 'contact',
+    title: 'Contact'
+  },
+  {
+    slug: '/projets',
+    published: true,
+    type: 'project-page',
+    title: 'Projets'
+  },
+  {
+    slug: '/blog',
+    published: true,
+    type: 'article-page',
+    title: 'Blog'
+  },
+  {
+    slug: '/parcours',
+    published: true,
+    type: 'career-page',
+    title: 'Parcours'
+  }
+]
 
 module.exports = {
   shortName: name,
@@ -21,20 +56,13 @@ module.exports = {
     uri: process.env.MONGODB || `mongodb://127.0.0.1:27017/${name}`
   },
 
-  // Client runtime configs
-  client: {
-    // Client runtime environnement (see apostrophe-assets extension)
-    // env: {
-    //   // TODO: Rename variables with the same name all along ci -> marathon -> process.env -> window.env (Here the env are renamed to match ci's env names)
-    //   // The graphql end-point (see too ./lib/frontapp/app.js and ./lib/modules/custom-graphql)
-    //   GRAPHQLURI: process.env.GRAPHQL_SERVER || '//localhost:3002/graphql'
-    // }
-  },
-
   //
   // Modules overrides:
   //
   modules: {
+    pages: {
+      park
+    },
     'webpack-custom': {
       // Proxy rules for the webpack dev server (to server apostrophe backend
       proxyTable: {
@@ -54,6 +82,10 @@ module.exports = {
         }
       }
     }
+  },
+
+  client: {
+    pages: park
   },
 
   colors: {
