@@ -15,15 +15,17 @@
   $x: -2%;
   $y: 7%;
   $ybis: 0%;
-  $startTime: 0s;
+  $yter: -400%;
+  $start-time: 0s;
 
   @for $i from 0 to $steps {
     // i.e at_menu__1
     &__#{$i + 1} {
-      $loopX: $x + $i * -8;
-      $loopY: $y + $i * 28;
-      $loopYbis: $ybis + $i * -100;
-      $loopStart: $startTime + $i * 0.3;
+      $loop-x: $x + $i * -8;
+      $loop-y: $y + $i * 28;
+      $loop-ybis: $ybis + $i * -100;
+      $loop-yter: $yter + $i * -100;
+      $loop-start: $start-time + $i * 0.3;
 
       background: lighten($base-menu-color, $i * 10%);
       color: white;
@@ -35,8 +37,8 @@
       justify-content: center;
       padding-right: $default-padding;
       cursor: pointer;
-      transform: rotate(25deg) translate($loopX, 50%);
-      transition: transform 0.7s cubic-bezier(0.78, -0.58, 1, 0.51) $loopStart;
+      transform: rotate(25deg) translate($loop-x, 50%);
+      transition: transform 1s cubic-bezier(0.78, -0.58, 1, 0.51) $loop-start;
 
       &:hover {
         animation: swing 0.7s ease;
@@ -44,7 +46,7 @@
         #{$menu}__back .icon {
           &--hidden {
             opacity: 1;
-            animation: arrowAnim 2.5s ease infinite;
+            animation: arrow-anim 2.5s ease infinite;
           }
 
           g circle {
@@ -59,7 +61,7 @@
       }
 
       &--appear {
-        transform: rotate(0deg) translate(0, $loopYbis);
+        transform: rotate(0deg) translate(0, $loop-ybis);
 
         // display back button when .at_menu__X--appear
         #{$menu}__back {
@@ -74,7 +76,7 @@
 
         // page title in menu bar on single page
         .title {
-          animation: slideRight 2s ease-in-out;
+          animation: slide-right 2s ease-in-out;
           margin-left: $slide-margin;
         }
 
@@ -85,7 +87,8 @@
       }
 
       &--disappear {
-        transform: rotate(25deg) translate(-120%, $loopY);
+        transform: rotate(25deg) translate(-120%, $loop-y);
+        // transform: rotate(25deg) translate($loop-x, $loop-yter);
 
         #{$menu}__back {
           display: none;
@@ -110,12 +113,12 @@
 /// Create timeline
 /// @group mixins
 /// @param {Int} $steps - number of items in list
-/// @param {String} $backgroundColor - base color
-@mixin timeline-mixin ($steps, $backgroundColor) {
-  $backgroundColorScale: 10 / $steps;
+/// @param {String} $background-color - base color
+@mixin timeline-mixin ($steps, $background-color) {
+  $background-color-scale: 10 / $steps;
 
-  @function -modify-bg($bgcolor, $counter, $depth: $backgroundColorScale) {
-    @return lighten($backgroundColor, ($i * $backgroundColorScale));
+  @function -modify-bg($bgcolor, $counter, $depth: $background-color-scale) {
+    @return lighten($background-color, ($i * $background-color-scale));
   }
 
   $i: 0;
@@ -123,24 +126,24 @@
   @while $i < $steps {
     .timeline > ul > li {
       &:nth-child(#{$i}) div {
-        background: -modify-bg($backgroundColor, $i);
+        background: -modify-bg($background-color, $i);
 
         &::before {
           @if $i % 2 == 0 {
-            border-color: transparent transparent transparent -modify-bg($backgroundColor, $i);
+            border-color: transparent transparent transparent -modify-bg($background-color, $i);
           }
 
           @else {
-            border-color: transparent -modify-bg($backgroundColor, $i) transparent transparent;
+            border-color: transparent -modify-bg($background-color, $i) transparent transparent;
           }
         }
       }
 
-      &:nth-child(#{$i}).in-view {
-        &::after {
-          background: -modify-bg($backgroundColor, $i);
-        }
-      }
+      // &:nth-child(#{$i}).in-view {
+      //   &::after {
+      //     background: -modify-bg($background-color, $i);
+      //   }
+      // }
     }
     $i: $i + 1;
   }

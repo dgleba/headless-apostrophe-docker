@@ -22,11 +22,11 @@ body {
 }
 
 .slide-up {
-  animation: slideUp 1s;
+  animation: slide-up 1s;
 }
 
 .slide-down {
-  animation: slideDown 1s;
+  animation: slide-down 1s;
   opacity: 0;
 }
 
@@ -56,10 +56,10 @@ body {
       top: ($menu-height / 3) + 1;
       padding-left: $default-padding;
       cursor: pointer;
-      animation: fadeIn 2s ease-in-out;
+      animation: fade-in 2s ease-in-out;
 
       &.breadcrumb {
-        animation: slideLeft 2s ease-in-out;
+        animation: slide-left 2s ease-in-out;
         top: 42px;
         margin-left: 45px;
 
@@ -122,13 +122,16 @@ body {
   padding: 0;
 }
 
-$timelineColor: #f7f6f5;
+// $timeline-color: #697B81;
+$timeline-color: lighten(
+  desaturate(adjust-hue($base-menu-color, 0), 18.5724),
+  2.3529
+);
 
 .timeline {
-  margin-top: -16px;
+  background: lighten($base-menu-color, 30%);
 
   & > ul {
-    background: #a8c5cf;
     padding: 50px 0;
 
     & > li {
@@ -162,9 +165,10 @@ $timelineColor: #f7f6f5;
         width: 400px;
         padding: 15px;
         border-radius: 3px;
+        color: white;
         visibility: hidden;
         opacity: 0;
-        transition: all 1s ease-in-out;
+        transition: all 0.5s ease-in-out;
 
         @media screen and (max-width: 900px) {
           width: 250px;
@@ -191,7 +195,7 @@ $timelineColor: #f7f6f5;
         &::before {
           left: -15px;
           border-width: 8px 16px 8px 0;
-          border-color: transparent $timelineColor transparent transparent;
+          border-color: transparent $timeline-color transparent transparent;
         }
       }
 
@@ -210,12 +214,12 @@ $timelineColor: #f7f6f5;
         &::before {
           right: -15px;
           border-width: 8px 0 8px 16px;
-          border-color: transparent transparent transparent $timelineColor;
+          border-color: transparent transparent transparent $timeline-color;
 
           @media screen and (max-width: 600px) {
             left: -15px;
             border-width: 8px 16px 8px 0;
-            border-color: transparent $timelineColor transparent transparent;
+            border-color: transparent $timeline-color transparent transparent;
           }
         }
       }
@@ -226,20 +230,17 @@ $timelineColor: #f7f6f5;
           visibility: visible;
           opacity: 1;
         }
-
-        &::after {
-          background: $timelineColor;
-        }
       }
     }
   }
 }
 
-@include timeline-mixin(4, $timelineColor);
+@include timeline-mixin(4, $timeline-color);
 
 time {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px;
+  color: #fdd10d;
 }

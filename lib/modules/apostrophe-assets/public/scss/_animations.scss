@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes slide-up {
   0% {
     margin-top: $menu-height;
     opacity: 0;
@@ -22,7 +22,7 @@
   }
 }
 
-@keyframes slideDown {
+@keyframes slide-down {
   0% {
     margin-top: 0;
     opacity: 1;
@@ -34,7 +34,7 @@
   }
 }
 
-@keyframes slideRight {
+@keyframes slide-right {
   0% {
     margin-left: 0;
   }
@@ -44,7 +44,7 @@
   }
 }
 
-@keyframes slideLeft {
+@keyframes slide-left {
   0% {
     margin-left: $slide-margin * 2;
   }
@@ -54,7 +54,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -64,7 +64,7 @@
   }
 }
 
-@keyframes arrowAnim {
+@keyframes arrow-anim {
   0% {
     opacity: 1;
     transform: translateX(0) rotate(180deg);
