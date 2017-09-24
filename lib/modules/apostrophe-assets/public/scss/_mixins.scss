@@ -106,3 +106,42 @@
     }
   }
 }
+
+/// Create timeline
+/// @group mixins
+/// @param {Int} $steps - number of items in list
+/// @param {String} $backgroundColor - base color
+@mixin timeline-mixin ($steps, $backgroundColor) {
+  $backgroundColorScale: 10 / $steps;
+
+  @function -modify-bg($bgcolor, $counter, $depth: $backgroundColorScale) {
+    @return lighten($backgroundColor, ($i * $backgroundColorScale));
+  }
+
+  $i: 0;
+
+  @while $i < $steps {
+    .timeline > ul > li {
+      &:nth-child(#{$i}) div {
+        background: -modify-bg($backgroundColor, $i);
+
+        &::before {
+          @if $i % 2 == 0 {
+            border-color: transparent transparent transparent -modify-bg($backgroundColor, $i);
+          }
+
+          @else {
+            border-color: transparent -modify-bg($backgroundColor, $i) transparent transparent;
+          }
+        }
+      }
+
+      &:nth-child(#{$i}).in-view {
+        &::after {
+          background: -modify-bg($backgroundColor, $i);
+        }
+      }
+    }
+    $i: $i + 1;
+  }
+}
