@@ -1,8 +1,19 @@
 {% extends data.outerLayout %}
+{% import "apostrophe-templates:nav.html" as nav %}
+
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
 {% block main %}
-  <div data-apos-ajax-context="article">
-    {% include "indexAjax.html" %}
-  </div>
+  <main class="at">
+    {{ nav.menubar(data.global._menus, 3) }}
+
+    <section class="at_content slide-up">
+      {% for piece in data.pieces %}
+        <h4><a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a></h4>
+      {% endfor %}
+    </section>
+
+    {% import "apostrophe-pager:macros.html" as pager with context %}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </main>
 {% endblock %}

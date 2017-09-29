@@ -8,10 +8,10 @@ let apos = require('apostrophe')({
   // responsible for serving static assets, managing page templates and
   // configuring user acounts.
   modules: {
+    'apostrophe-areas': {},
     'apostrophe-db': {
       uri: config.get('mongo.uri')
     },
-    'apostrophe-areas': {},
     // Add custom apostrophe-modules and their respective configuration here!
     article: {},
     'article-pages': {
@@ -21,6 +21,12 @@ let apos = require('apostrophe')({
     'career-pages': {
       extend: 'apostrophe-pieces-pages'
     },
+    contact: {},
+    'contact-pages': {
+      extend: 'apostrophe-pieces-pages',
+      scene: 'user'
+    },
+    'contact-submit-widgets': {},
     menu: {},
     project: {},
     'project-pages': {

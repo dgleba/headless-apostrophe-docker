@@ -23,7 +23,7 @@ const park = [
   {
     slug: '/contact',
     published: true,
-    type: 'contact',
+    type: 'contact-page',
     title: 'Contact'
   },
   {

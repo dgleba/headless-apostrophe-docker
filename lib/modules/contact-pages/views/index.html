@@ -12,7 +12,14 @@
       Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
       Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
       Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
+      {{ apos.singleton(data.page, 'submit', 'contact-submit') }} {# contact form #}
     </section>
-
 	</main>
+
+  {{ apos.assets.stylesheets(data.when) }}
+  {{ apos.assets.scripts(data.when) }}
+  <script type="text/javascript">
+    {{ data.js.globalCalls }}
+    {{ data.js.reqCalls }}
+  </script>
 {% endblock %}
