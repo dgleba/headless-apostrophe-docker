@@ -8,18 +8,7 @@
     {{ nav.menubar(data.global._menus, 1) }}
 
     <section class="at_content slide-up">
-      Content sur<br>plusieurs lignes<br><br>
-      Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
-      Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
-      Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>Lorem ipsum<br>
       {{ apos.singleton(data.page, 'submit', 'contact-submit') }} {# contact form #}
     </section>
 	</main>
-
-  {{ apos.assets.stylesheets(data.when) }}
-  {{ apos.assets.scripts(data.when) }}
-  <script type="text/javascript">
-    {{ data.js.globalCalls }}
-    {{ data.js.reqCalls }}
-  </script>
 {% endblock %}

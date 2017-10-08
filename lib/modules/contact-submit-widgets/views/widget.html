@@ -1,10 +1,12 @@
 {% import "apostrophe-schemas:macros.html" as schemas %}
 
-<form class="apos-submit-pieces-form apos-ui" data-apos-pieces-submit-form>
+<form class="apos-form apos-ui" data-contact-form>
   <h4>Formulaire de contact</h4>
   {{ schemas.fields(data.schema, { tabs: false }) }}
   <button>Envoyer</button>
-  <div class="apos-pieces-submit-thank-you" data-apos-pieces-submit-thank-you>
-    <h4>Votre message a bien été envoyé</h4>
-  </div>
+  {% for field in data.schema %}
+    {# add "required"=true if necessary #}
+    <input type="hidden" data-name="{{ field.name }}" data-required="{{ field.required }}" />
+  {% endfor %}
+  <div class="apos-validation-msg" data-validation-msg></div>
 </form>

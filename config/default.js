@@ -64,14 +64,6 @@ module.exports = {
       park
     },
     'webpack-custom': {
-      // Proxy rules for the webpack dev server (to server apostrophe backend
-      proxyTable: {
-        '/': 'http://localhost:3000'
-      },
-
-      // Default webpack entries
-      entry: [],
-
       // See custom-webpack/lib/default-options.js documentation for many
       // other overrideable options
       loaders: {
@@ -85,6 +77,7 @@ module.exports = {
   },
 
   client: {
+    site: name,
     pages: park
   },
 

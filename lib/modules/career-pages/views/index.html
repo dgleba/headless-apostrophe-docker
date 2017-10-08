@@ -5,12 +5,19 @@
 
 {% block main %}
   <main class="at">
-    {{ nav.menubar(data.global._menus, 3) }}
+    {{ nav.menubar(data.global._menus, 4) }}
 
-    <section class="at_content slide-up">
-      {% for piece in data.pieces %}
-        <h4><a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a></h4>
-      {% endfor %}
+    <section class="timeline at_content slide-up">
+      <ul>
+        {% for piece in data.pieces %}
+          <li class="timeline__element">
+            <div>
+              <time>2017</time>
+              {{ piece.description.items[0].content | safe }}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
     </section>
 
     {% import "apostrophe-pager:macros.html" as pager with context %}
