@@ -40,13 +40,15 @@
       transform: rotate(25deg) translate($loop-x, 50%);
       transition: transform 1s cubic-bezier(0.78, -0.58, 1, 0.51) $loop-start;
 
+      @include arrow-anim-mixin("menu-", -1rem, 180deg);
+
       &:hover {
         animation: swing 0.7s ease;
 
         #{$menu}__back .icon {
           &--hidden {
             opacity: 1;
-            animation: arrow-anim 2.5s ease infinite;
+            animation: menu-arrow-anim 2.5s ease infinite;
           }
 
           g circle {
@@ -110,41 +112,21 @@
   }
 }
 
-/// Create timeline
+/// Create animation for arrow
 /// @group mixins
-/// @param {Int} $steps - number of items in list
-/// @param {String} $background-color - base color
-@mixin timeline-mixin ($steps, $background-color) {
-  $background-color-scale: 10 / $steps;
-
-  @function -modify-bg($bgcolor, $counter, $depth: $background-color-scale) {
-    @return lighten($background-color, ($i * $background-color-scale));
-  }
-
-  $i: 0;
-
-  @while $i < $steps {
-    .timeline > ul > li {
-      &:nth-child(#{$i}) div {
-        background: -modify-bg($background-color, $i);
-
-        &::before {
-          @if $i % 2 == 0 {
-            border-color: transparent transparent transparent -modify-bg($background-color, $i);
-          }
-
-          @else {
-            border-color: transparent -modify-bg($background-color, $i) transparent transparent;
-          }
-        }
-      }
-
-      // &:nth-child(#{$i}).in-view {
-      //   &::after {
-      //     background: -modify-bg($background-color, $i);
-      //   }
-      // }
+/// @param {Int} $name - keyframes name
+/// @param {Int} $distance - 1rem/-1rem
+/// @param {String} $angle - 0/180deg
+@mixin arrow-anim-mixin ($name, $distance, $angle) {
+  @keyframes #{$name}arrow-anim {
+    0% {
+      opacity: 1;
+      transform: translateX(0) rotate($angle);
     }
-    $i: $i + 1;
+
+    100% {
+      transform: translateX($distance) rotate($angle);
+      opacity: 0;
+    }
   }
 }

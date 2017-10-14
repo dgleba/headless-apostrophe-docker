@@ -69,7 +69,7 @@ module.exports = {
       loaders: {
         sass: {
           options: {
-            data: '$menu-count: 1;$timeline-count: 1;'
+            data: '$menu-count: 1;'
           }
         }
       }

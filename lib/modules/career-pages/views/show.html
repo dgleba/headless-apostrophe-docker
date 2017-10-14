@@ -4,10 +4,10 @@
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
 {% block main %}
-  <main class="at show">
+  <main class="at show" style="background: #a8c5cf;display: flex;flex-direction: column;">
     {{ nav.menubar(data.global._menus, 4, data.piece.title) }}
 
-    <section class="slideup">
+    <section class="slideup" style="background: #548697;width: 90vw;height: 75vh;align-self: center;">
       <h2>{{ data.piece.title }}
       <div>
         {{ apos.area(data.piece, 'description') }}

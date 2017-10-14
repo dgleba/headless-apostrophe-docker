@@ -63,15 +63,3 @@
     opacity: 1;
   }
 }
-
-@keyframes arrow-anim {
-  0% {
-    opacity: 1;
-    transform: translateX(0) rotate(180deg);
-  }
-
-  100% {
-    transform: translateX(-1rem) rotate(180deg);
-    opacity: 0;
-  }
-}
