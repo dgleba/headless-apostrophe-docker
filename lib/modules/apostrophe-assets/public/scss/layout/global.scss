@@ -30,6 +30,10 @@ body {
   opacity: 0;
 }
 
+.add {
+  display: block;
+}
+
 .remove {
   display: none;
 }
@@ -277,6 +281,7 @@ $timeline-color: $base-menu-color;
   &__link {
     position: relative;
     left: 250px;
+    color: darken($timeline-color, 50%);
     cursor: pointer;
 
     &--label {
@@ -293,7 +298,7 @@ $timeline-color: $base-menu-color;
 
       g {
         fill: none;
-        stroke: #fff;
+        stroke: darken($timeline-color, 30%);
         stroke-width: 1.5;
         stroke-linejoin: round;
         stroke-miterlimit: 10;
@@ -327,5 +332,49 @@ $timeline-color: $base-menu-color;
         }
       }
     }
+  }
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke: darken($timeline-color, 30%);
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  stroke-width: 2;
+  stroke: darken($timeline-color, 30%);
+  cursor: pointer;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 29;
+  stroke-dashoffset: 29;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
   }
 }
