@@ -35,7 +35,7 @@ body {
 }
 
 .remove {
-  display: none;
+  display: none !important;
 }
 
 .hide {
@@ -97,6 +97,7 @@ body {
           stroke-miterlimit: 10;
 
           circle {
+            animation: stroke 2s ease;
             transition: stroke-dashoffset 0.8s ease;
             stroke-dasharray: 100;
             stroke-dashoffset: 0;
@@ -149,6 +150,7 @@ $timeline-color: $base-menu-color;
       margin: 0 auto;
       padding-top: 50px;
       background: #fff;
+      box-shadow: 15px 15px 10px -1px #666;
 
       @media screen and (max-width: 600px) {
         margin-left: 20px;
@@ -165,6 +167,7 @@ $timeline-color: $base-menu-color;
         border-radius: 50%;
         background: inherit;
         transition: background 0.5s ease-in-out;
+        box-shadow: 15px 15px 20px -2px #666;
       }
 
       & div {
@@ -178,7 +181,8 @@ $timeline-color: $base-menu-color;
         visibility: hidden;
         opacity: 0;
         transition: all 0.5s ease-in-out;
-        box-shadow: 0 2rem 5rem 0 rgba(77, 77, 77, 0.3);
+        // box-shadow: 0 2rem 5rem 0 rgba(77, 77, 77, 0.3);
+        box-shadow: 15px 15px 20px -2px #666;
 
         @media screen and (max-width: 900px) {
           width: 250px;
@@ -195,6 +199,7 @@ $timeline-color: $base-menu-color;
           width: 0;
           height: 0;
           border-style: solid;
+          box-shadow: 15px 15px 20px -2px #666;
         }
 
         & > p {
@@ -280,9 +285,15 @@ $timeline-color: $base-menu-color;
 
   &__link {
     position: relative;
-    left: 250px;
-    color: darken($timeline-color, 50%);
+    display: inline-block;
+    left: 175px;
+    background: darken($timeline-color, 30%);
+    border-radius: 3px;
+    height: 50px;
+    padding: 10px 0 10px 25px;
     cursor: pointer;
+    // box-shadow:  5px 5px 10px 0px #333;
+    box-shadow: 2px 2px 4px 0 #333;
 
     &--label {
       margin-right: 5px;
@@ -298,7 +309,7 @@ $timeline-color: $base-menu-color;
 
       g {
         fill: none;
-        stroke: darken($timeline-color, 30%);
+        stroke: white;
         stroke-width: 1.5;
         stroke-linejoin: round;
         stroke-miterlimit: 10;
@@ -335,46 +346,42 @@ $timeline-color: $base-menu-color;
   }
 }
 
-.checkmark__circle {
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  stroke-width: 2;
-  stroke: darken($timeline-color, 30%);
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-}
-
 .checkmark {
   width: 32px;
   height: 32px;
   position: absolute;
   top: 20px;
   right: 20px;
-  border-radius: 50%;
-  stroke-width: 2;
-  stroke: darken($timeline-color, 30%);
   cursor: pointer;
-}
+  transition: transform 0.8s ease;
+  vertical-align: middle;
 
-.checkmark__check {
-  transform-origin: 50% 50%;
-  stroke-dasharray: 29;
-  stroke-dashoffset: 29;
-  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-}
+  g {
+    fill: none;
+    stroke: white;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
 
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: 0;
+    circle {
+      animation: stroke 2s ease;
+      transition: stroke-dashoffset 0.8s ease;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 0;
+    }
+
+    path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: stroke 1s ease-in 1.8s forwards;
+    }
   }
-}
 
-@keyframes scale {
-  0%,
-  100% {
-    transform: none;
-  }
-
-  50% {
-    transform: scale3d(1.1, 1.1, 1);
+  &:hover {
+    g {
+      circle {
+        stroke-dashoffset: 100;
+      }
+    }
   }
 }
