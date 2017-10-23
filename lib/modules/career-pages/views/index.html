@@ -14,7 +14,7 @@
             <div>
               <time>2017</time>
               {{ piece.description.items[0].content | safe }}
-              <span url="{{ piece._url }}" class="timeline__link">
+              <span data-url="{{ piece._url }}" class="timeline__link">
                 <span class="timeline__link--label">Voir plus</span>
                 {{ nav.icon("at_menu icon") }}
                 {{ nav.icon("at_menu icon icon--hidden") }}

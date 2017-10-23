@@ -4,10 +4,10 @@
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
 {% block main %}
-  <main class="at show" style="background: #a8c5cf;display: flex;flex-direction: column;">
+  <main class="at" style="background: #a8c5cf;">
     {{ nav.menubar(data.global._menus, 4, data.piece.title) }}
 
-    <section class="slideup" style="background: #548697;width: 90vw;height: 75vh;align-self: center;">
+    {# <section class="slideup" style="background: #548697;width: 90vw;height: 75vh;align-self: center;">
       <h2>{{ data.piece.title }}
       <div>
         {{ apos.area(data.piece, 'description') }}
@@ -16,10 +16,23 @@
         {{ apos.area(data.piece, 'content') }}
       </div>
       </h2>
+    </section> #}
+    <section class="timeline at_content">
+      <ul>
+        <li class="timeline__element in-view hide zoom">
+          <div>
+            <time>2018</time>
+            {{ data.piece.description.items[0].content | safe }}
+            <svg class="checkmark">
+              <g>
+                <circle cx="16" cy="16" r="15.12"></circle>
+                <path d="M10 10 22 22 M22 10 10 22" />
+              </g>
+            </svg>
+          </div>
+        </li>
+      </ul>
     </section>
-
-    {% import 'apostrophe-pager:macros.html' as pager with context %}
-    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
   </main>
 
 {% endblock %}
