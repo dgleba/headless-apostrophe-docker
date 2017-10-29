@@ -36,6 +36,11 @@
       {% block afterMain %}{% endblock %}
     </div>
 
+    <div class="loader">
+      <div></div>
+      <div></div>
+    </div>
+
     {% if data.user %}
       {{ apos.assets.templates(data.when) }}
       {{ apos.assets.scripts(data.when) }}

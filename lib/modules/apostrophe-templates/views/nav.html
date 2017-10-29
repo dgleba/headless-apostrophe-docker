@@ -35,14 +35,15 @@
             {%- endif -%}"
           page={{ loop.index }}
           url={{ slug }}
+          animate="menu"
         >
           {% if not homePage %}
-            <span class="at_menu__back" page={{ loop.index }} url="/ {%- if showPageTitle -%} {{ menu.slug }} {%- endif -%}">
+            <span class="at_menu__back" page={{ loop.index }} url="/ {%- if showPageTitle -%} {{ menu.slug }} {%- endif -%}" {% if not showPageTitle -%} animate="menu" {%- endif -%}> {# if "show" page, do not animate page transition #}
               {{ icon("at_menu icon") }}
               {{ icon("at_menu icon icon--hidden") }}
             </span>
             <div class="at_menu__back breadcrumb">
-              <span class="breadcrumb--root" page={{ loop.index }} url="/">Accueil</span>
+              <span class="breadcrumb--root" page={{ loop.index }} url="/" animate="menu">Accueil</span>
               {%- if showPageTitle %} / <span class="breadcrumb--list" page={{ loop.index }} url="/{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
             </div>
           {% endif %}

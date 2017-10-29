@@ -21,6 +21,26 @@ body {
   font-family: 'Meedori Sans Light', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.loader {
+  display: none;
+  position: absolute;
+  top: 50vh;
+  left: 45vw;
+
+  div {
+    box-sizing: content-box;
+    position: absolute;
+    border: 3px solid white;
+    opacity: 1;
+    border-radius: 50%;
+    animation: loading 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+    &:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+  }
+}
+
 .slide-up {
   animation: slide-up 1s;
 }
