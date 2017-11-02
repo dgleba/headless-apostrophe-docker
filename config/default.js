@@ -69,7 +69,8 @@ module.exports = {
       loaders: {
         sass: {
           options: {
-            data: '$menu-count: 1;'
+            data: '$menu-count: 1;',
+            includePaths: ['lib/modules/apostrophe-assets/public/scss']
           }
         }
       }

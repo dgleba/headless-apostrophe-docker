@@ -40,21 +40,8 @@
       transform: rotate(25deg) translate($loop-x, 50%);
       transition: transform 1s cubic-bezier(0.78, -0.58, 1, 0.51) $loop-start;
 
-      @include arrow-anim-mixin("menu-", -1rem, 180deg);
-
       &:hover {
         animation: swing 0.7s ease;
-
-        #{$menu}__back .icon {
-          &--hidden {
-            opacity: 1;
-            animation: menu-arrow-anim 2.5s ease infinite;
-          }
-
-          g circle {
-            stroke-dashoffset: 100;
-          }
-        }
       }
 
       // hide back button if no other class than .at_menu__X
@@ -76,12 +63,6 @@
         flex-direction: row;
         cursor: default;
 
-        // page title in menu bar on single page
-        // .title {
-        //   animation: slide-right 2s ease-in-out;
-        //   margin-left: 19%;
-        // }
-
         &:hover {
           // no swing animation when on a page
           animation: swing 0s;
@@ -90,7 +71,6 @@
 
       &--disappear {
         transform: rotate(25deg) translate(-120%, $loop-y);
-        // transform: rotate(25deg) translate($loop-x, $loop-yter);
 
         #{$menu}__back {
           display: none;
@@ -127,6 +107,85 @@
     100% {
       transform: translateX($distance) rotate($angle);
       opacity: 0;
+    }
+  }
+}
+
+/// Create arrow
+/// @group mixins
+/// @param {String} $class - class name
+/// @param {String} $position - relative/absolute
+/// @param {String} $top - 20px/-1px
+/// @param {String} $right - 20px/-1px
+/// @param {String} $angle - 0deg/180deg
+/// @param {String} $menu - prefix for arrow animation (see arrow-anim-mixin)
+@mixin arrow-mixin ($class, $position, $top, $right, $angle, $menu: "") {
+  #{$class} {
+    width: 32px;
+    height: 32px;
+    position: $position;
+    top: $top;
+    right: $right;
+    cursor: pointer;
+    transition: transform 0.8s ease;
+    vertical-align: middle;
+    transform: rotate($angle);
+
+    g {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.5;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+
+      circle {
+        animation: stroke 2s ease;
+        transition: stroke-dashoffset 0.8s ease;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+      }
+
+      @if $class == ".checkmark" {
+        path {
+          stroke-dasharray: 100;
+          stroke-dashoffset: 100;
+          animation: stroke 1s ease-in 1.8s forwards;
+        }
+      }
+    }
+
+    &--hidden {
+      opacity: 0;
+      left: -35px;
+
+      g circle {
+        stroke-opacity: 0;
+      }
+    }
+
+    @if $class == ".checkmark" {
+      &:hover {
+        g {
+          circle {
+            stroke-dashoffset: 100;
+          }
+        }
+      }
+    }
+  }
+
+  @if $class == ".icon" {
+    &:hover {
+      #{$class} {
+        &--hidden {
+          opacity: 1;
+          animation: #{$menu}arrow-anim 2.5s ease infinite;
+        }
+
+        g circle {
+          stroke-dashoffset: 100;
+        }
+      }
     }
   }
 }
