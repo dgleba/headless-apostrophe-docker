@@ -77,6 +77,23 @@ module.exports = {
     }
   },
 
+  nodemailer: {
+    transport: {
+      host: 'ssl0.ovh.net',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'contact@jwreading.com',
+        pass: ''
+      }
+    },
+    options: {
+      from: '"JW Reading" <contact@jwreading.com>',
+      to: 'anthony.tarlao@gmail.com, tonydbz2002@hotmail.com',
+      subject: 'Nouveau message sur le site'
+    }
+  },
+
   client: {
     site: name,
     pages: park
