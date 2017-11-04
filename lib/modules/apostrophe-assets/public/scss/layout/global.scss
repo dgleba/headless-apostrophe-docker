@@ -100,8 +100,8 @@ body {
         }
       }
 
-      @include arrow-anim-mixin("menu-", -1rem, 180deg);
-      @include arrow-mixin(".icon", relative, -1px, initial, 180deg, "menu-");
+      @include arrow-anim-mixin('menu-', -1rem, 180deg);
+      @include arrow-mixin('.icon', relative, -1px, initial, 180deg, 'menu-');
     }
   }
 
