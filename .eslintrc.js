@@ -32,7 +32,6 @@ module.exports = {
     // allow comma-dangle
     'comma-dangle': 0,
     // allow multi-spaces
-    'no-multi-spaces': 0,
-    'max-len': ['warn', { 'code': 120 }]
+    'no-multi-spaces': 0
   }
 }
