@@ -17,6 +17,9 @@
     "webpack": "node app custom:webpack",
     "webpack:report": "node app custom:webpack --watch --report"
   },
+  "prettier": {
+    "printWidth": 100
+  },
   "lint-staged": {
     "lib/**/*.js": [
       "lint:js",
