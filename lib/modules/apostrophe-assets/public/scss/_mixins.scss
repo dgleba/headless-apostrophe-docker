@@ -119,7 +119,7 @@
 /// @param {String} $right - 20px/-1px
 /// @param {String} $angle - 0deg/180deg
 /// @param {String} $menu - prefix for arrow animation (see arrow-anim-mixin)
-@mixin arrow-mixin ($class, $position, $top, $right, $angle, $menu: "") {
+@mixin arrow-mixin ($class, $position, $top, $right, $angle, $menu: '') {
   #{$class} {
     width: 32px;
     height: 32px;
@@ -145,7 +145,7 @@
         stroke-dashoffset: 0;
       }
 
-      @if $class == ".checkmark" {
+      @if $class == '.checkmark' {
         path {
           stroke-dasharray: 100;
           stroke-dashoffset: 100;
@@ -163,7 +163,7 @@
       }
     }
 
-    @if $class == ".checkmark" {
+    @if $class == '.checkmark' {
       &:hover {
         g {
           circle {
@@ -174,7 +174,7 @@
     }
   }
 
-  @if $class == ".icon" {
+  @if $class == '.icon' {
     &:hover {
       #{$class} {
         &--hidden {

@@ -161,9 +161,9 @@ $timeline-color: $base-menu-color;
       margin-right: 5px;
     }
 
-    @include arrow-anim-mixin("", 1rem, 0);
-    @include arrow-mixin(".icon", relative, -1px, initial, 0deg);
+    @include arrow-anim-mixin('', 1rem, 0);
+    @include arrow-mixin('.icon', relative, -1px, initial, 0deg);
   }
 }
 
-@include arrow-mixin(".checkmark", absolute, 20px, 20px, 0deg);
+@include arrow-mixin('.checkmark', absolute, 20px, 20px, 0deg);
