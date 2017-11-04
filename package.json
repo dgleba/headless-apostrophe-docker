@@ -10,7 +10,7 @@
     "dev:webpack": "node app custom:webpack-dev-server",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "prettier-standard 'lib/**/*.scss' && stylelint 'lib/**/*.scss' --fix",
-    "lint:js": "prettier --print-width 120 --no-semi false --trailing-comma all 'lib/**/*.js' 'app.js'",
+    "lint:js": "prettier --print-width 120 --no-semi false --trailing-comma all --single-quote --write 'lib/**/*.js' 'app.js'",
     "precommit": "lint-staged",
     "prestart": "npm run clean && npm run webpack",
     "start": "NODE_ENV=production node app",
