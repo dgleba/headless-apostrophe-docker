@@ -54,6 +54,7 @@
     "gsap": "^1.20.2",
     "nodemailer": "^4.1.1",
     "npm-run-all": "^4.0.2",
+    "prettier-standard-formatter": "^0.222222222222222.333333333333333",
     "uploadfs": "^1.5.0"
   },
   "devDependencies": {
