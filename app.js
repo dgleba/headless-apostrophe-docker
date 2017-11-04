@@ -11,33 +11,33 @@ let apos = require('apostrophe')({
   modules: {
     'apostrophe-areas': {},
     'apostrophe-db': {
-      uri: config.get('mongo.uri')
+      uri: config.get('mongo.uri'),
     },
     'apostrophe-express': {
-      middleware: [validator()]
+      middleware: [validator()],
     },
     // Add custom apostrophe-modules and their respective configuration here!
     article: {},
     'article-pages': {
-      extend: 'apostrophe-pieces-pages'
+      extend: 'apostrophe-pieces-pages',
     },
     career: {},
     'career-pages': {
-      extend: 'apostrophe-pieces-pages'
+      extend: 'apostrophe-pieces-pages',
     },
     contact: {},
     'contact-pages': {
       extend: 'apostrophe-pieces-pages',
-      scene: 'user'
+      scene: 'user',
     },
     'contact-submit-widgets': {},
     menu: {},
     project: {},
     'project-pages': {
-      extend: 'apostrophe-pieces-pages'
+      extend: 'apostrophe-pieces-pages',
     },
     'webpack-custom': {
-      webpack: config.get('modules.webpack-custom')
-    }
-  }
+      webpack: config.get('modules.webpack-custom'),
+    },
+  },
 })
