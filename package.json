@@ -10,7 +10,7 @@
     "dev:webpack": "node app custom:webpack-dev-server",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "prettier-standard 'lib/**/*.scss' && stylelint 'lib/**/*.scss' --fix",
-    "lint:js": "prettier-standard 'lib/**/*.js' 'app.js'",
+    "lint:js": "prettier --print-width 120 --no-semi false --trailing-comma all 'lib/**/*.js' 'app.js'",
     "precommit": "lint-staged",
     "prestart": "npm run clean && npm run webpack",
     "start": "NODE_ENV=production node app",
@@ -54,7 +54,6 @@
     "gsap": "^1.20.2",
     "nodemailer": "^4.1.1",
     "npm-run-all": "^4.0.2",
-    "prettier-standard-formatter": "^0.222222222222222.333333333333333",
     "uploadfs": "^1.5.0"
   },
   "devDependencies": {
@@ -85,6 +84,7 @@
     "ora": "^1.3.0",
     "postcss-bem": "^0.4.1",
     "postcss-loader": "^2.0.5",
+    "prettier": "^1.7.4",
     "prettier-standard": "^6.0.0",
     "sass-loader": "^6.0.3",
     "sinon": "^2.3.4",
