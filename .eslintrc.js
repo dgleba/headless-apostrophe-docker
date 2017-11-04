@@ -2,12 +2,9 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
-  },
   env: {
     browser: true,
+    node: true
   },
   extends: [
     'standard', // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
@@ -35,6 +32,7 @@ module.exports = {
     // allow comma-dangle
     'comma-dangle': 0,
     // allow multi-spaces
-    'no-multi-spaces': 0
+    'no-multi-spaces': 0,
+    'max-len': [ 'warn', 120 ]
   }
 }
