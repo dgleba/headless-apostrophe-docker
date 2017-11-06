@@ -1,9 +1,14 @@
 {% import "apostrophe-schemas:macros.html" as schemas %}
+{% import "apostrophe-templates:nav.html" as nav %}
 
-<form class="apos-form apos-ui" data-contact-form>
-  <h4>Formulaire de contact</h4>
+<form class="apos-form apos-ui form" data-contact-form>
+  <h3 class="form__title">Formulaire de contact</h3>
   {{ schemas.fields(data.schema, { tabs: false }) }}
-  <button>Envoyer</button>
+  <button class="btn">
+    <span class="btn--label">Envoyer</span>
+    {{ nav.icon("at_menu icon") }}
+    {{ nav.icon("at_menu icon icon--hidden") }}
+  </button>
   {% for field in data.schema %}
     {# add "required"=true if necessary #}
     <input type="hidden" data-name="{{ field.name }}" data-required="{{ field.required }}" />

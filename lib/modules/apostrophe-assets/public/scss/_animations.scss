@@ -34,6 +34,18 @@
   }
 }
 
+@keyframes alert-slide-down {
+  0%,
+  100% {
+    transform: translateY(-160px);
+  }
+
+  10%,
+  90% {
+    transform: translateY(-45px);
+  }
+}
+
 @keyframes slide-right {
   0% {
     margin-left: 0;

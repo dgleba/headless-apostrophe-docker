@@ -146,23 +146,10 @@ $timeline-color: $base-menu-color;
     }
   }
 
-  &__link {
-    position: relative;
+  .btn {
     display: inline-block;
     left: 175px;
-    background: darken($timeline-color, 30%);
-    border-radius: 3px;
-    height: 50px;
-    padding: 10px 0 10px 25px;
-    cursor: pointer;
     box-shadow: 2px 2px 4px 0 #333;
-
-    &--label {
-      margin-right: 5px;
-    }
-
-    @include arrow-anim-mixin('', 1rem, 0);
-    @include arrow-mixin('.icon', relative, -1px, initial, 0deg);
   }
 }
 

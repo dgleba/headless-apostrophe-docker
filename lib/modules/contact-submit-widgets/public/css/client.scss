@@ -1,3 +1,64 @@
-[data-validation-msg] {
-  display: none;
+@import 'variables.scss';
+@import 'animations.scss';
+
+form {
+  min-width: 300px;
+  max-width: 900px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  [data-validation-msg] {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fde073;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden;
+    box-shadow: 0 0 5px black;
+    transform: translateY(-160px);
+    animation: alert-slide-down 2.5s 1s 1 ease forwards;
+  }
+
+  .form__title {
+    padding-left: 3px;
+  }
+
+  fieldset {
+    display: block;
+    padding-bottom: 10px;
+
+    label {
+      display: inline-block;
+      vertical-align: top;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      min-width: 150px;
+      width: 25%;
+
+      & + * {
+        width: 75%;
+        height: 30px;
+        box-shadow: 10px 10px 20px -14px #666;
+
+        @media (max-width: $large - 1) {
+          width: 100%;
+        }
+      }
+
+      & + textarea {
+        height: 300px;
+      }
+    }
+  }
+
+  .btn {
+    margin-left: auto;
+
+    @media (max-width: $large - 1) {
+      margin-top: 10px;
+    }
+  }
 }
