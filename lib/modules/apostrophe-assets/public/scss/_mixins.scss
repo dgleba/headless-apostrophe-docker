@@ -15,6 +15,7 @@
   $x: -2%;
   $y: 7%;
   $ybis: 0%;
+  $xsmall: -5%;
   $yter: -400%;
   $start-time: 0s;
 
@@ -25,6 +26,7 @@
       $loop-y: $y + $i * 28;
       $loop-ybis: $ybis + $i * -100;
       $loop-yter: $yter + $i * -100;
+      $loop-xsmall: $xsmall - $i * 5;
       $loop-start: $start-time + $i * 0.3;
 
       background: lighten($base-menu-color, $i * 10%);
@@ -44,6 +46,19 @@
         animation: swing 0.7s ease;
       }
 
+      @media (orientation: portrait) {
+        width: 100vh;
+        transform: rotate(25deg) translate($loop-xsmall, 50%);
+
+        @media (min-aspect-ratio: 5/8) {
+          width: 125vh;
+        }
+      }
+
+      @media (max-width: $medium - 1) {
+        height: 80px;
+      }
+
       // hide back button if no other class than .at_menu__X
       #{$menu}__back {
         display: none;
@@ -60,12 +75,32 @@
 
       &--appeared {
         width: 100vw;
-        flex-direction: row;
+        flex-direction: column;
         cursor: default;
 
         &:hover {
           // no swing animation when on a page
           animation: swing 0s;
+        }
+
+        .title {
+          align-self: flex-end;
+
+          @media (min-width: $small) {
+            left: 70vw;
+          }
+
+          @media (min-width: $medium) {
+            left: 74vw;
+          }
+
+          @media (min-width: $large) {
+            left: 81vw;
+          }
+
+          @media (min-width: $x-large) {
+            left: calc((100vw + 100vh) / 2 - 45px);
+          }
         }
       }
 
@@ -75,18 +110,6 @@
         #{$menu}__back {
           display: none;
         }
-      }
-
-      @media (orientation: portrait) {
-        width: 100vh;
-
-        @media (min-aspect-ratio: 5/8) {
-          width: 120vh;
-        }
-      }
-
-      @media (max-width: $medium - 1) {
-        height: 80px;
       }
     }
   }
