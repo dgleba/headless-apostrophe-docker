@@ -1,7 +1,7 @@
 @import 'variables.scss';
 @import 'animations.scss';
 
-form {
+[data-contact-form] {
   min-width: 300px;
   max-width: 900px;
   padding-left: 10px;

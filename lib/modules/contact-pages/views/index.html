@@ -8,6 +8,18 @@
     {{ nav.menubar(data.global._menus, 1) }}
 
     <section class="at_content slide-up">
+      <div>
+        {{ apos.area(data.page, 'bio', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Bold', 'Italic' ]
+            },
+            'apostrophe-images': {
+              size: 'two-thirds'
+            }
+          }
+        }) }}
+      </div>
       {{ apos.singleton(data.page, 'submit', 'contact-submit') }} {# contact form #}
     </section>
 	</main>
