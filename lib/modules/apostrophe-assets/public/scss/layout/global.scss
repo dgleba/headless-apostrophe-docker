@@ -1,6 +1,5 @@
 @import 'variables.scss';
 @import 'mixins.scss';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
 @font-face {
   font-family: 'Meedori Sans Regular';
@@ -15,6 +14,11 @@
 @font-face {
   font-family: Kanji;
   src: url('../../fonts/Kanji.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Coco Gothic Light';
+  src: url('../../fonts/Coco-Gothic-Light.otf') format('opentype');
 }
 
 * {
@@ -36,9 +40,7 @@ body {
   padding: 0;
   margin: 0;
   background: $bgd-color;
-  // color: white;
-  font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
-  // font-size: 18px;
+  font-family: 'Coco Gothic Light', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn {
@@ -147,10 +149,10 @@ body {
 
   &_content {
     position: relative;
-    // left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     &--home {
-      // left: 0;
       @media (max-width: $medium - 1) and (orientation: landscape) {
         display: none;
       }
