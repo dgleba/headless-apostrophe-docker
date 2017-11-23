@@ -1,6 +1,29 @@
-.social-icons {
-  img {
-    width: 32px;
-    height: 32px;
+.at_intro {
+  .at_content__slide {
+    opacity: 0;
+    position: relative;
+    left: 1vw;
+
+    &:nth-child(odd) {
+      transform: translate3d(50vw, 0, 0);
+    }
+
+    &:nth-child(even) {
+      transform: translate3d(-50vw, 0, 0);
+    }
+
+    &.in-view {
+      opacity: 1;
+      // left: 1vw;
+      transform: none;
+      transition: all 2s ease-in-out;
+    }
+  }
+
+  &__social {
+    img {
+      width: 32px;
+      height: 32px;
+    }
   }
 }

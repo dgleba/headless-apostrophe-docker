@@ -7,8 +7,8 @@
 	<main class="at">
     {{ nav.menubar(data.global._menus, 1) }}
 
-    <section class="at_content slide-up">
-      <div>
+    <section class="at_content at_intro">
+      <div class="at_intro__bio at_content__slide">
         {{ apos.area(data.page, 'bio', {
           widgets: {
             'apostrophe-rich-text': {
@@ -20,12 +20,48 @@
           }
         }) }}
       </div>
-      <div class="social-icons">
+      <div class="at_intro__tech at_content__slide">
+        {{ apos.area(data.page, 'tech', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Bold', 'Italic' ]
+            },
+            'apostrophe-images': {
+              size: 'two-thirds'
+            }
+          }
+        }) }}
+      </div>
+      <div class="at_intro__projects at_content__slide">
+        {{ apos.area(data.page, 'projects', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Bold', 'Italic' ]
+            },
+            'apostrophe-images': {
+              size: 'two-thirds'
+            }
+          }
+        }) }}
+      </div>
+      <div class="at_intro__social at_content__slide">
+        {{ apos.area(data.page, 'social', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Bold', 'Italic' ]
+            },
+            'apostrophe-images': {
+              size: 'two-thirds'
+            }
+          }
+        }) }}
         <img src="/img/github.png"/>
         <img src="/img/linkedin.png"/>
         <img src="/img/malt.svg"/>
       </div>
-      {{ apos.singleton(data.page, 'submit', 'contact-submit') }} {# contact form #}
+      <div class="at_intro__form at_content__slide">
+        {{ apos.singleton(data.page, 'submit', 'contact-submit') }}
+      </div>{# contact form #}
     </section>
 	</main>
 {% endblock %}
