@@ -48,15 +48,25 @@
 
 @keyframes slide-right {
   0% {
-    margin-left: 0;
+    left: 100vw;
   }
 
   100% {
-    margin-left: $slide-margin;
+    left: 1vw;
   }
 }
 
 @keyframes slide-left {
+  0% {
+    left: -50vw;
+  }
+
+  100% {
+    left: 1vw;
+  }
+}
+
+@keyframes menu-slide-left {
   0% {
     margin-left: $slide-margin * 2;
   }

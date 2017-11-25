@@ -93,6 +93,14 @@ body {
   opacity: 0;
 }
 
+.slide-right {
+  animation: slide-right 1s;
+}
+
+.slide-left {
+  animation: slide-left 1s;
+}
+
 .add {
   display: block;
 }
@@ -134,7 +142,7 @@ body {
       animation: fade-in 2s ease-in-out;
 
       &.breadcrumb {
-        animation: slide-left 2s ease-in-out;
+        animation: menu-slide-left 2s ease-in-out;
         margin-left: 45px;
 
         .breadcrumb--root {
