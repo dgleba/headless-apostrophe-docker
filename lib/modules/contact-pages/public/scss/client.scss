@@ -1,3 +1,6 @@
+@import 'placeholders.scss';
+@import 'variables.scss';
+
 .at_intro {
   padding-right: 0;
   padding-left: 0;
@@ -5,6 +8,8 @@
   .at_content__slide {
     opacity: 0;
     position: relative;
+    padding: 10px;
+    color: $charcoal;
 
     &:nth-child(odd) {
       transform: translate3d(50vw, 0, 0);
@@ -21,12 +26,30 @@
 
     @for $i from 1 to 6 {
       &:nth-child(#{$i}) {
-        transition: all 0.5s linear ($i - 1) * 0.5s;
+        transition: all 0.5s linear ($i - 1) * 0.25s;
       }
+    }
+
+    p:first-child {
+      @extend %contact-font-placeholder;
     }
   }
 
+  &__bio {
+    background: $yellow;
+  }
+
+  &__tech {
+    background: $yellow-light;
+  }
+
+  &__projects {
+    background: $wheat;
+  }
+
   &__social {
+    background: $greyish;
+
     img {
       width: 32px;
       height: 32px;
@@ -34,7 +57,7 @@
   }
 
   &__form {
-    background: #3a4952;
+    background: $charcoal;
     padding-top: 5px;
     padding-bottom: 5px;
   }
