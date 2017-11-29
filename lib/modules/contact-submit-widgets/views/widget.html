@@ -6,8 +6,8 @@
   {{ schemas.fields(data.schema, { tabs: false }) }}
   <button class="btn">
     <span class="btn--label">Envoyer</span>
-    {{ nav.icon("at_menu icon") }}
-    {{ nav.icon("at_menu icon icon--hidden") }}
+    {{ nav.icon("form icon") }}
+    {{ nav.icon("form icon icon--hidden") }}
   </button>
   {% for field in data.schema %}
     {# add "required"=true if necessary #}

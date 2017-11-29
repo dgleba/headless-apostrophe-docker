@@ -119,17 +119,32 @@
 /// @group mixins
 /// @param {Int} $name - keyframes name
 /// @param {Int} $distance - 1rem/-1rem
-/// @param {String} $angle - 0/180deg
-@mixin arrow-anim-mixin ($name, $distance, $angle) {
+/// @param {String} $angle - 0/180deg/90deg
+/// @param {String} $direction - row/column
+@mixin arrow-anim-mixin ($name, $distance, $angle, $direction: 'row') {
   @keyframes #{$name}arrow-anim {
     0% {
       opacity: 1;
-      transform: translateX(0) rotate($angle);
+
+      @if $direction == 'row' {
+        transform: translateX(0) rotate($angle);
+      }
+
+      @else {
+        transform: translateY(0) rotate($angle);
+      }
     }
 
     100% {
-      transform: translateX($distance) rotate($angle);
       opacity: 0;
+
+      @if $direction == 'row' {
+        transform: translateX($distance) rotate($angle);
+      }
+
+      @else {
+        transform: translateY($distance) rotate($angle);
+      }
     }
   }
 }
@@ -141,8 +156,8 @@
 /// @param {String} $top - 20px/-1px
 /// @param {String} $right - 20px/-1px
 /// @param {String} $angle - 0deg/180deg
-/// @param {String} $menu - prefix for arrow animation (see arrow-anim-mixin)
-@mixin arrow-mixin ($class, $position, $top, $right, $angle, $menu: '') {
+/// @param {prefix} $menu - prefix for arrow animation (see arrow-anim-mixin)
+@mixin arrow-mixin ($class, $position, $top, $right, $angle, $prefix: '') {
   #{$class} {
     width: 32px;
     height: 32px;
@@ -179,7 +194,7 @@
 
     &--hidden {
       opacity: 0;
-      left: -35px;
+      left: -38px;
 
       g circle {
         stroke-opacity: 0;
@@ -197,12 +212,12 @@
     }
   }
 
-  @if $class == '.icon' {
+  @if $class == '.icon' or '.at_intro.icon' {
     &:hover {
       #{$class} {
         &--hidden {
           opacity: 1;
-          animation: #{$menu}arrow-anim 2.5s ease infinite;
+          animation: #{$prefix}arrow-anim 2.5s ease infinite;
         }
 
         g circle {
