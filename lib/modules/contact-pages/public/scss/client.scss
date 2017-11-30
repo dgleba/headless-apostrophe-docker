@@ -42,24 +42,21 @@
     @include arrow-anim-mixin('intro-', 1rem, 90deg, 'column');
     @include arrow-mixin('.at_intro.icon', relative, -1px, initial, 90deg, 'intro-');
 
-    .btn {
+    .at_intro__btn {
       width: 195px;
       margin-left: 42%;
       margin-bottom: -10px;
       box-shadow: none;
-      // background: rgba(125, 125, 125, .10);
       background: transparent;
       border: 1px solid darken($base-menu-color, 30%);
 
-      &--label {
+      .btn--label {
         color: darken($base-menu-color, 30%);
       }
 
-      .icon {
-        g {
-          stroke: darken($base-menu-color, 30%);
-          stroke-width: 1;
-        }
+      .icon g {
+        stroke: darken($base-menu-color, 30%);
+        stroke-width: 1;
       }
     }
   }

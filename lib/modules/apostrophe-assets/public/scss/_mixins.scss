@@ -156,7 +156,7 @@
 /// @param {String} $top - 20px/-1px
 /// @param {String} $right - 20px/-1px
 /// @param {String} $angle - 0deg/180deg
-/// @param {prefix} $menu - prefix for arrow animation (see arrow-anim-mixin)
+/// @param {String} $prefix - prefix for arrow animation (see arrow-anim-mixin)
 @mixin arrow-mixin ($class, $position, $top, $right, $angle, $prefix: '') {
   #{$class} {
     width: 32px;
