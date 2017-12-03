@@ -14,8 +14,8 @@
     "precommit": "lint-staged",
     "prestart": "npm run clean && npm run webpack",
     "start": "NODE_ENV=production node app",
-    "webpack": "node app custom:webpack",
-    "webpack:report": "node app custom:webpack --watch --report"
+    "webpack": "NODE_ENV=production node app custom:webpack",
+    "webpack:report": "NODE_ENV=production node app custom:webpack --watch --report"
   },
   "lint-staged": {
     "lib/**/*.js": [
