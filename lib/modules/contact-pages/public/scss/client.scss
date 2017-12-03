@@ -7,6 +7,9 @@
   padding-left: 0;
 
   .at_content__slide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     opacity: 0;
     position: relative;
     padding: 10px;
@@ -32,7 +35,7 @@
     }
 
     p:first-child {
-      @extend %contact-font-placeholder;
+      @extend %intro-font-placeholder;
     }
 
     p:nth-child(n + 3) {
@@ -43,8 +46,8 @@
     @include arrow-mixin('.at_intro.icon', relative, -1px, initial, 90deg, 'intro-');
 
     .at_intro__btn {
+      align-self: center;
       width: 195px;
-      margin-left: 42%;
       margin-bottom: -10px;
       box-shadow: none;
       background: transparent;
@@ -63,6 +66,10 @@
 
   &__bio {
     background: $yellow;
+
+    @media (max-width: $medium - 1) {
+      margin-top: -20px;
+    }
   }
 
   &__tech {

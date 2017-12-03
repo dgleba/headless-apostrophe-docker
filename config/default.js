@@ -21,10 +21,10 @@ const park = [
     type: 'home'
   },
   {
-    slug: '/contact',
+    slug: '/intro',
     published: true,
     type: 'contact-page',
-    title: 'Contact'
+    title: 'Intro'
   },
   {
     slug: '/projets',
@@ -60,6 +60,30 @@ module.exports = {
   // Modules overrides:
   //
   modules: {
+    'apostrophe-pages': {
+      types: [
+        {
+          name: 'home',
+          label: 'Home'
+        },
+        {
+          name: 'article-page',
+          label: 'Blog'
+        },
+        {
+          name: 'career-page',
+          label: 'Parcours'
+        },
+        {
+          name: 'contact-page',
+          label: 'Intro'
+        },
+        {
+          name: 'project-page',
+          label: 'Projet'
+        },
+      ]
+    },
     pages: {
       park
     },

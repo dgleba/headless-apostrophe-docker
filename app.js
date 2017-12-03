@@ -16,6 +16,7 @@ let apos = require('apostrophe')({
     'apostrophe-express': {
       middleware: [validator()],
     },
+    'apostrophe-pages': config.get('modules.apostrophe-pages'),
     // Add custom apostrophe-modules and their respective configuration here!
     article: {},
     'article-pages': {

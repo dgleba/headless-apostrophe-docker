@@ -4,6 +4,8 @@
 $timeline-color: $base-menu-color;
 
 .at_timeline {
+  height: 100vh;
+  margin-top: -20px;
   background: lighten($base-menu-color, 30%);
 
   & > ul {
