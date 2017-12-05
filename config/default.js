@@ -14,29 +14,28 @@ const pages = {
   home: {
     slug: '/',
     type: 'home',
-    label: 'Accueil'
+    label: 'Accueil',
   },
   contact: {
     slug: '/intro',
     type: 'contact-page',
-    label: 'Intro'
+    label: 'Intro',
   },
   project: {
     slug: '/projets',
     type: 'project-page',
-    label: 'Projets'
+    label: 'Projets',
   },
   article: {
     slug: '/blog',
     type: 'article-page',
-    label: 'Blog'
+    label: 'Blog',
   },
   career: {
     slug: '/parcours',
     type: 'career-page',
-    label: 'Parcours'
+    label: 'Parcours',
   },
-
 }
 
 const park = [
@@ -72,7 +71,7 @@ const park = [
     type: pages.career.type,
     title: pages.career.label,
     published: true,
-  }
+  },
 ]
 
 module.exports = {
@@ -82,7 +81,7 @@ module.exports = {
 
   // Mongo db:
   mongo: {
-    uri: process.env.MONGODB || `mongodb://127.0.0.1:27017/${name}`
+    uri: process.env.MONGODB || `mongodb://127.0.0.1:27017/${name}`,
   },
 
   //
@@ -93,23 +92,23 @@ module.exports = {
       types: [
         {
           name: pages.home.type,
-          label: pages.home.label
+          label: pages.home.label,
         },
         {
           name: pages.contact.type,
-          label: pages.contact.label
+          label: pages.contact.label,
         },
         {
           name: pages.project.type,
-          label: pages.project.label
+          label: pages.project.label,
         },
         {
           name: pages.article.type,
-          label: pages.article.label
+          label: pages.article.label,
         },
         {
           name: pages.career.type,
-          label: pages.career.label
+          label: pages.career.label,
         },
       ],
       pages: park,
@@ -122,11 +121,11 @@ module.exports = {
           options: {
             sourceMap: true,
             data: '$menu-count: 1;',
-            includePaths: ['lib/modules/apostrophe-assets/public/scss']
-          }
-        }
-      }
-    }
+            includePaths: ['lib/modules/apostrophe-assets/public/scss'],
+          },
+        },
+      },
+    },
   },
 
   nodemailer: {
@@ -136,19 +135,19 @@ module.exports = {
       secure: false,
       auth: {
         user: 'contact@jwreading.com',
-        pass: ''
-      }
+        pass: '',
+      },
     },
     options: {
       from: '"JW Reading" <contact@jwreading.com>',
       to: 'anthony.tarlao@gmail.com, tonydbz2002@hotmail.com',
-      subject: 'Nouveau message sur le site'
-    }
+      subject: 'Nouveau message sur le site',
+    },
   },
 
   client: {
     site: name,
-    pages: park
+    pages: park,
   },
 
   colors: {
@@ -169,7 +168,7 @@ module.exports = {
       blue: '\x1b[34m',
       magenta: '\x1b[35m',
       cyan: '\x1b[36m',
-      white: '\x1b[37m'
+      white: '\x1b[37m',
     },
 
     bg: {
@@ -181,26 +180,17 @@ module.exports = {
       blue: '\x1b[44m',
       magenta: '\x1b[45m',
       cyan: '\x1b[46m',
-      white: '\x1b[47m'
-    }
+      white: '\x1b[47m',
+    },
   },
 
   RTEConfig: {
-    toolbar: [
-      'Styles',
-      'Bold',
-      'Italic',
-      'Link',
-      'NumberedList',
-      'BulletedList',
-      'Undo',
-      'Redo'
-    ],
+    toolbar: ['Styles', 'Bold', 'Italic', 'Link', 'NumberedList', 'BulletedList', 'Undo', 'Redo'],
     styles: [
       { name: 'Paragraphe', element: 'p' },
       { name: 'Paragraphe 2', element: 'h5' },
       { name: 'Title', element: 'h3' },
-      { name: 'Subtitle', element: 'h4' }
-    ]
-  }
+      { name: 'Subtitle', element: 'h4' },
+    ],
+  },
 }

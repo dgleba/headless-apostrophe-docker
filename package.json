@@ -18,6 +18,10 @@
     "webpack:report": "NODE_ENV=production node app custom:webpack --watch --report"
   },
   "lint-staged": {
+    "config/**/*.js": [
+      "lint:js",
+      "git add"
+    ],
     "lib/**/*.js": [
       "lint:js",
       "git add"
