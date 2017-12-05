@@ -7,42 +7,71 @@
 // If you need to setup a local configuration for your dev environnement you can
 // create a ./local.js file with your own overrides. Note, that the local.js
 // file does not needs to contains all the configuration keys: just the overrides.
-//
-// const path = require('path')
+
 const name = 'site'
+
+const pages = {
+  home: {
+    slug: '/',
+    type: 'home',
+    label: 'Accueil'
+  },
+  contact: {
+    slug: '/intro',
+    type: 'contact-page',
+    label: 'Intro'
+  },
+  project: {
+    slug: '/projets',
+    type: 'project-page',
+    label: 'Projets'
+  },
+  article: {
+    slug: '/blog',
+    type: 'article-page',
+    label: 'Blog'
+  },
+  career: {
+    slug: '/parcours',
+    type: 'career-page',
+    label: 'Parcours'
+  },
+
+}
+
 const park = [
   {
-    slug: '/',
-    published: true,
+    slug: pages.home.slug,
     _defaults: {
-      title: 'Accueil',
-      type: 'home'
+      title: pages.home.label,
+      type: pages.home.type,
     },
-    type: 'home'
+    type: pages.home.type,
+    published: true,
   },
   {
-    slug: '/intro',
+    slug: pages.contact.slug,
+    type: pages.contact.type,
+    title: pages.contact.label,
     published: true,
-    type: 'contact-page',
-    title: 'Intro'
   },
   {
-    slug: '/projets',
+    slug: pages.project.slug,
+    type: pages.project.type,
+    title: pages.project.label,
     published: true,
-    type: 'project-page',
-    title: 'Projets'
   },
   {
-    slug: '/blog',
+    slug: pages.article.slug,
+    type: pages.article.type,
+    title: pages.article.label,
     published: true,
-    type: 'article-page',
-    title: 'Blog'
   },
   {
-    slug: '/parcours',
+    slug: pages.career.slug,
+    type: pages.career.type,
+    title: pages.career.label,
     published: true,
-    type: 'career-page',
-    title: 'Parcours'
   }
 ]
 
@@ -63,29 +92,27 @@ module.exports = {
     'apostrophe-pages': {
       types: [
         {
-          name: 'home',
-          label: 'Home'
+          name: pages.home.type,
+          label: pages.home.label
         },
         {
-          name: 'article-page',
-          label: 'Blog'
+          name: pages.contact.type,
+          label: pages.contact.label
         },
         {
-          name: 'career-page',
-          label: 'Parcours'
+          name: pages.project.type,
+          label: pages.project.label
         },
         {
-          name: 'contact-page',
-          label: 'Intro'
+          name: pages.article.type,
+          label: pages.article.label
         },
         {
-          name: 'project-page',
-          label: 'Projet'
+          name: pages.career.type,
+          label: pages.career.label
         },
-      ]
-    },
-    pages: {
-      park
+      ],
+      pages: park,
     },
     'webpack-custom': {
       // See custom-webpack/lib/default-options.js documentation for many
