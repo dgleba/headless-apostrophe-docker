@@ -40,6 +40,11 @@
 
     p:nth-child(n + 3) {
       display: none;
+
+      &.p-show {
+        display: block;
+        animation: fade-in-from-none 1s ease-in-out;
+      }
     }
 
     @include arrow-anim-mixin('intro-', 1rem, 90deg, 'column');

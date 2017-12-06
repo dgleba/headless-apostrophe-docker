@@ -36,6 +36,11 @@
             }
           }
         }) }}
+        <span class="btn at_intro__btn">
+          <span class="btn--label">Voir plus</span>
+          {{ nav.icon("at_intro icon") }}
+          {{ nav.icon("at_intro icon icon--hidden") }}
+        </span>
       </div>
       <div class="at_intro__projects at_content__slide">
         {{ apos.area(data.page, 'projects', {
@@ -48,6 +53,11 @@
             }
           }
         }) }}
+        <span class="btn at_intro__btn">
+          <span class="btn--label">Voir plus</span>
+          {{ nav.icon("at_intro icon") }}
+          {{ nav.icon("at_intro icon icon--hidden") }}
+        </span>
       </div>
       <div class="at_intro__social at_content__slide">
         {{ apos.area(data.page, 'social', {
@@ -60,9 +70,11 @@
             }
           }
         }) }}
-        <img src="/img/github.png"/>
-        <img src="/img/linkedin.png"/>
-        <img src="/img/malt.svg"/>
+        <div class="at_intro__social--icons">
+          <img src="/img/github.png"/>
+          <img src="/img/linkedin.png"/>
+          <img src="/img/malt.svg"/>
+        </div>
       </div>
       <div class="at_intro__form at_content__slide">
         {{ apos.singleton(data.page, 'submit', 'contact-submit') }}
