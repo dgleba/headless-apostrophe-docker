@@ -41,7 +41,7 @@
     p:nth-child(n + 3) {
       display: none;
 
-      &.p-show {
+      &.p--show {
         display: block;
         animation: fade-in-from-none 1s ease-in-out;
       }

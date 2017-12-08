@@ -12,7 +12,7 @@
   [data-validation-msg] {
     position: absolute;
     z-index: 1;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     background: #fde073;
@@ -20,8 +20,21 @@
     line-height: 2.5;
     overflow: hidden;
     box-shadow: 0 0 5px black;
-    transform: translateY(-160px);
-    animation: alert-slide-down 2.5s 1s 1 ease forwards;
+    transform: translateY(45px);
+  }
+
+  .msg__show {
+    animation: alert-slide-down 2.5s ease 0.25s 1 forwards;
+
+    &--success {
+      background: #dff2bf;
+      color: #270;
+    }
+
+    &--error {
+      background: #ffbaba;
+      color: #d8000c;
+    }
   }
 
   .form__title {

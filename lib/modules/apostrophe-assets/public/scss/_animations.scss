@@ -37,12 +37,12 @@
 @keyframes alert-slide-down {
   0%,
   100% {
-    transform: translateY(-160px);
+    transform: translateY(45px);
   }
 
   10%,
   90% {
-    transform: translateY(-45px);
+    transform: translateY(0);
   }
 }
 
