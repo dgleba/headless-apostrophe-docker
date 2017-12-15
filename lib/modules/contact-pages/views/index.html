@@ -36,11 +36,16 @@
             }
           }
         }) }}
-        <span class="btn at_intro__btn">
+        <div class="slider">
+          <div>1</div>
+          <div class="active">2</div>
+          <div>3</div>
+        </div>
+        {# <span class="btn at_intro__btn">
           <span class="btn--label">Voir plus</span>
           {{ nav.icon("at_intro icon") }}
           {{ nav.icon("at_intro icon icon--hidden") }}
-        </span>
+        </span> #}
       </div>
       <div class="at_intro__projects at_content__slide">
         {{ apos.area(data.page, 'projects', {
