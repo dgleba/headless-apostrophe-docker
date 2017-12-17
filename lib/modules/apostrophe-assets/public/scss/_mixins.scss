@@ -212,7 +212,7 @@
     }
   }
 
-  @if $class == '.icon' or '.at_intro.icon' {
+  @if $class == '.icon' or '.at_intro.icon' or '.at_slider__btn--prev.icon' or '.at_slider__btn--next.icon' {
     &:hover {
       #{$class} {
         &--hidden {

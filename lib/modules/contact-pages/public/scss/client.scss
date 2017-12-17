@@ -47,27 +47,6 @@
       }
     }
 
-    .slider {
-      display: block;
-      width: 100vw;
-      height: 100px;
-
-      div {
-        float: left;
-        height: 100%;
-        width: calc(33% - 30px);
-        padding: 50px;
-        text-align: center;
-        margin: 0 10px 10px;
-        border: 1px solid black;
-
-        &.active {
-          height: calc(100% + 50px);
-          // width: calc(100% + 50px);
-        }
-      }
-    }
-
     @include arrow-anim-mixin('intro-', 1rem, 90deg, 'column');
     @include arrow-mixin('.at_intro.icon', relative, -1px, initial, 90deg, 'intro-');
 
