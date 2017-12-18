@@ -37,6 +37,7 @@ let apos = require('apostrophe')({
     'project-pages': {
       extend: 'apostrophe-pieces-pages',
     },
+    technology: {},
     'webpack-custom': {
       webpack: config.get('modules.webpack-custom'),
     },
