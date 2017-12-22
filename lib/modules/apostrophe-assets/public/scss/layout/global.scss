@@ -172,20 +172,24 @@ body {
     display: flex;
     flex-wrap: wrap;
 
-    &__slides {
+    &__container {
       display: flex;
       max-width: 98vw;
       overflow-x: scroll;
 
-      & > div {
-        flex-shrink: 0;
-        width: 300px;
-        height: 300px;
-        padding: 50px;
-        text-align: center;
-        margin: 0 10px 10px;
-        border: 1px solid black;
+      & div {
+        display: flex;
       }
+    }
+
+    &__slides {
+      flex-shrink: 0;
+      width: 300px;
+      height: 300px;
+      padding: 50px;
+      text-align: center;
+      margin: 0 10px 10px;
+      border: 1px solid black;
     }
 
     &__btn {
