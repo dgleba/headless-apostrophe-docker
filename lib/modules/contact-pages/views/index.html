@@ -1,7 +1,9 @@
 {% extends data.outerLayout %}
 {% import "apostrophe-templates:nav.html" as nav %}
+{% import "apostrophe-templates:config.html" as RTE %}
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
+
 
 {% block main %}
 	<main class="at">
@@ -11,9 +13,22 @@
       <div class="at_intro__bio at_content__slide">
         {{ apos.area(data.page, 'bio', {
           widgets: {
-            'apostrophe-rich-text': {
-              toolbar: [ 'Bold', 'Italic' ]
-            },
+            'apostrophe-rich-text': RTE.config,
+            'apostrophe-images': {
+              size: 'two-thirds'
+            }
+          }
+        }) }}
+        <span class="btn at_intro__btn">
+          <span class="btn--label">Voir plus</span>
+          {{ nav.icon("at_intro icon") }}
+          {{ nav.icon("at_intro icon icon--hidden") }}
+        </span>
+      </div>
+      <div class="at_intro__projects at_content__slide">
+        {{ apos.area(data.page, 'projects', {
+          widgets: {
+            'apostrophe-rich-text': RTE.config,
             'apostrophe-images': {
               size: 'two-thirds'
             }
@@ -28,9 +43,7 @@
       <div class="at_intro__tech at_content__slide">
         {{ apos.area(data.page, 'tech', {
           widgets: {
-            'apostrophe-rich-text': {
-              toolbar: [ 'Bold', 'Italic' ]
-            },
+            'apostrophe-rich-text': RTE.config,
             'apostrophe-images': {
               size: 'two-thirds'
             }
@@ -55,29 +68,10 @@
           </div>
         </div>
       </div>
-      <div class="at_intro__projects at_content__slide">
-        {{ apos.area(data.page, 'projects', {
-          widgets: {
-            'apostrophe-rich-text': {
-              toolbar: [ 'Bold', 'Italic' ]
-            },
-            'apostrophe-images': {
-              size: 'two-thirds'
-            }
-          }
-        }) }}
-        <span class="btn at_intro__btn">
-          <span class="btn--label">Voir plus</span>
-          {{ nav.icon("at_intro icon") }}
-          {{ nav.icon("at_intro icon icon--hidden") }}
-        </span>
-      </div>
       <div class="at_intro__social at_content__slide">
         {{ apos.area(data.page, 'social', {
           widgets: {
-            'apostrophe-rich-text': {
-              toolbar: [ 'Bold', 'Italic' ]
-            },
+            'apostrophe-rich-text': RTE.config,
             'apostrophe-images': {
               size: 'two-thirds'
             }

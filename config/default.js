@@ -185,12 +185,24 @@ module.exports = {
   },
 
   RTEConfig: {
-    toolbar: ['Styles', 'Bold', 'Italic', 'Link', 'NumberedList', 'BulletedList', 'Undo', 'Redo'],
+    toolbar: [
+      'Scayt',
+      'Format',
+      'Styles',
+      'Bold',
+      'Italic',
+      'Link',
+      'NumberedList',
+      'BulletedList',
+      'Blockquote',
+      'Undo',
+      'Redo',
+    ],
     styles: [
       { name: 'Paragraphe', element: 'p' },
       { name: 'Paragraphe 2', element: 'h5' },
       { name: 'Title', element: 'h3' },
-      { name: 'Subtitle', element: 'h4' },
-    ],
+      { name: 'Subtitle', element: 'h4' } // prettier-ignore
+    ], // prettier-ignore
   },
 }
