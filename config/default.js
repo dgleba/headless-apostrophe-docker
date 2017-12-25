@@ -202,7 +202,7 @@ module.exports = {
       { name: 'Paragraphe', element: 'p' },
       { name: 'Paragraphe 2', element: 'h5' },
       { name: 'Title', element: 'h3' },
-      { name: 'Subtitle', element: 'h4' } // prettier-ignore
-    ], // prettier-ignore
+      { name: 'Subtitle', element: 'h4' }, // prettier-ignore
+    ],
   },
 }
