@@ -1,0 +1,49 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.technology {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 8px 14px -5px #333;
+
+  ul {
+    list-style-type: circle;
+    padding-left: 10px;
+  }
+
+  li {
+    align-self: center;
+  }
+
+  &__title {
+    align-self: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__content {
+    width: 120px;
+  }
+
+  &__img {
+    align-self: flex-start;
+
+    &-src {
+      height: auto;
+      max-height: 60px;
+      max-width: 100px;
+    }
+  }
+
+  &__btn {
+    padding: 15px 10px;
+    width: auto;
+    box-shadow: none;
+    margin-bottom: 5px;
+  }
+}
+
+@include mix-background-colors('technology', #e4dbaf, #3a4952, 10);

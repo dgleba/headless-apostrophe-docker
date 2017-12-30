@@ -227,3 +227,27 @@
     }
   }
 }
+
+/// Output colors shades between two colors
+/// @group mixins
+/// @param {String} $class - class name
+/// @param {String} $color1 - end color
+/// @param {String} $color2 - start color
+/// @param {String} $steps - number of shades to output
+@mixin mix-background-colors ($class, $color1, $color2, $steps) {
+  @for $i from 0 to $steps {
+    $background: mix($color1, $color2, percentage($i / ($steps - 1)));
+
+    .#{$class}-#{$i + 1} {
+      background: $background;
+
+      @if (lightness($background) < 60) {
+        color: white;
+      }
+
+      @else {
+        color: black;
+      }
+    }
+  }
+}

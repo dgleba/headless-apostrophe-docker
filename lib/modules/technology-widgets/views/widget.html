@@ -1,19 +1,28 @@
 {% for piece in data.widget._pieces %}
-  <div class="at_slider__slides">
-    {{ piece.title }}
+  <div class="at_slider__slides technology technology-{{ loop.index }}">
+    <div class="technology__title">{{ piece.title }}</div>
+    <ul>
     {% for content in piece.content %}
-      <br />{{ content.technology }}
-      <div class="img-container">
-        <img src="{{ apos.attachments.url(apos.images.first(content.logo), { size: 'one-half' }) }}" style="width: auto; height: 60px" />``
+      <div class="technology__container">
+        <li><div class="technology__content">{{ content.technology }}</div></li>
+        <a class="btn technology__btn">
+          Exemple
+        </a>
+        {% if apos.images.first(content.logo) %}
+          <div class="technology__img">
+            <img class="technology__img-src" src="{{ apos.attachments.url(apos.images.first(content.logo), { size: 'one-half' }) }}" />
+          </div>
+        {% endif %}
       </div>
     {% endfor %}
+    </ul>
   </div>
 {% endfor %}
-<div class="at_slider__slides">Slide #2</div>
-<div class="at_slider__slides">Slide #3</div>
-<div class="at_slider__slides">Slide #4</div>
-<div class="at_slider__slides">Slide #5</div>
-<div class="at_slider__slides">Slide #6</div>
-<div class="at_slider__slides">Slide #7</div>
-<div class="at_slider__slides">Slide #8</div>
-<div class="at_slider__slides">Slide #9</div>
+<div class="at_slider__slides technology technology-3">Slide #2</div>
+<div class="at_slider__slides technology technology-4">Slide #3</div>
+<div class="at_slider__slides technology technology-5">Slide #4</div>
+<div class="at_slider__slides technology technology-6">Slide #5</div>
+<div class="at_slider__slides technology technology-7">Slide #6</div>
+<div class="at_slider__slides technology technology-8">Slide #7</div>
+<div class="at_slider__slides technology technology-9">Slide #8</div>
+<div class="at_slider__slides technology technology-10">Slide #9</div>
