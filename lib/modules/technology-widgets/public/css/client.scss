@@ -24,7 +24,8 @@
     flex-direction: row;
   }
 
-  &__content {
+  div &__content {
+    display: inline-flex;
     width: 120px;
   }
 
