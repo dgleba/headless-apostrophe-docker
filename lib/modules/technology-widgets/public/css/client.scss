@@ -26,17 +26,7 @@
 
   div &__content {
     display: inline-flex;
-    width: 120px;
-  }
-
-  &__img {
-    align-self: flex-start;
-
-    &-src {
-      height: auto;
-      max-height: 60px;
-      max-width: 100px;
-    }
+    width: 170px;
   }
 
   &__btn {
@@ -44,6 +34,7 @@
     width: auto;
     box-shadow: none;
     margin-bottom: 5px;
+    color: white;
   }
 }
 
