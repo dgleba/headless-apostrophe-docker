@@ -8,20 +8,8 @@
     {{ nav.menubar(data.global._menus, 4) }}
 
     <section class="at_timeline at_content">
-      <ul>
-        {% for piece in data.global._careers %}
-          <li class="at_timeline__element">
-            <div>
-              <time>2017</time>
-              {{ piece.description.items[0].content | safe }}
-              <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
-                <span class="btn--label">Voir plus</span>
-                {{ nav.icon("at_menu icon") }}
-                {{ nav.icon("at_menu icon icon--hidden") }}
-              </span>
-            </div>
-          </li>
-        {% endfor %}
+      <ul class="at_timeline__list">
+        {{ apos.singleton(data.page, 'timeline', 'career') }}
       </ul>
     </section>
 

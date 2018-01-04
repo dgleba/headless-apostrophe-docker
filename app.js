@@ -26,6 +26,7 @@ let apos = require('apostrophe')({
     'career-pages': {
       extend: 'apostrophe-pieces-pages',
     },
+    'career-widgets': {},
     contact: {},
     'contact-pages': {
       extend: 'apostrophe-pieces-pages',

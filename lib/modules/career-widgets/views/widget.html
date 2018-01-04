@@ -1,0 +1,15 @@
+{% import "apostrophe-templates:nav.html" as nav %}
+
+{% for piece in data.widget._pieces %}
+  <li class="at_timeline__element">
+    <div class="at_timeline__container">
+      <time>2017</time>
+      {{ piece.description.items[0].content | safe }}
+      <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
+        <span class="btn--label">Voir plus</span>
+        {{ nav.icon("at_menu icon") }}
+        {{ nav.icon("at_menu icon icon--hidden") }}
+      </span>
+    </div>
+  </li>
+{% endfor %}

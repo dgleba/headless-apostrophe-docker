@@ -8,147 +8,147 @@ $timeline-color: $base-menu-color;
   margin-top: -20px;
   background: lighten($base-menu-color, 30%);
 
-  & > ul {
+  &__list {
     padding: 50px 0;
+  }
 
-    & > li {
-      list-style-type: none;
-      position: relative;
-      width: 3px;
-      margin: 0 auto;
-      padding-top: 50px;
-      background: #fff;
-      box-shadow: 15px 15px 10px -1px #666;
+  &__element {
+    list-style-type: none;
+    position: relative;
+    width: 3px;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: #fff;
+    box-shadow: 15px 15px 10px -1px #666;
+
+    @media screen and (max-width: 600px) {
+      margin-left: 20px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: inherit;
+      transition: background 0.5s ease-in-out;
+      box-shadow: 15px 15px 20px -2px #666;
+    }
+
+    &:nth-child(odd) div {
+      left: 45px;
+      transform: translate3d(200px, 0, 0);
+
+      &::before {
+        left: -15px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent $timeline-color transparent transparent;
+      }
+    }
+
+    &:nth-child(even) div {
+      left: -439px;
+      transform: translate3d(-200px, 0, 0);
+
+      @media screen and (max-width: 900px) {
+        left: -289px; /* 250+45-6 */
+      }
 
       @media screen and (max-width: 600px) {
-        margin-left: 20px;
+        left: 45px;
       }
 
-      &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: inherit;
-        transition: background 0.5s ease-in-out;
-        box-shadow: 15px 15px 20px -2px #666;
-      }
-
-      & div {
-        position: relative;
-        bottom: 0;
-        width: 400px;
-        padding: 15px;
-        border-radius: 3px;
-        background: $timeline-color;
-        color: aliceblue;
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.5s ease-in-out;
-        box-shadow: 15px 15px 20px -2px #666;
-
-        @media screen and (max-width: 900px) {
-          width: 250px;
-        }
+      &::before {
+        right: -15px;
+        border-width: 8px 0 8px 16px;
+        border-color: transparent transparent transparent $timeline-color;
 
         @media screen and (max-width: 600px) {
-          width: calc(100vw - 91px);
-        }
-
-        &::before {
-          content: '';
-          position: absolute;
-          bottom: 5px;
-          width: 0;
-          height: 0;
-          border-style: solid;
-          box-shadow: 15px 15px 20px -2px #666;
-        }
-
-        & > p {
-          color: #fdd10d;
-        }
-
-        time {
-          display: block;
-          font-family: Kanji, Tahoma, Geneva, Verdana, sans-serif;
-          font-size: 1.5rem;
-          margin-bottom: 8px;
-          color: darkgray;
-        }
-
-        & > ul {
-          padding-left: 20px;
-        }
-      }
-
-      &:nth-child(odd) div {
-        left: 45px;
-        transform: translate3d(200px, 0, 0);
-
-        &::before {
           left: -15px;
           border-width: 8px 16px 8px 0;
           border-color: transparent $timeline-color transparent transparent;
         }
       }
+    }
 
-      &:nth-child(even) div {
-        left: -439px;
-        transform: translate3d(-200px, 0, 0);
+    &.in-view {
+      & div {
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
 
-        @media screen and (max-width: 900px) {
-          left: -289px; /* 250+45-6 */
-        }
+    &.zoom {
+      display: flex;
+      justify-content: center;
 
-        @media screen and (max-width: 600px) {
-          left: 45px;
-        }
+      & div {
+        flex-shrink: 0;
+        flex-direction: column;
+        position: fixed;
+        left: 5vw;
+        top: 6vw;
+        width: 90vw;
+        height: 80vh;
+        transition: all 0.5s ease;
 
         &::before {
-          right: -15px;
-          border-width: 8px 0 8px 16px;
-          border-color: transparent transparent transparent $timeline-color;
-
-          @media screen and (max-width: 600px) {
-            left: -15px;
-            border-width: 8px 16px 8px 0;
-            border-color: transparent $timeline-color transparent transparent;
-          }
+          display: none;
         }
       }
+    }
+  }
 
-      &.in-view {
-        & div {
-          transform: none;
-          visibility: visible;
-          opacity: 1;
-        }
-      }
+  &__container {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 15px;
+    border-radius: 3px;
+    background: $timeline-color;
+    color: aliceblue;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 15px 15px 20px -2px #666;
 
-      &.zoom {
-        display: flex;
-        justify-content: center;
+    @media screen and (max-width: 900px) {
+      width: 250px;
+    }
 
-        & div {
-          flex-shrink: 0;
-          flex-direction: column;
-          position: fixed;
-          left: 5vw;
-          top: 6vw;
-          width: 90vw;
-          height: 80vh;
-          transition: all 0.5s ease;
+    @media screen and (max-width: 600px) {
+      width: calc(100vw - 91px);
+    }
 
-          &::before {
-            display: none;
-          }
-        }
-      }
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      box-shadow: 15px 15px 20px -2px #666;
+    }
+
+    & > p {
+      color: #fdd10d;
+    }
+
+    time {
+      display: block;
+      font-family: Kanji, Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: darkgray;
+    }
+
+    & > ul {
+      padding-left: 20px;
     }
   }
 
