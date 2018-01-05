@@ -18,8 +18,8 @@ $timeline-color: $base-menu-color;
     width: 3px;
     margin: 0 auto;
     padding-top: 50px;
-    background: #fff;
-    box-shadow: 15px 15px 10px -1px #666;
+    background: white;
+    box-shadow: 15px 15px 10px -1px $box-shadow-light;
 
     @media screen and (max-width: 600px) {
       margin-left: 20px;
@@ -36,7 +36,7 @@ $timeline-color: $base-menu-color;
       border-radius: 50%;
       background: inherit;
       transition: background 0.5s ease-in-out;
-      box-shadow: 15px 15px 20px -2px #666;
+      box-shadow: 15px 15px 20px -2px $box-shadow-light;
     }
 
     &:nth-child(odd) div {
@@ -92,7 +92,7 @@ $timeline-color: $base-menu-color;
         flex-direction: column;
         position: fixed;
         left: 5vw;
-        top: 6vw;
+        top: 14vh;
         width: 90vw;
         height: 80vh;
         transition: all 0.5s ease;
@@ -109,13 +109,13 @@ $timeline-color: $base-menu-color;
     bottom: 0;
     width: 400px;
     padding: 15px;
-    border-radius: 3px;
+    border-radius: $default-radius;
     background: $timeline-color;
-    color: aliceblue;
+    color: $greyish;
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease-in-out;
-    box-shadow: 15px 15px 20px -2px #666;
+    box-shadow: 15px 15px 20px -2px $box-shadow-light;
 
     @media screen and (max-width: 900px) {
       width: 250px;
@@ -132,11 +132,11 @@ $timeline-color: $base-menu-color;
       width: 0;
       height: 0;
       border-style: solid;
-      box-shadow: 15px 15px 20px -2px #666;
+      box-shadow: 15px 15px 20px -2px $box-shadow-light;
     }
 
     & > p {
-      color: #fdd10d;
+      color: $yellow;
     }
 
     time {
@@ -155,7 +155,11 @@ $timeline-color: $base-menu-color;
   .btn {
     display: inline-block;
     left: 175px;
-    box-shadow: 2px 2px 4px 0 #333;
+    box-shadow: 2px 2px 4px 0 $box-shadow-dark;
+
+    @media (max-width: $medium) {
+      left: 10px;
+    }
   }
 }
 

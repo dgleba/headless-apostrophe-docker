@@ -8,9 +8,9 @@
     {{ nav.menubar(data.global._menus, 4, data.piece.title) }}
 
     <section class="at_timeline at_content">
-      <ul>
+      <ul class="at_timeline__list">
         <li class="at_timeline__element in-view hide zoom">
-          <div>
+          <div class="at_timeline__container">
             <time>2018</time>
             {{ data.piece.description.items[0].content | safe }}
             <svg class="checkmark" onclick="window.history.back()"> {# otherwise page="4" url="{{ data.page.slug }}" if normal link #}

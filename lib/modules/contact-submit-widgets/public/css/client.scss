@@ -3,7 +3,7 @@
 @import 'placeholders.scss';
 
 [data-contact-form] {
-  background: #3a4952;
+  background: $charcoal;
   min-width: 300px;
   max-width: 900px;
   width: 100vw;
@@ -15,7 +15,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fde073;
+    background: $yellow-lighter;
     text-align: center;
     line-height: 2.5;
     overflow: hidden;
@@ -27,13 +27,13 @@
     animation: alert-slide-down 3s ease 0.25s 1 forwards;
 
     &--success {
-      background: #dff2bf;
-      color: #270;
+      background: $success-bdg;
+      color: $success-fg;
     }
 
     &--error {
-      background: #ffbaba;
-      color: #d8000c;
+      background: $error-bdg;
+      color: $error-fg;
     }
   }
 
@@ -56,9 +56,9 @@
       width: 25%;
 
       & + * {
-        background: #536874;
+        background: $grey-blue;
         color: white;
-        border-radius: 3px;
+        border-radius: $default-radius;
         width: 75%;
         height: 30px;
         box-shadow: 10px 10px 20px -14px black;

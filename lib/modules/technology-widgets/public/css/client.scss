@@ -4,7 +4,8 @@
 .technology {
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 8px 14px -5px #333;
+  box-shadow: 5px 8px 14px -5px $box-shadow-dark;
+  border: 0;
 
   ul {
     list-style-type: circle;

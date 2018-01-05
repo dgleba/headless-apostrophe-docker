@@ -55,10 +55,6 @@
         }
       }
 
-      @media (max-width: $medium - 1) {
-        height: 80px;
-      }
-
       // hide back button if no other class than .at_menu__X
       #{$menu}__back {
         display: none;
