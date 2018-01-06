@@ -11,7 +11,10 @@
       <ul class="at_timeline__list">
         <li class="at_timeline__element in-view hide zoom">
           <div class="at_timeline__container">
-            <time>{{ data.piece.startDate }} - {{ data.piece.endDate }}</time>
+            <time>
+              {{ data.piece.startDate | date("MM/YYYY") }}
+              {% if data.piece.endDate | date("MM/YYYY") != data.piece.startDate | date("MM/YYYY") %} - {{ data.piece.endDate | date("MM/YYYY") }} {% endif %}
+            </time>
             {{ data.piece.summary.items[0].content | safe }}
             {% for description in data.piece.description %}
               {{ description.content.items[0].content | safe }}

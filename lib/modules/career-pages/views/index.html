@@ -12,7 +12,10 @@
         {% for piece in data.pieces %}
           <li class="at_timeline__element">
             <div class="at_timeline__container">
-              <time>{{ piece.year }}</time>
+              <time>
+                {{ piece.startDate | date("YYYY") }}
+                {% if piece.endDate | date("YYYY") != piece.startDate | date("YYYY") %} - {{ piece.endDate | date("YYYY") }} {% endif %}
+              </time>
               {{ piece.summary.items[0].content | safe }}
               <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
                 <span class="btn--label">Voir plus</span>

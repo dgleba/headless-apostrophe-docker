@@ -96,6 +96,7 @@ $timeline-color: $base-menu-color;
         width: 90vw;
         height: 80vh;
         transition: all 0.5s ease;
+        overflow: auto;
 
         &::before {
           display: none;
@@ -135,7 +136,7 @@ $timeline-color: $base-menu-color;
       box-shadow: 15px 15px 20px -2px $box-shadow-light;
     }
 
-    & > p {
+    & > time + p {
       color: $yellow;
     }
 
