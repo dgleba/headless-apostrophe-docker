@@ -11,8 +11,12 @@
       <ul class="at_timeline__list">
         <li class="at_timeline__element in-view hide zoom">
           <div class="at_timeline__container">
-            <time>2018</time>
-            {{ data.piece.description.items[0].content | safe }}
+            <time>{{ data.piece.startDate }} - {{ data.piece.endDate }}</time>
+            {{ data.piece.summary.items[0].content | safe }}
+            {% for description in data.piece.description %}
+              {{ description.content.items[0].content | safe }}
+              {{ description.link }}
+            {% endfor %}
             <svg class="checkmark" onclick="window.history.back()"> {# otherwise page="4" url="{{ data.page.slug }}" if normal link #}
               <g>
                 <circle cx="16" cy="16" r="15.12"></circle>

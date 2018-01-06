@@ -9,7 +9,19 @@
 
     <section class="at_timeline at_content">
       <ul class="at_timeline__list">
-        {{ apos.singleton(data.page, 'timeline', 'career') }}
+        {% for piece in data.pieces %}
+          <li class="at_timeline__element">
+            <div class="at_timeline__container">
+              <time>{{ piece.year }}</time>
+              {{ piece.summary.items[0].content | safe }}
+              <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
+                <span class="btn--label">Voir plus</span>
+                {{ nav.icon("at_menu icon") }}
+                {{ nav.icon("at_menu icon icon--hidden") }}
+              </span>
+            </div>
+          </li>
+        {% endfor %}
       </ul>
     </section>
   </main>
