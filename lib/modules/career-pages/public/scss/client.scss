@@ -75,6 +75,24 @@ $timeline-color: $base-menu-color;
       }
     }
 
+    &--certification {
+      &:nth-child(odd) div {
+        &::before {
+          border-color: transparent $yellow-light transparent transparent;
+        }
+      }
+
+      &:nth-child(even) div {
+        &::before {
+          border-color: transparent transparent transparent $yellow-light;
+
+          @media screen and (max-width: 600px) {
+            border-color: transparent $yellow-light transparent transparent;
+          }
+        }
+      }
+    }
+
     &.in-view {
       & div {
         transform: none;
@@ -150,6 +168,15 @@ $timeline-color: $base-menu-color;
 
     & > ul {
       padding-left: 20px;
+    }
+
+    &--certification {
+      background: $yellow-light;
+      color: $base-color-dark;
+
+      & > time + p {
+        color: $orange;
+      }
     }
   }
 

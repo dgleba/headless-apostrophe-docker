@@ -10,18 +10,23 @@
     <section class="at_timeline at_content">
       <ul class="at_timeline__list">
         {% for piece in data.pieces %}
-          <li class="at_timeline__element">
-            <div class="at_timeline__container">
+          <li class="at_timeline__element
+          {%- if piece.certification %} at_timeline__element--certification {% endif %}">
+            <div class="at_timeline__container
+              {%- if piece.certification %} at_timeline__container--certification {% endif %}">
               <time>
                 {{ piece.startDate | date("YYYY") }}
                 {% if piece.endDate | date("YYYY") != piece.startDate | date("YYYY") %} - {{ piece.endDate | date("YYYY") }} {% endif %}
               </time>
               {{ piece.summary.items[0].content | safe }}
-              <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
-                <span class="btn--label">Voir plus</span>
-                {{ nav.icon("at_menu icon") }}
-                {{ nav.icon("at_menu icon icon--hidden") }}
-              </span>
+
+              {% if piece.description | length > 0 %}
+                <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
+                  <span class="btn--label">Voir plus</span>
+                  {{ nav.icon("at_menu icon") }}
+                  {{ nav.icon("at_menu icon icon--hidden") }}
+                </span>
+              {% endif %}
             </div>
           </li>
         {% endfor %}
