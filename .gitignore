@@ -4,5 +4,6 @@ data
 /public
 temp/uploadfs
 node_modules
+dist
 .jshintrc
 .DS_Store

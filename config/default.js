@@ -161,7 +161,7 @@ module.exports = {
 
     fg: {
       black: '\x1b[30m',
-      grey: '\033[90m',
+      grey: '\x1b[90m',
       red: '\x1b[31m',
       green: '\x1b[32m',
       yellow: '\x1b[33m',
@@ -173,7 +173,7 @@ module.exports = {
 
     bg: {
       black: '\x1b[40m',
-      grey: '\033[100m',
+      grey: '\x1b[100m',
       red: '\x1b[41m',
       green: '\x1b[42m',
       yellow: '\x1b[43m',

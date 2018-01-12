@@ -1,12 +1,15 @@
-FROM node:8
+FROM node:boron
 
 # Create app directory
 RUN mkdir -p /app
 WORKDIR /app
 
-# Bundle app source
-COPY . /app
-RUN npm install --registry=https://registry.npmjs.org/
+# Install node modules
+COPY package*.json /app/
+RUN cd /app && npm install --registry=https://registry.npmjs.org/ --only=production
+
+# Install application
+COPY dist /app
 
 # Mount persistent storage
 VOLUME /app/data
