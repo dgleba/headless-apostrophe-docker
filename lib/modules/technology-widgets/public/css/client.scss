@@ -4,7 +4,7 @@
 .technology {
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 8px 14px -5px $box-shadow-dark;
+  box-shadow: none;
   border: 0;
 
   ul {
@@ -39,4 +39,4 @@
   }
 }
 
-@include mix-background-colors('technology', #e4dbaf, #3a4952, 10);
+@include mix-background-colors('technology', #e4dbaf, #3a4952, 12);

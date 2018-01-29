@@ -37,7 +37,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-right: $default-padding;
+      padding-right: 0;
       cursor: pointer;
       transform: rotate(25deg) translate($loop-x, 50%);
       transition: transform 1s cubic-bezier(0.78, -0.58, 1, 0.51) $loop-start;
@@ -81,6 +81,8 @@
 
         .title {
           align-self: flex-end;
+          left: auto;
+          right: 10px;
 
           @media (min-width: $small) {
             left: 70vw;
@@ -96,6 +98,7 @@
 
           @media (min-width: $x-large) {
             left: calc((100vw + 100vh) / 2 - 45px);
+            right: auto;
           }
         }
       }

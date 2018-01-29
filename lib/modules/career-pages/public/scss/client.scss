@@ -19,7 +19,8 @@ $timeline-color: $base-menu-color;
     margin: 0 auto;
     padding-top: 50px;
     background: white;
-    box-shadow: 15px 15px 10px -1px $box-shadow-light;
+    // box-shadow: 15px 15px 10px -1px $box-shadow-light;
+    box-shadow: none;
 
     @media screen and (max-width: 600px) {
       margin-left: 20px;
@@ -36,7 +37,8 @@ $timeline-color: $base-menu-color;
       border-radius: 50%;
       background: inherit;
       transition: background 0.5s ease-in-out;
-      box-shadow: 15px 15px 20px -2px $box-shadow-light;
+      // box-shadow: 15px 15px 20px -2px $box-shadow-light;
+      box-shadow: none;
     }
 
     &:nth-child(odd) div {
@@ -134,7 +136,8 @@ $timeline-color: $base-menu-color;
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease-in-out;
-    box-shadow: 15px 15px 20px -2px $box-shadow-light;
+    // box-shadow: 15px 15px 20px -2px $box-shadow-light;
+    box-shadow: none;
 
     @media screen and (max-width: 900px) {
       width: 250px;
@@ -151,7 +154,8 @@ $timeline-color: $base-menu-color;
       width: 0;
       height: 0;
       border-style: solid;
-      box-shadow: 15px 15px 20px -2px $box-shadow-light;
+      // box-shadow: 15px 15px 20px -2px $box-shadow-light;
+      box-shadow: none;
     }
 
     & > time + p {

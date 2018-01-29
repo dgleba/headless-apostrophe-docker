@@ -8,13 +8,12 @@
 {% endmacro %}
 
 {% macro menubar(menus, children, showPageTitle) %}
-
   {% set homePage = true %}
   {% if (children | int) === children %} {# if children is an integer, it's coming from a single page, otherwise from home #}
     {% set homePage = false %}
   {% endif %}
 
-  <nav class="at_menu {%- if not homePage %} at_menu--appear {%- endif %}">
+  <nav class="at_menu {%- if not homePage %} at_menu--appear {%- endif %}" {%- if not homePage %} data-page="{{ children }}" {%- endif %}>
       {% for menu in menus %}
 
         {% set slug = '/' %}
