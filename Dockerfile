@@ -1,4 +1,4 @@
-FROM node:boron
+FROM node:boron-slim
 
 # Create app directory
 RUN mkdir -p /app
@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install node modules
 COPY package*.json /app/
-RUN cd /app && npm install --registry=https://registry.npmjs.org/ --only=production
+RUN cd /app && npm install --registry=https://registry.npmjs.org/ --production=false
 
 # Install application
 COPY dist /app

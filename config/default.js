@@ -120,7 +120,7 @@ module.exports = {
         sass: {
           options: {
             sourceMap: true,
-            data: '$menu-count: 1;',
+            data: '$menu-count: 4;',
             includePaths: ['lib/modules/apostrophe-assets/public/scss'],
           },
         },
@@ -195,6 +195,7 @@ module.exports = {
       'NumberedList',
       'BulletedList',
       'Blockquote',
+      'CodeSnippet',
       'Undo',
       'Redo',
     ],

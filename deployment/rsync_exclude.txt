@@ -4,9 +4,16 @@
 # sqlite databases or static web content you may need
 data
 temp
-public/uploads
-public/modules
-public/apos-minified
+public
+config
+lib
+locales
+scripts
+app.js
+docker-compose-dev.yml
+local.example.js
+yarn.lock
+package-lock.json
 .git
 .gitignore
 # We don't deploy these anymore, instead we always 'npm install' to ensure
