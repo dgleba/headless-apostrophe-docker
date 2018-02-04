@@ -4,12 +4,8 @@
 # sqlite databases or static web content you may need
 data
 temp
-public
-config
-lib
 locales
 scripts
-app.js
 docker-compose-dev.yml
 local.example.js
 yarn.lock

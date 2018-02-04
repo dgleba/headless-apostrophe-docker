@@ -1,20 +1,37 @@
-falkodev-site-db:
-  container_name: falkodev-site-db
-  image: mongo
-  command: --smallfiles
-  ports:
-  - 27017:27017
+version: '3'
 
-falkodev-site:
-  container_name: falkodev-site
-  build: .
-  ports:
-  - 3000:3000
-  links:
-  - falkodev-site-db
-  volumes:
-  - /app/node_modules
-  environment:
-    MONGODB: mongodb://falkodev-site-db:27017/site
-    NODE_ENV: production
-    NODE_APP_INSTANCE: docker
+services:
+  falkodev-site-db:
+    container_name: falkodev-site-db
+    image: mongo
+    command: --smallfiles
+    ports:
+    - 27017:27017
+
+  falkodev-site:
+    container_name: falkodev-site
+    build: .
+    ports:
+    - 3000:3000
+    depends_on:
+    - falkodev-site-db
+    volumes:
+    - /app/node_modules
+    environment:
+      MONGODB: mongodb://falkodev-site-db:27017/site
+      NODE_ENV: production
+      NODE_APP_INSTANCE: docker
+
+  falkodev-web:
+    container_name: falkodev-web
+    image: nginx:alpine
+    restart: always
+    volumes:
+      - ./dist/public:/usr/share/nginx/html:ro
+      - ./dist/nginx/site.conf:/etc/nginx/nginx.conf:ro
+      - ./dist/nginx/ssl:/etc/ssl:ro
+    depends_on:
+      - falkodev-site
+    ports:
+      - 80:80
+      - 443:443

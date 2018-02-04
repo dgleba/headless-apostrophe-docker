@@ -14,6 +14,7 @@ npx prettier --write 'dist/**/*.js'
 # copy other folders
 rsync -a --exclude='**/.DS_Store' public dist
 rsync -a --exclude='**/.DS_Store' scripts dist
+rsync -a --exclude='**/.DS_Store' nginx dist
 
 # build docker image
 docker-compose build

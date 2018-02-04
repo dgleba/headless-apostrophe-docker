@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install node modules
 COPY package*.json /app/
-RUN cd /app && npm install --registry=https://registry.npmjs.org/ --production=false
+RUN cd /app && npm install --registry=https://registry.npmjs.org/ --only=production
 
 # Install application
 COPY dist /app

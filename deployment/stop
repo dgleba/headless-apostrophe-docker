@@ -3,10 +3,10 @@
 # Shut the site down, for instance by tweaking a .htaccess file to display
 # a 'please wait' notice, or stopping a node server
 
-if [ ! -f "app.js" ]; then
-  echo "I don't see app.js in the current directory."
-  exit 1
-fi
+#if [ ! -f "dist/app.js" ]; then
+  #echo "I don't see app.js in the current directory."
+  #exit 1
+#fi
 
 # Stop the node app via 'forever'. You'll get a harmless warning if the app
 # was not already running. Use `pwd` to make sure we have a full path,

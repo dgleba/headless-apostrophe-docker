@@ -15,8 +15,8 @@ ln -s ../../data $HERE/data
 # We also have a shared uploads folder which is convenient to keep
 # in a separate place so we don't have to have two express.static calls
 
-mkdir -p ../../uploads
-ln -s ../../../uploads $HERE/public/uploads
+#mkdir -p ../../uploads
+#ln -s ../../../uploads $HERE/public/uploads
 
 # Install any dependencies that can't just be rsynced over with
 # the deployment. Example: node apps have npm modules in a
