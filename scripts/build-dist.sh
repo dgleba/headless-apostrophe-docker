@@ -15,6 +15,7 @@ npx prettier --write 'dist/**/*.js'
 rsync -a --exclude='**/.DS_Store' public dist
 rsync -a --exclude='**/.DS_Store' scripts dist
 rsync -a --exclude='**/.DS_Store' nginx dist
+rsync -a --exclude='**/.DS_Store' letsencrypt dist
 
 # build docker image
 docker-compose build

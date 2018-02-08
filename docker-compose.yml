@@ -21,9 +21,9 @@ services:
       MONGODB: mongodb://falkodev-site-db:27017/site
       NODE_ENV: production
       NODE_APP_INSTANCE: docker
-      VIRTUAL_HOST: tarlao.fr
-      LETSENCRYPT_HOST: tarlao.fr
-      LETSENCRYPT_EMAIL: anthony@tarlao.fr
+      # VIRTUAL_HOST: tarlao.fr
+      # LETSENCRYPT_HOST: tarlao.fr
+      # LETSENCRYPT_EMAIL: anthony@tarlao.fr
 
   falkodev-web:
     container_name: falkodev-web
@@ -32,8 +32,8 @@ services:
     volumes:
       - ./dist/public:/usr/share/nginx/html:ro
       - ./dist/nginx/site.conf:/etc/nginx/nginx.conf:ro
-      # - ./dist/nginx/ssl:/etc/ssl:ro
-      # - ./dist/nginx/ssl/certs:/etc/nginx/certs:rw
+      - ./dist/nginx/ssl:/etc/ssl:ro
+      - ./dist/letsencrypt/live:/etc/letsencrypt
       # - /var/run/docker.sock:/var/run/docker.sock
       # - ./tmp:/etc/nginx/vhost.d:rw
     depends_on:
