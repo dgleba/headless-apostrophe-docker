@@ -13,10 +13,12 @@
 # forever is otherwise easily confused and will stop every server with
 # the same filename
 #forever stop `pwd`/app.js && echo "Site stopped"
-docker stop falkodev-site-db falkodev-site
+docker stop falkodev-site-db falkodev-site falkodev-web
+docker rm falkodev-web
 echo "Prune docker images and volumes"
 docker system prune --force
 docker volume prune --force
+docker network prune --force
 echo "Site stopped"
 
 # Stop the app without 'forever'. We recommend using 'forever' for node apps,

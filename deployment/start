@@ -56,6 +56,7 @@
 # # PID=$!
 # # echo $PID > data/pid
 # #
+docker network create siteperso
 docker-compose up -d
-docker run --rm --link falkodev-site-db:mongo -v $(pwd)/backup/latest/site/:/dump mongo bash -c 'mongorestore -d site /dump --host mongo:27017 --drop'
+docker run --rm --link falkodev-site-db:mongo --net siteperso -v $(pwd)/backup/latest/site/:/dump mongo bash -c 'mongorestore -d site /dump --host mongo:27017 --drop'
 echo "Site started"

@@ -1,5 +1,4 @@
 const config = require('config')
-const validator = require('express-validator')
 
 let apos = require('apostrophe')({
   shortName: config.get('shortName'),
@@ -13,9 +12,7 @@ let apos = require('apostrophe')({
     'apostrophe-db': {
       uri: config.get('mongo.uri'),
     },
-    'apostrophe-express': {
-      middleware: [validator()],
-    },
+    'apostrophe-express': config.get('modules.apostrophe-express'),
     'apostrophe-pages': config.get('modules.apostrophe-pages'),
     // Add custom apostrophe-modules and their respective configuration here!
     article: {},

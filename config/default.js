@@ -7,6 +7,8 @@
 // If you need to setup a local configuration for your dev environnement you can
 // create a ./local.js file with your own overrides. Note, that the local.js
 // file does not needs to contains all the configuration keys: just the overrides.
+const helmet = require('helmet')
+const validator = require('express-validator')
 
 const name = 'site'
 
@@ -88,6 +90,35 @@ module.exports = {
   // Modules overrides:
   //
   modules: {
+    'apostrophe-express': {
+      session: {
+        secret: require('crypto')
+          .randomBytes(64)
+          .toString('hex'),
+        proxy: true,
+        cookie: {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+        },
+      },
+      middleware: [
+        validator(),
+        (req, res, next) => {
+          if (process.env.NODE_ENV !== 'production') {
+            return next()
+          }
+          if (req.path.indexOf('/login') === -1) {
+            return next()
+          }
+          return res.send(404)
+        },
+        helmet({
+          frameguard: {
+            action: 'sameorigin',
+          },
+        }),
+      ],
+    },
     'apostrophe-pages': {
       types: [
         {
