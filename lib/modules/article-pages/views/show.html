@@ -9,13 +9,17 @@
 
     <section class="slide-up">
       <h2>{{ data.piece.title }}
-      <div>
-        {{ apos.area(data.piece, 'description') }}
-      </div>
-      <div>
-        {{ apos.area(data.piece, 'content') }}
-      </div>
+        <div>
+          {{ apos.area(data.piece, 'description') }}
+        </div>
+        <div>
+          {{ apos.area(data.piece, 'content') }}
+        </div>
       </h2>
+      {% for link in data.piece.links %}
+        <iframe id="iframe-{{ loop.index }}" src="{{ link.url }}" width="100%" height="1000" frameborder="0" allowfullscreen sandbox="allow-same-origin">
+        </iframe>
+      {% endfor %}
     </section>
 
     {% import 'apostrophe-pager:macros.html' as pager with context %}
