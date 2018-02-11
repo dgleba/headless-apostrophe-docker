@@ -226,7 +226,6 @@ module.exports = {
       'NumberedList',
       'BulletedList',
       'Blockquote',
-      'CodeSnippet',
       'Undo',
       'Redo',
     ],
