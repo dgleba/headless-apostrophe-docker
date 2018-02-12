@@ -16,9 +16,7 @@ let apos = require('apostrophe')({
     'apostrophe-pages': config.get('modules.apostrophe-pages'),
     // Add custom apostrophe-modules and their respective configuration here!
     article: {},
-    'article-pages': {
-      extend: 'apostrophe-pieces-pages',
-    },
+    'article-pages': {},
     career: {},
     'career-pages': {},
     contact: {},

@@ -16,9 +16,8 @@
           {{ apos.area(data.piece, 'content') }}
         </div>
       </h2>
-      {% for link in data.piece.links %}
-        <iframe id="iframe-{{ loop.index }}" src="{{ link.url }}" width="100%" height="1000" frameborder="0" allowfullscreen sandbox="allow-same-origin">
-        </iframe>
+      {% for article in data.piece.articles %}
+        {{ article | safe }}
       {% endfor %}
     </section>
 
