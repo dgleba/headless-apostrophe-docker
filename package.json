@@ -147,6 +147,7 @@
   },
   "eslintConfig": {
     "parserOptions": {
+      "sourceType": "module",
       "ecmaVersion": 2017
     }
   }

@@ -15,7 +15,7 @@
     {% endblock %}
   </head>
 
-  <body class="{{ data.aposBodyClasses }} {%- block bodyClass %}{% endblock %}">
+  <body class="{{ data.aposBodyClasses }} {%- block bodyClass -%} {% endblock %}">
     {% block apostropheMenu %}
       {{ apos.adminBar.output() }}
     {% endblock %}
@@ -30,11 +30,9 @@
       </div>
     {% endif %}
 
-    <div class="apos-refreshable" data-apos-refreshable>
-      {% block beforeMain %}{% endblock %}
-      {% block main %}{% endblock %}
-      {% block afterMain %}{% endblock %}
-    </div>
+    {% block beforeMain %}{% endblock %}
+    {% block main %}{% endblock %}
+    {% block afterMain %}{% endblock %}
 
     <div class="loader">
       <div></div>
