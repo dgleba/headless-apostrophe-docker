@@ -30,7 +30,8 @@
 
     @for $i from 1 to 6 {
       &:nth-child(#{$i}) {
-        transition: all 1s ease ($i - 1) * 0.25s;
+        transition: all 1.5s cubic-bezier(0.26, 0.01, 0.64, 1.25) ($i - 1) * 0.5s;
+        // transition: all 1.5s ease-out ($i - 1) * 0.5s;
       }
     }
 
