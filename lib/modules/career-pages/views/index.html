@@ -21,11 +21,11 @@
               {{ piece.summary.items[0].content | safe }}
 
               {% if piece.description | length > 0 %}
-                <span class="at_timeline__link btn" page="4" url="{{ piece._url }}">
+                <a href="{{ piece._url }}" class="at_timeline__link btn ajax">
                   <span class="btn--label">Voir plus</span>
                   {{ nav.icon("at_menu icon") }}
                   {{ nav.icon("at_menu icon icon--hidden") }}
-                </span>
+                </a>
               {% endif %}
             </div>
           </li>
