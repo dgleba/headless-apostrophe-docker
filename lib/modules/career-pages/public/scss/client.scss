@@ -3,8 +3,12 @@
 
 $timeline-color: $base-menu-color;
 
+.career-show {
+  background: lighten($base-menu-color, 30%);
+}
+
 .at_timeline {
-  height: 0; // will be 100vh thanks to TweenMax
+  height: 0; // will be 100vh thanks to TimelineMax
   margin-top: -20px;
   background: lighten($base-menu-color, 30%);
 
