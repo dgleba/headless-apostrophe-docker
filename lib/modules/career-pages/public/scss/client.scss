@@ -8,7 +8,7 @@ $timeline-color: $base-menu-color;
 }
 
 .at_timeline {
-  height: 0; // will be 100vh thanks to TimelineMax
+  height: 0; // will be 100vh thanks to TweenMax
   margin-top: -20px;
   background: lighten($base-menu-color, 30%);
 

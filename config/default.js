@@ -110,7 +110,7 @@ module.exports = {
           if (req.path.indexOf('/login') === -1) {
             return next()
           }
-          return res.send(404)
+          return res.sendStatus(404)
         },
         helmet({
           frameguard: {
