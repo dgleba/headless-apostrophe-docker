@@ -186,6 +186,11 @@ $timeline-color: $base-menu-color;
         color: $orange;
       }
     }
+
+    a:not(.ajax) {
+      // only external links
+      color: inherit;
+    }
   }
 
   .btn {
