@@ -4,9 +4,6 @@ let apos = require('apostrophe')({
   shortName: config.get('shortName'),
   title: config.get('title'),
 
-  // See lib/modules for basic project-level configuration of our modules
-  // responsible for serving static assets, managing page templates and
-  // configuring user acounts.
   modules: {
     'apostrophe-areas': {},
     'apostrophe-db': {
@@ -14,7 +11,6 @@ let apos = require('apostrophe')({
     },
     'apostrophe-express': config.get('modules.apostrophe-express'),
     'apostrophe-pages': config.get('modules.apostrophe-pages'),
-    // Add custom apostrophe-modules and their respective configuration here!
     article: {},
     'article-pages': {},
     career: {},

@@ -7,13 +7,20 @@
   <main class="at">
     {{ nav.menubar(data.global._menus, 3) }}
 
-    <section class="at_content slide-up">
+    <section class="at_content at_article">
+      <ul class="at_article__list">
       {% for piece in data.pieces %}
-        <h4><a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a></h4>
+        <li class="at_article__element">
+          <div class="at_article__container">
+            <a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a>
+            {{ piece.description.items[0].content | safe }}
+          </div>
+        </li>
       {% endfor %}
-    </section>
+      </ul>
 
-    {% import "apostrophe-pager:macros.html" as pager with context %}
-    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+      {% import "apostrophe-pager:macros.html" as pager with context %}
+      {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+    </section>
   </main>
 {% endblock %}

@@ -1,0 +1,49 @@
+@import 'variables.scss';
+// @import 'mixins.scss';
+
+$article-color: $base-menu-color;
+
+.at_article {
+  height: 0; // will be 100vh thanks to TweenMax
+  margin-top: -25px;
+  background: lighten($base-menu-color, 20%);
+
+  &--show {
+    background: lighten($base-menu-color, 20%);
+  }
+
+  &__list {
+    color: $greyish;
+    opacity: 0;
+    padding: 50px 0;
+  }
+
+  &__element {
+    list-style-type: none;
+    margin: 20px auto;
+  }
+
+  &__container {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 15px;
+    border-radius: $default-radius;
+    background: $article-color;
+    color: $greyish;
+    box-shadow: none;
+
+    @media screen and (max-width: 900px) {
+      width: 250px;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: calc(100vw - 91px);
+    }
+
+    a {
+      // only external links
+      color: inherit;
+    }
+  }
+}

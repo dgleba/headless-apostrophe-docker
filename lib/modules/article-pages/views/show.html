@@ -7,22 +7,16 @@
   <main class="at show">
     {{ nav.menubar(data.global._menus, 3, data.piece.title) }}
 
-    <section class="slide-up">
+    <section class="at_article at_article--show">
       <h2>{{ data.piece.title }}
-        <div>
-          {{ apos.area(data.piece, 'description') }}
-        </div>
-        <div>
+        {# <div>
           {{ apos.area(data.piece, 'content') }}
-        </div>
+        </div> #}
       </h2>
       {% for article in data.piece.articles %}
         {{ article | safe }}
       {% endfor %}
     </section>
-
-    {% import 'apostrophe-pager:macros.html' as pager with context %}
-    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
   </main>
 
 {% endblock %}
