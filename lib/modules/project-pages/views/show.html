@@ -3,10 +3,12 @@
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
+{% block beforeMain %}
+  {{ nav.menubar(data.global._menus, 2, data.piece.title) }}
+{% endblock %}
+
 {% block main %}
   <main class="at show">
-    {{ nav.menubar(data.global._menus, 2, data.piece.title) }}
-
     <section class="slide-up">
       <h2>{{ data.piece.title }}
       <div>

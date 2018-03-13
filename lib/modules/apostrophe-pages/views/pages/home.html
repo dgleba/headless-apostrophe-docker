@@ -3,9 +3,12 @@
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
+{% block beforeMain %}
+  {{ nav.menubar(data.global._menus, data.page._children) }}
+{% endblock %}
+
 {% block main %}
 	<main class="at">
-    {{ nav.menubar(data.global._menus, data.page._children) }}
     <section class="at_content at_content--home">
       <div>
         <svg id="intro" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

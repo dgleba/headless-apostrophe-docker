@@ -15,42 +15,29 @@
 
   <nav class="at_menu {%- if not homePage %} at_menu--appear {%- endif %}" {%- if not homePage %} data-page="{{ children }}" {%- endif %}>
       {% for menu in menus %}
-
-        {% set slug = '/' %}
-        {% if homePage %}                  {# if home template #}
-          {% for page in children %}          {# browse pages #}
-            {% if page._id === menu.pageId %} {# compare with linked pages to menus #}
-              {% set slug = page.slug %}      {# get slug if existing #}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-
         <nav
           class="at_menu__{{ loop.index }}
-            {%- if homePage %} at_menu__{{ loop.index }}--disappear
-            {%- else -%}
+            {%- if not homePage %}
               {% if children === loop.index %} at_menu__{{ loop.index }}--appear at_menu__{{ loop.index }}--appeared
               {%- else %} at_menu__{{ loop.index  }}--disappear{%- endif -%}
-            {%- endif -%}"
+            {%- endif %}"
           page={{ loop.index }}
-          url={{ slug }}
+          url="/{{ menu.slug }}"
           animate="menu"
         >
-          {% if not homePage %}
-            <span class="at_menu__back" page={{ loop.index }} url="/ {%- if showPageTitle -%} {{ menu.slug }} {%- endif -%}" {% if not showPageTitle -%} animate="menu" {%- endif -%}> {# if "show" page, do not animate page transition #}
-              {{ icon("at_menu icon") }}
-              {{ icon("at_menu icon icon--hidden") }}
-            </span>
-            <div class="at_menu__back breadcrumb">
-              <span class="breadcrumb--root" page={{ loop.index }} url="/" animate="menu">Accueil</span>
-              {%- if showPageTitle %} / <span class="breadcrumb--list" page={{ loop.index }} url="/{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
-            </div>
-          {% endif %}
+          <span class="at_menu__back" page={{ loop.index }} url="/ {%- if showPageTitle -%} {{ menu.slug }} {%- endif -%}" {% if not showPageTitle -%} animate="menu" {%- endif -%}> {# if "show" page, do not animate page transition #}
+            {{ icon("at_menu icon") }}
+            {{ icon("at_menu icon icon--hidden") }}
+          </span>
+          <div class="at_menu__slash"></div>
+          <div class="at_menu__back breadcrumb">
+            <span class="breadcrumb--root" page={{ loop.index }} url="/" animate="menu">Accueil</span>
+            {%- if showPageTitle %} > <span class="breadcrumb--list" page={{ loop.index }} url="/{{ menu.slug }}">{{ menu.title }}</span>{% endif %}
+          </div>
           <span class="at_menu title" title="{%- if homePage -%} {{ menu.title }} {%- else -%} Accueil {%- endif -%}">
             {%- if showPageTitle -%} {{ showPageTitle }} {%- else -%} {{ menu.title }} {%- endif -%}
           </span>
         </nav>
-
       {% endfor %}
   </nav>
 {% endmacro %}

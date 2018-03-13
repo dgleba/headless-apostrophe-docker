@@ -3,10 +3,12 @@
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
+{% block beforeMain %}
+  {{ nav.menubar(data.global._menus, 3) }}
+{% endblock %}
+
 {% block main %}
   <main class="at">
-    {{ nav.menubar(data.global._menus, 3) }}
-
     <section class="at_content at_article">
       <ul class="at_article__list">
       {% for piece in data.pieces %}

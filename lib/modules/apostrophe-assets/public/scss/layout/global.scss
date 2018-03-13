@@ -48,6 +48,14 @@ a {
   color: initial;
 }
 
+ul {
+  margin-top: 0; // overcome webkit automatic margin-top
+}
+
+svg {
+  pointer-events: none;
+}
+
 .btn {
   position: relative;
   display: block;
@@ -130,13 +138,22 @@ a {
     font-family: 'Meedori Sans Regular', Tahoma, Geneva, Verdana, sans-serif;
 
     &--appear {
-      position: relative;
+      // position: relative;
       height: $menu-height;
     }
 
     // $menu-count comes from webpack, counting "menu" types created in Apostrophe
     // &: ".at_menu", passed as parameter to add ".at_menu__back" in the mixin
     @include menu-mixin($menu-count, &);
+
+    &__slash {
+      position: fixed;
+      left: 52px;
+      width: 40px;
+      height: 40px;
+      border-bottom: 2px solid white;
+      transform: translateY(8px) translateX(0) rotate(118deg);
+    }
 
     // back button
     &__back {
@@ -148,7 +165,7 @@ a {
 
       &.breadcrumb {
         animation: menu-slide-left 2s ease-in-out;
-        margin-left: 45px;
+        margin-left: 55px;
 
         .breadcrumb--root {
           margin-right: 2px;

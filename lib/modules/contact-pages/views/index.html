@@ -4,11 +4,12 @@
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
+{% block beforeMain %}
+  {{ nav.menubar(data.global._menus, 1) }}
+{% endblock %}
 
 {% block main %}
 	<main class="at">
-    {{ nav.menubar(data.global._menus, 1) }}
-
     <section class="at_content at_intro">
       <div class="at_intro__bio at_content__slide">
         {{ apos.area(data.page, 'bio', {
