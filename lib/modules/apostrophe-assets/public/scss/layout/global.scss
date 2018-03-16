@@ -147,8 +147,7 @@ svg {
     @include menu-mixin($menu-count, &);
 
     &__slash {
-      position: fixed;
-      left: 52px;
+      margin-right: -20px;
       width: 40px;
       height: 40px;
       border-bottom: 2px solid white;
@@ -157,6 +156,7 @@ svg {
 
     // back button
     &__back {
+      align-items: center;
       position: fixed;
       left: 0;
       padding-left: $default-padding;
@@ -164,11 +164,12 @@ svg {
       animation: fade-in 2s ease-in-out;
 
       &.breadcrumb {
+        display: none;
         animation: menu-slide-left 2s ease-in-out;
-        margin-left: 55px;
+        margin-left: 50px;
 
-        .breadcrumb--root {
-          margin-right: 2px;
+        &--show {
+          display: flex;
         }
       }
 

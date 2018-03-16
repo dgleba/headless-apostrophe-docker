@@ -60,20 +60,12 @@
         display: none;
       }
 
-      #{$menu}__slash {
-        display: none;
-      }
-
       &--appear {
         transform: rotate(0deg) translate(0, $loop-ybis);
 
         // display back button when .at_menu__X--appear
         #{$menu}__back {
-          display: block;
-        }
-
-        #{$menu}__slash {
-          display: block;
+          display: flex;
         }
       }
 
