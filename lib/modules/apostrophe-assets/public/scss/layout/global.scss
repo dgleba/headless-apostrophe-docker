@@ -129,6 +129,7 @@ svg {
 .at {
   position: relative;
   height: 100vh;
+  padding-top: $menu-height;
 
   &_menu {
     position: fixed;
@@ -146,14 +147,6 @@ svg {
     // &: ".at_menu", passed as parameter to add ".at_menu__back" in the mixin
     @include menu-mixin($menu-count, &);
 
-    &__slash {
-      margin-right: -20px;
-      width: 40px;
-      height: 40px;
-      border-bottom: 2px solid white;
-      transform: translateY(8px) translateX(0) rotate(118deg);
-    }
-
     // back button
     &__back {
       align-items: center;
@@ -163,18 +156,37 @@ svg {
       cursor: pointer;
       animation: fade-in 2s ease-in-out;
 
-      &.breadcrumb {
-        display: none;
-        animation: menu-slide-left 2s ease-in-out;
-        margin-left: 50px;
-
-        &--show {
-          display: flex;
-        }
-      }
-
       @include arrow-anim-mixin('menu-', -1rem, 180deg);
       @include arrow-mixin('.icon', relative, -1px, initial, 180deg, 'menu-');
+    }
+
+    &__breadcrumb {
+      position: fixed;
+      grid-template-columns: 100px 100px;
+      grid-gap: 5px;
+      align-items: center;
+      align-self: start;
+      margin-left: 55px;
+      animation: menu-slide-left 2s ease-in-out;
+
+      .breadcrumb {
+        &__show {
+          display: none;
+          align-items: center;
+          grid-template-columns: 15% 15%;
+
+          &--visible {
+            display: grid;
+          }
+        }
+
+        &__slash {
+          width: 30px;
+          height: 40px;
+          border-bottom: 2px solid white;
+          transform: translateY(8px) translateX(0) rotate(118deg);
+        }
+      }
     }
   }
 

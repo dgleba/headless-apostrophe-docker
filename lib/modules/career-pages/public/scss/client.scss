@@ -11,10 +11,6 @@ $timeline-color: $base-menu-color;
   height: 0; // will be 100vh thanks to TweenMax
   background: lighten($base-menu-color, 30%);
 
-  &__list {
-    padding: 50px 0;
-  }
-
   &__element {
     list-style-type: none;
     position: relative;
@@ -115,7 +111,7 @@ $timeline-color: $base-menu-color;
         flex-direction: column;
         position: fixed;
         left: 5vw;
-        top: 14vh;
+        top: 12vh;
         width: 90vw;
         height: 80vh;
         transition: all 0.5s ease;

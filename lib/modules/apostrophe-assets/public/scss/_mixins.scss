@@ -60,6 +60,10 @@
         display: none;
       }
 
+      #{$menu}__breadcrumb {
+        display: none;
+      }
+
       &--appear {
         transform: rotate(0deg) translate(0, $loop-ybis);
 
@@ -79,7 +83,8 @@
           animation: swing 0s;
         }
 
-        .title {
+        #{$menu}__title {
+          position: fixed;
           align-self: flex-end;
           left: auto;
           right: 10px;
@@ -100,6 +105,10 @@
             left: calc((100vw + 100vh) / 2 - 45px);
             right: auto;
           }
+        }
+
+        #{$menu}__breadcrumb {
+          display: grid;
         }
       }
 
