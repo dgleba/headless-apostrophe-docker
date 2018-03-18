@@ -10,14 +10,14 @@
 {% block main %}
   <main class="at show">
     <section class="at_article at_article--show">
-      <h2>{{ data.piece.title }}
-        {# <div>
-          {{ apos.area(data.piece, 'content') }}
-        </div> #}
-      </h2>
-      {% for article in data.piece.articles %}
-        {{ article | safe }}
+      <h2>{{ data.piece.title }}</h2>
+
+      {% for content in data.piece.contents %}
+        {% if not loop.first %} {# first element is for summary #}
+          {{ content | safe }}
+        {% endif %}
       {% endfor %}
+
     </section>
   </main>
 

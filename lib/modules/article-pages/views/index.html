@@ -15,7 +15,7 @@
         <li class="at_article__element">
           <div class="at_article__container">
             <a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a>
-            {{ piece.description.items[0].content | safe }}
+            {{ piece.contents[0] | safe }}
           </div>
         </li>
       {% endfor %}
