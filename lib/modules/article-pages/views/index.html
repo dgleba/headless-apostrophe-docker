@@ -13,10 +13,12 @@
       <ul class="at_article__list">
       {% for piece in data.pieces %}
         <li class="at_article__element">
-          <div class="at_article__container">
-            <a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a>
-            {{ piece.contents[0] | safe }}
-          </div>
+          <a href="{{ piece._url }}" class="ajax">
+            <div class="at_article__container">
+              <span>{{ piece.title }}</span>
+              {{ piece.contents[0] | safe }}
+            </div>
+          </a>
         </li>
       {% endfor %}
       </ul>

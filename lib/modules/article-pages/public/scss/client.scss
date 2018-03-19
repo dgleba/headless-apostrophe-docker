@@ -12,6 +12,9 @@ $article-color: $base-menu-color;
   }
 
   &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
     color: $greyish;
     opacity: 0;
     padding: 50px 0;
@@ -20,12 +23,18 @@ $article-color: $base-menu-color;
   &__element {
     list-style-type: none;
     margin: 20px auto;
+
+    > a {
+      // only external links
+      text-decoration: none;
+    }
   }
 
   &__container {
     position: relative;
     bottom: 0;
     width: 400px;
+    height: 100%;
     padding: 15px;
     border-radius: $default-radius;
     background: $article-color;
@@ -40,9 +49,8 @@ $article-color: $base-menu-color;
       width: calc(100vw - 91px);
     }
 
-    a {
-      // only external links
-      color: inherit;
+    > span {
+      border-bottom: 1px solid;
     }
   }
 }

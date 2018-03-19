@@ -9,6 +9,18 @@
 
 {% block main %}
   <main class="at show">
+    {% if data.previous %}
+      <h4>
+        <a href="{{ data.previous._url }}" class="ajax">Back to {{ data.previous.title }}</a>
+      </h4>
+    {% endif %}
+
+    {% if data.next %}
+      <h4>
+        <a href="{{ data.next._url }}" class="ajax">Next: {{ data.next.title }}</a>
+      </h4>
+    {% endif %}
+
     <section class="at_article at_article--show">
       <h2>{{ data.piece.title }}</h2>
 

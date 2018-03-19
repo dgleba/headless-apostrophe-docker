@@ -168,6 +168,7 @@ svg {
       align-self: start;
       margin-left: 55px;
       animation: menu-slide-left 2s ease-in-out;
+      cursor: pointer;
 
       .breadcrumb {
         &__show {
