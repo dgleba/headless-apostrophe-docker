@@ -13,5 +13,6 @@
     {# add "required"=true if necessary #}
     <input type="hidden" data-name="{{ field.name }}" data-required="{{ field.required }}" />
   {% endfor %}
+  <input type="hidden" data-name="token" value="{{ data.token }}" />
   <div class="msg apos-validation-msg" data-validation-msg></div>
 </form>

@@ -2,8 +2,8 @@ module.exports = {
   nodemailer: {
     transport: {
       auth: {
-        pass: 'agwxz2002'
-      }
-    }
-  }
+        pass: 'DtsAS4pe2sdp',
+      },
+    },
+  },
 }

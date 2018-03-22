@@ -15,6 +15,7 @@
     "lint:css": "prettier-standard 'lib/**/*.scss' && stylelint 'lib/**/*.scss' --fix",
     "lint:js": "prettier --write 'lib/**/*.js' 'app.js'",
     "precommit": "lint-staged",
+    "prod": "npm run webpack && npm start",
     "start": "NODE_ENV=production node app",
     "webpack": "NODE_ENV=production node app custom:webpack",
     "webpack:report": "NODE_ENV=production node app custom:webpack --watch --report"

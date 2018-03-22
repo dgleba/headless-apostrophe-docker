@@ -161,18 +161,17 @@ module.exports = {
 
   nodemailer: {
     transport: {
-      host: 'ssl0.ovh.net',
-      port: 587,
-      secure: false,
+      host: 'smtp.zoho.eu',
+      port: 465,
+      secure: true,
       auth: {
-        user: 'contact@jwreading.com',
+        user: 'anthony@tarlao.fr',
         pass: '',
       },
     },
     options: {
-      from: '"JW Reading" <contact@jwreading.com>',
-      to: 'anthony.tarlao@gmail.com, tonydbz2002@hotmail.com',
-      subject: 'Nouveau message sur le site',
+      from: '"Anthony Tarlao" <anthony@tarlao.fr>',
+      to: 'anthony@tarlao.fr',
     },
   },
 
