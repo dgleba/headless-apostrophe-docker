@@ -95,11 +95,6 @@ module.exports = {
         secret: require('crypto')
           .randomBytes(64)
           .toString('hex'),
-        proxy: true,
-        cookie: {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-        },
       },
       middleware: [
         validator(),
