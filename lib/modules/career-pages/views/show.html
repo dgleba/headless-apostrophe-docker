@@ -25,12 +25,14 @@
               {{ description.link }}
             {% endfor %}
 
-            <svg class="checkmark" page="4" href="{{ data.page.slug }}">
-              <g>
-                <circle cx="16" cy="16" r="15.12"></circle>
-                <path d="M10 10 22 22 M22 10 10 22"><path/>
-              </g>
-            </svg>
+            <div class="at_timeline__checkmark ajax" href="{{ data.page.slug }}">
+              <svg class="checkmark">
+                <g>
+                  <circle cx="16" cy="16" r="15.12"></circle>
+                  <path d="M10 10 22 22 M22 10 10 22"><path/>
+                </g>
+              </svg>
+            </div>
 
           </div>
         </li>

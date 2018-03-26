@@ -40,7 +40,7 @@ $timeline-color: $base-menu-color;
       box-shadow: none;
     }
 
-    &:nth-child(odd) div {
+    &:nth-child(odd) > div {
       left: 45px;
       transform: translate3d(200px, 0, 0);
 
@@ -51,7 +51,7 @@ $timeline-color: $base-menu-color;
       }
     }
 
-    &:nth-child(even) div {
+    &:nth-child(even) > div {
       left: -439px;
       transform: translate3d(-200px, 0, 0);
 
@@ -77,13 +77,13 @@ $timeline-color: $base-menu-color;
     }
 
     &--certification {
-      &:nth-child(odd) div {
+      &:nth-child(odd) > div {
         &::before {
           border-color: transparent $yellow-light transparent transparent;
         }
       }
 
-      &:nth-child(even) div {
+      &:nth-child(even) > div {
         &::before {
           border-color: transparent transparent transparent $yellow-light;
 
@@ -95,7 +95,7 @@ $timeline-color: $base-menu-color;
     }
 
     &.in-view {
-      & div {
+      & > div {
         transform: none;
         visibility: visible;
         opacity: 1;
@@ -106,7 +106,7 @@ $timeline-color: $base-menu-color;
       display: flex;
       justify-content: center;
 
-      & div {
+      & > div {
         flex-shrink: 0;
         flex-direction: column;
         position: fixed;
@@ -186,6 +186,15 @@ $timeline-color: $base-menu-color;
       // only external links
       color: inherit;
     }
+  }
+
+  &__checkmark {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
   }
 
   .btn {
