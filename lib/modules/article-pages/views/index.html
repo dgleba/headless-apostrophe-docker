@@ -11,7 +11,7 @@
   <main class="at">
     <section class="at_content at_article">
       <ul class="at_article__list">
-      {% for piece in data.pieces %}
+      {% for piece in data.pieces | sort(true, false, 'publicationDate') %}
         <li class="at_article__element">
           <a href="{{ piece._url }}" class="ajax">
             <div class="at_article__container">

@@ -53,4 +53,16 @@ $article-color: $base-menu-color;
       border-bottom: 1px solid;
     }
   }
+
+  &__links {
+    display: flex;
+
+    &--previous {
+      align-self: flex-start;
+    }
+
+    &--next {
+      margin-left: auto;
+    }
+  }
 }
