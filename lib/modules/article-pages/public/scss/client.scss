@@ -1,5 +1,4 @@
 @import 'variables.scss';
-// @import 'mixins.scss';
 
 $article-color: $base-menu-color;
 
@@ -63,6 +62,34 @@ $article-color: $base-menu-color;
 
     &--next {
       margin-left: auto;
+    }
+  }
+
+  &__date {
+    color: $gray;
+    font-style: italic;
+    font-size: small;
+    position: absolute;
+    right: 0;
+
+    &--published {
+      top: 190px;
+    }
+
+    &--updated {
+      top: 210px;
+    }
+  }
+
+  .apos-pager {
+    color: white;
+
+    span {
+      padding-right: 5px;
+    }
+
+    a {
+      color: white;
     }
   }
 }
