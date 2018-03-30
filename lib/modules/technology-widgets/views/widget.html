@@ -5,7 +5,7 @@
     {% for content in piece.content %}
       <div class="technology__container">
         <li><div class="technology__content">{{ content.technology }}</div></li>
-        <a class="btn technology__btn ajax" {%- if content.url %} href="{{ content.url }}" {%- endif %}>
+        <a class="btn technology__btn ajax" {%- if content.url %} href="{{ content.url }}" type="{{ content.pageType }}" {%- endif %}>
           Exemple
         </a>
       </div>
