@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# save db
+mongodump --db site --out ~/site_perso/backup/latest/
+
 # recreate dist folder
 rm -rf dist
 mkdir dist

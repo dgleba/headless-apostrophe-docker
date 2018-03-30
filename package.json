@@ -7,6 +7,7 @@
     "build": "npm run lint && npm run clean && npm run webpack",
     "babel": "babel lib -d lib -x '.es7' && npm run lint:js",
     "clean": "rm -Rf data && rm -Rf public",
+    "debug": "node-dev --inspect-brk app.js",
     "dev": "npm run dev:webpack & npm run dev:app",
     "dev:app": "node-dev app.js",
     "dev:webpack": "node app custom:webpack-dev-server",

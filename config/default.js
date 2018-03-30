@@ -91,11 +91,6 @@ module.exports = {
   //
   modules: {
     'apostrophe-express': {
-      session: {
-        secret: require('crypto')
-          .randomBytes(64)
-          .toString('hex'),
-      },
       middleware: [
         validator(),
         (req, res, next) => {
