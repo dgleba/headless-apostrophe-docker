@@ -161,11 +161,11 @@ svg {
 
     &__breadcrumb {
       position: fixed;
+      left: 45px; // need "left" to position the breadcrumb on the left
+      margin-left: 10px; // need "margin" for the animation effect
       grid-template-columns: 100px 100px;
       grid-gap: 5px;
       align-items: center;
-      align-self: start;
-      margin-left: 55px;
       animation: menu-slide-left 2s ease-in-out;
       cursor: pointer;
 

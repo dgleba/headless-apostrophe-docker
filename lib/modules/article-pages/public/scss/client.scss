@@ -8,6 +8,10 @@ $article-color: $base-menu-color;
 
   &--show {
     background: lighten($base-menu-color, 20%);
+
+    @media (max-width: $small) {
+      padding: 0 10px;
+    }
   }
 
   &__list {

@@ -74,41 +74,21 @@
       }
 
       &--appeared {
-        width: 100vw;
-        flex-direction: column;
-        cursor: default;
-
-        &:hover {
-          // no swing animation when on a page
-          animation: swing 0s;
-        }
-
         #{$menu}__title {
-          position: fixed;
-          align-self: flex-end;
-          left: auto;
-          right: 10px;
-
-          @media (min-width: $small) {
+          @media (max-width: $small) {
+            position: fixed;
             left: 70vw;
-          }
-
-          @media (min-width: $medium) {
-            left: 74vw;
-          }
-
-          @media (min-width: $large) {
-            left: 81vw;
-          }
-
-          @media (min-width: $x-large) {
-            left: calc((100vw + 100vh) / 2 - 45px);
-            right: auto;
           }
         }
 
         #{$menu}__breadcrumb {
           display: grid;
+
+          @media (max-width: $small) {
+            &--show + #{$menu}__title {
+              display: none;
+            }
+          }
         }
       }
 
