@@ -9,6 +9,10 @@
   width: 100vw;
   margin-bottom: 10px;
 
+  @media (max-width: $small) {
+    max-width: 340px;
+  }
+
   [data-validation-msg] {
     position: absolute;
     z-index: 1;
@@ -82,5 +86,9 @@
     @media (max-width: $large - 1) {
       margin-top: 10px;
     }
+
+    // @media (max-width: $small) {
+    //   margin-right: 25px;
+    // }
   }
 }

@@ -1,6 +1,12 @@
+@import 'variables.scss';
+
 /// Specify font family and size in section titles in intro page
 /// @group placeholders
 %intro-font-placeholder {
   font-family: Kanji, Tahoma, Geneva, Verdana, sans-serif;
   font-size: 50px;
+
+  @media (max-width: $small) {
+    font-size: 36px;
+  }
 }

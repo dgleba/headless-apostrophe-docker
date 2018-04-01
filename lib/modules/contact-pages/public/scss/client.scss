@@ -3,6 +3,7 @@
 @import 'mixins.scss';
 
 .at_intro {
+  overflow-x: hidden;
   padding-right: 0;
   padding-left: 0;
 
@@ -31,7 +32,15 @@
     @for $i from 1 to 6 {
       &:nth-child(#{$i}) {
         transition: all 1.5s cubic-bezier(0.26, 0.01, 0.64, 1.25) ($i - 1) * 0.5s;
-        // transition: all 1.5s ease-out ($i - 1) * 0.5s;
+      }
+    }
+
+    p {
+      hyphens: auto;
+      word-wrap: break-word;
+
+      @media (max-width: $small) {
+        max-width: 350px;
       }
     }
 
@@ -39,7 +48,8 @@
       @extend %intro-font-placeholder;
     }
 
-    p:nth-child(n + 3) {
+    p:nth-child(n + 3),
+    &--hidden {
       display: none;
 
       &.p--show {
@@ -99,5 +109,12 @@
     background: $charcoal;
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+
+  &__profile {
+    // center profile picture on small devices
+    @media (max-width: $medium) {
+      margin: auto;
+    }
   }
 }
