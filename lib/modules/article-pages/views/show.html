@@ -13,13 +13,13 @@
       <div class="at_article__links">
         {% if data.previous %}
           <h4 class="at_article__links--previous">
-            <a href="{{ data.previous._url }}" class="ajax">Précédent: {{ data.previous.title }}</a>
+            <a href="{{ data.previous._url }}" class="ajax" animate="article" animate-direction="back">Précédent: {{ data.previous.title }}</a>
           </h4>
         {% endif %}
 
         {% if data.next %}
           <h4 class="at_article__links--next">
-            <a href="{{ data.next._url }}" class="ajax">Suivant: {{ data.next.title }}</a>
+            <a href="{{ data.next._url }}" class="ajax" animate="article" animate-direction="forward">Suivant: {{ data.next.title }}</a>
           </h4>
         {% endif %}
       </div>
@@ -39,13 +39,13 @@
       <div class="at_article__links">
         {% if data.previous %}
           <h4 class="at_article__links--previous">
-            <a href="{{ data.previous._url }}" class="ajax">Précédent: {{ data.previous.title }}</a>
+            <a href="{{ data.previous._url }}" class="ajax" animate="article" animate-direction="back">Précédent: {{ data.previous.title }}</a>
           </h4>
         {% endif %}
 
         {% if data.next %}
           <h4 class="at_article__links--next">
-            <a href="{{ data.next._url }}" class="ajax">Suivant: {{ data.next.title }}</a>
+            <a href="{{ data.next._url }}" class="ajax" animate="article" animate-direction="forward">Suivant: {{ data.next.title }}</a>
           </h4>
         {% endif %}
       </div>
