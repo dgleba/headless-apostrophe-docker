@@ -54,6 +54,23 @@ ul {
 
 svg {
   pointer-events: none;
+
+  &.chevron {
+    width: 32px;
+    height: 32px;
+
+    &--forward {
+      transform: rotate(180deg);
+    }
+
+    & path {
+      fill: white;
+    }
+
+    & polygon {
+      fill: white;
+    }
+  }
 }
 
 .btn {
