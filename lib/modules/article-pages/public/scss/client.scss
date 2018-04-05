@@ -16,11 +16,10 @@ $article-color: $base-menu-color;
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 40px;
     color: $greyish;
     opacity: 0;
-    padding: 50px 0;
   }
 
   &__element {
@@ -86,10 +85,15 @@ $article-color: $base-menu-color;
   }
 
   .apos-pager {
+    position: absolute;
+    width: 100vw;
+    padding-bottom: 20px;
+    text-align: center;
     color: white;
+    opacity: 0;
 
     span {
-      padding-right: 5px;
+      padding-right: 10px;
     }
 
     a {
