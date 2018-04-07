@@ -17,6 +17,7 @@ const pages = {
     slug: '/',
     type: 'home',
     label: 'Accueil',
+    background: '#2c3e50',
   },
   contact: {
     slug: '/intro',
@@ -49,6 +50,7 @@ const park = [
     },
     type: pages.home.type,
     published: true,
+    background: pages.home.background,
   },
   {
     slug: pages.contact.slug,
@@ -114,6 +116,7 @@ module.exports = {
         {
           name: pages.home.type,
           label: pages.home.label,
+          background: pages.home.background,
         },
         {
           name: pages.contact.type,

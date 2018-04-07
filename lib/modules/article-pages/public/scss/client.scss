@@ -7,11 +7,7 @@ $article-color: $base-menu-color;
   background: lighten($base-menu-color, 20%);
 
   &--show {
-    background: lighten($base-menu-color, 20%);
-
-    @media (max-width: $small) {
-      padding: 0 10px;
-    }
+    padding: 0 10px;
   }
 
   &__list {
@@ -73,14 +69,24 @@ $article-color: $base-menu-color;
     font-style: italic;
     font-size: small;
     position: absolute;
-    right: 0;
+    right: 15px;
 
     &--published {
       top: 190px;
+
+      @media (max-width: $medium) {
+        top: 200px;
+        right: 30px;
+      }
     }
 
     &--updated {
       top: 210px;
+
+      @media (max-width: $medium) {
+        top: 200px;
+        right: 180px;
+      }
     }
   }
 
