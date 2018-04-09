@@ -1,13 +1,13 @@
 @import 'variables.scss';
 @import 'mixins.scss';
 
-$timeline-color: $base-menu-color;
+$career-color: $base-menu-color;
 
 .career-show {
   background: lighten($base-menu-color, 30%);
 }
 
-.at_timeline {
+.at_career {
   height: 0; // will be 100vh thanks to TweenMax
   background: lighten($base-menu-color, 30%);
 
@@ -47,7 +47,7 @@ $timeline-color: $base-menu-color;
       &::before {
         left: -15px;
         border-width: 8px 16px 8px 0;
-        border-color: transparent $timeline-color transparent transparent;
+        border-color: transparent $career-color transparent transparent;
       }
     }
 
@@ -66,12 +66,12 @@ $timeline-color: $base-menu-color;
       &::before {
         right: -15px;
         border-width: 8px 0 8px 16px;
-        border-color: transparent transparent transparent $timeline-color;
+        border-color: transparent transparent transparent $career-color;
 
         @media screen and (max-width: 600px) {
           left: -15px;
           border-width: 8px 16px 8px 0;
-          border-color: transparent $timeline-color transparent transparent;
+          border-color: transparent $career-color transparent transparent;
         }
       }
     }
@@ -130,7 +130,7 @@ $timeline-color: $base-menu-color;
     width: 400px;
     padding: 15px;
     border-radius: $default-radius;
-    background: $timeline-color;
+    background: $career-color;
     color: $greyish;
     visibility: hidden;
     opacity: 0;
@@ -198,14 +198,15 @@ $timeline-color: $base-menu-color;
   }
 
   &__links {
-    position: fixed;
-    top: 50%;
-
     &--previous {
+      position: fixed;
+      top: 50%;
       left: 1%;
     }
 
     &--next {
+      position: fixed;
+      top: 50%;
       right: 1%;
     }
   }

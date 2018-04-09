@@ -9,13 +9,13 @@
 
 {% block main %}
   <main class="at">
-    <section class="at_timeline at_content">
-      <ul class="at_timeline__list">
+    <section class="at_career at_content">
+      <ul class="at_career__list">
         {% for piece in data.pieces %}
-          <li class="at_timeline__element
-          {%- if piece.certification %} at_timeline__element--certification {% endif %}">
-            <div class="at_timeline__container
-              {%- if piece.certification %} at_timeline__container--certification {% endif %}">
+          <li class="at_career__element
+          {%- if piece.certification %} at_career__element--certification {% endif %}">
+            <div class="at_career__container
+              {%- if piece.certification %} at_career__container--certification {% endif %}">
               <time>
                 {{ piece.startDate | date("YYYY") }}
                 {% if piece.endDate | date("YYYY") != piece.startDate | date("YYYY") %} - {{ piece.endDate | date("YYYY") }} {% endif %}
@@ -23,7 +23,7 @@
               {{ piece.summary.items[0].content | safe }}
 
               {% if piece.description | length > 0 %}
-                <a href="{{ piece._url }}" class="at_timeline__link btn ajax" animate="career">
+                <a href="{{ piece._url }}" class="at_career__link btn ajax" animate="career">
                   <span class="btn--label">Voir plus</span>
                   {{ nav.icon("at_menu icon") }}
                   {{ nav.icon("at_menu icon icon--hidden") }}

@@ -1,0 +1,109 @@
+@import 'variables.scss';
+
+$article-color: $base-menu-color;
+
+.at_project {
+  height: 0; // will be 100vh thanks to TweenMax
+  background: lighten($base-menu-color, 10%);
+
+  &--show {
+    padding: 0 10px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 40px;
+    color: $greyish;
+    opacity: 0;
+  }
+
+  &__element {
+    list-style-type: none;
+    margin: 20px auto;
+
+    > a {
+      // only external links
+      text-decoration: none;
+    }
+  }
+
+  &__container {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    height: 100%;
+    padding: 15px;
+    border-radius: $default-radius;
+    background: $article-color;
+    color: $greyish;
+    box-shadow: none;
+
+    @media screen and (max-width: 900px) {
+      width: 250px;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: calc(100vw - 91px);
+    }
+
+    > span {
+      border-bottom: 1px solid;
+    }
+  }
+
+  &__links {
+    display: flex;
+
+    &--previous {
+      align-self: flex-start;
+    }
+
+    &--next {
+      margin-left: auto;
+    }
+  }
+
+  &__date {
+    color: $gray;
+    font-style: italic;
+    font-size: small;
+    position: absolute;
+    right: 15px;
+
+    &--published {
+      top: 190px;
+
+      @media (max-width: $medium) {
+        top: 200px;
+        right: 30px;
+      }
+    }
+
+    &--updated {
+      top: 210px;
+
+      @media (max-width: $medium) {
+        top: 200px;
+        right: 180px;
+      }
+    }
+  }
+
+  .apos-pager {
+    position: absolute;
+    width: 100vw;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+
+    span {
+      padding-right: 10px;
+    }
+
+    a {
+      color: white;
+    }
+  }
+}

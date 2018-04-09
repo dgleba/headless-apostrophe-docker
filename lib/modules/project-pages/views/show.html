@@ -9,15 +9,14 @@
 
 {% block main %}
   <main class="at show">
-    <section class="slide-up">
-      <h2>{{ data.piece.title }}
-      <div>
-        {{ apos.area(data.piece, 'description') }}
-      </div>
-      <div>
-        {{ apos.area(data.piece, 'content') }}
-      </div>
-      </h2>
+    <section class="at_project at_project--show">
+      {{ nav.links(data, true, true) }}
+
+      <h2>{{ data.piece.title }}</h2>
+
+      {{ apos.area(data.piece, 'content') }}
+
+      {{ nav.links(data, true, true) }}
     </section>
   </main>
 

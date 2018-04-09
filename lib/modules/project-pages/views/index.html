@@ -9,10 +9,19 @@
 
 {% block main %}
   <main class="at">
-    <section class="at_content slide-up">
-      {% for piece in data.pieces %}
-        <h4><a href="{{ piece._url }}" class="ajax">{{ piece.title }}</a></h4>
-      {% endfor %}
+    <section class="at_project at_content">
+      <ul class="at_project__list">
+        {% for piece in data.pieces %}
+          <li class="at_project__element">
+            <a href="{{ piece._url }}" class="ajax">
+              <div class="at_project__container">
+                <span>{{ piece.title }}</span>
+                {{ piece.intro | safe }}
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </section>
 
     {% import "apostrophe-pager:macros.html" as pager with context %}

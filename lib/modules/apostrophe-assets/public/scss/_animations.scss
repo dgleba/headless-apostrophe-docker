@@ -10,30 +10,6 @@
   }
 }
 
-@keyframes slide-up {
-  0% {
-    margin-top: $menu-height;
-    opacity: 0;
-  }
-
-  100% {
-    margin-top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes slide-down {
-  0% {
-    margin-top: 0;
-    opacity: 1;
-  }
-
-  100% {
-    margin-top: $menu-height;
-    opacity: 0;
-  }
-}
-
 @keyframes alert-slide-down {
   0%,
   100% {
@@ -43,26 +19,6 @@
   10%,
   90% {
     transform: translateY(0);
-  }
-}
-
-@keyframes slide-right {
-  0% {
-    left: 100vw;
-  }
-
-  100% {
-    left: 1vw;
-  }
-}
-
-@keyframes slide-left {
-  0% {
-    left: -50vw;
-  }
-
-  100% {
-    left: 1vw;
   }
 }
 
