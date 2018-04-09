@@ -30,6 +30,7 @@
             {{ icon("at_menu icon icon--hidden") }}
           </span>
           <div class="at_menu__breadcrumb breadcrumb {%- if showPageTitle %} at_menu__breadcrumb--show {%- endif %}">
+            <div class="breadcrumb__slash"></div>
             <span class="breadcrumb__root" page={{ loop.index }} url="/" animate="menu">Accueil</span>
             <div class="breadcrumb__slash breadcrumb__show {%- if showPageTitle %} breadcrumb__show--visible {%- endif %}"></div>
             <span class="breadcrumb__list breadcrumb__show {%- if showPageTitle %} breadcrumb__show--visible {%- endif %}" page={{ loop.index }} url="/{{ menu.slug }}">{{ menu.title }}</span>
