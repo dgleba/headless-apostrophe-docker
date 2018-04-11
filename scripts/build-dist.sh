@@ -8,7 +8,7 @@ rm -rf dist
 mkdir dist
 
 # generate sitemap
-node app apostrophe-site-map:map --update-cache
+node app apostrophe-site-map:map > public/sitemap.xml && tail -n +2 public/sitemap.xml > public/sitemap.xml.tmp && mv public/sitemap.xml.tmp public/sitemap.xml
 
 # copy custom code, transpile it to ES5 and prettify it
 rsync -a --exclude='**/.DS_Store' config dist
