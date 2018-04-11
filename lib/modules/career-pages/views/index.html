@@ -23,7 +23,7 @@
               {{ piece.summary.items[0].content | safe }}
 
               {% if piece.description | length > 0 %}
-                <a href="{{ piece._url }}" class="at_career__link btn ajax" animate="career">
+                <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="at_career__link btn ajax" animate="career">
                   <span class="btn--label">Voir plus</span>
                   {{ nav.icon("at_menu icon") }}
                   {{ nav.icon("at_menu icon icon--hidden") }}

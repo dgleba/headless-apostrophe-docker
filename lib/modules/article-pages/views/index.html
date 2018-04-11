@@ -13,7 +13,7 @@
       <ul class="at_article__list">
       {% for piece in data.pieces | sort(true, false, 'publicationDate') %}
         <li class="at_article__element">
-          <a href="{{ piece._url }}" class="ajax">
+          <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="ajax">
             <div class="at_article__container">
               <span>{{ piece.title }}</span>
               {{ piece.contents[0] | safe }}

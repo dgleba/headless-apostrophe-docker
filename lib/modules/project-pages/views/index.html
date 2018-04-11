@@ -13,7 +13,7 @@
       <ul class="at_project__list">
         {% for piece in data.pieces %}
           <li class="at_project__element">
-            <a href="{{ piece._url }}" class="ajax">
+            <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="ajax">
               <div class="at_project__container">
                 <span>{{ piece.title }}</span>
                 {{ piece.intro | safe }}
