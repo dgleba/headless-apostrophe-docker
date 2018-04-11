@@ -78,12 +78,14 @@ const park = [
   },
 ]
 
+const baseUrl = 'http://localhost:3001'
+
 module.exports = {
   shortName: name,
 
   title: name,
 
-  baseUrl: 'localhost:3000',
+  baseUrl,
 
   // Mongo db:
   mongo: {
@@ -173,6 +175,7 @@ module.exports = {
   client: {
     site: name,
     pages: park,
+    baseUrl,
   },
 
   colors: {

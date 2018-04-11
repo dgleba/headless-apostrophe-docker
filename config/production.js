@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: 'tarlao.fr',
+  baseUrl: 'https://tarlao.fr',
   modules: {
     'webpack-custom': {
       loaders: {
