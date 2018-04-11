@@ -78,7 +78,7 @@ const park = [
   },
 ]
 
-const baseUrl = 'http://localhost:3001'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://tarlao.fr' : 'http://localhost:3001'
 
 module.exports = {
   shortName: name,
