@@ -3,7 +3,7 @@ const config = require('config')
 let apos = require('apostrophe')({
   shortName: config.get('shortName'),
   title: config.get('title'),
-
+  baseUrl: config.get('baseUrl'),
   modules: {
     'apostrophe-areas': {},
     'apostrophe-db': {
@@ -11,6 +11,7 @@ let apos = require('apostrophe')({
     },
     'apostrophe-express': config.get('modules.apostrophe-express'),
     'apostrophe-pages': config.get('modules.apostrophe-pages'),
+    'apostrophe-site-map': { excludeTypes: [] },
     article: {},
     'article-pages': {},
     career: {},

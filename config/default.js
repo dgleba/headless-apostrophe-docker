@@ -83,6 +83,8 @@ module.exports = {
 
   title: name,
 
+  baseUrl: 'localhost:3000',
+
   // Mongo db:
   mongo: {
     uri: process.env.MONGODB || `mongodb://127.0.0.1:27017/${name}`,

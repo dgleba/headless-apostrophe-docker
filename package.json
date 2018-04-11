@@ -46,8 +46,9 @@
   "author": "Anthony Tarlao @falkodev",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.0.0",
+    "apostrophe": "^2.52.0",
     "apostrophe-pieces-submit-widgets": "^2.0.0",
+    "apostrophe-site-map": "^2.2.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "chokidar": "^1.7.0",

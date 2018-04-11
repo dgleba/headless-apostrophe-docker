@@ -7,6 +7,9 @@ mongodump --db site --out ~/site_perso/backup/latest/
 rm -rf dist
 mkdir dist
 
+# generate sitemap
+node app apostrophe-site-map:map --update-cache
+
 # copy custom code, transpile it to ES5 and prettify it
 rsync -a --exclude='**/.DS_Store' config dist
 rsync -a --exclude='**/.DS_Store' --exclude='lib/modules/webpack-custom/' lib dist
