@@ -22,6 +22,7 @@ let apos = require('apostrophe')({
       scene: 'user',
     },
     'contact-submit-widgets': {},
+    'images-widgets': {},
     menu: {},
     project: {},
     'project-pages': {
@@ -29,6 +30,7 @@ let apos = require('apostrophe')({
     },
     technology: {},
     'technology-widgets': {},
+    'slide-show-widgets': {},
     'webpack-custom': {
       webpack: config.get('modules.webpack-custom'),
     },
