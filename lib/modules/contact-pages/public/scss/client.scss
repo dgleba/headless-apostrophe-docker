@@ -42,19 +42,15 @@
       @media (max-width: $small) {
         max-width: 350px;
       }
-    }
 
-    p:first-child {
-      @extend %intro-font-placeholder;
-    }
+      &:first-child {
+        @extend %intro-font-placeholder;
+      }
 
-    p:nth-child(n + 3),
-    &--hidden {
-      display: none;
-
-      &.p--show {
-        display: block;
-        animation: fade-in-from-none 1s ease-in-out;
+      &:nth-child(n + 3),
+      &.p--hidden {
+        opacity: 0;
+        height: 0;
       }
     }
 

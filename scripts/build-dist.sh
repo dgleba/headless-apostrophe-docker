@@ -4,10 +4,11 @@
 mongodump --db site --out ~/site_perso/backup/db/latest/
 
 # save uploads
-rsync -a --exclude='**/.DS_Store' public/uploads backup/uploads
+rsync -a --exclude='**/.DS_Store' public/uploads backup
 
-# clean data and public folders
+# clean data folder and regenerate public folder
 rm -rf data && rm -rf public
+npm run webpack
 
 # recreate dist folder
 rm -rf dist
