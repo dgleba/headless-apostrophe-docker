@@ -1,7 +1,13 @@
 #!/bin/bash
 
 # save db
-mongodump --db site --out ~/site_perso/backup/latest/
+mongodump --db site --out ~/site_perso/backup/db/latest/
+
+# save uploads
+rsync -a --exclude='**/.DS_Store' public/uploads backup/uploads
+
+# clean data and public folders
+rm -rf data && rm -rf public
 
 # recreate dist folder
 rm -rf dist
@@ -22,6 +28,7 @@ rsync -a --exclude='**/.DS_Store' public dist
 rsync -a --exclude='**/.DS_Store' scripts dist
 rsync -a --exclude='**/.DS_Store' nginx dist
 rsync -a --exclude='**/.DS_Store' letsencrypt dist
+rsync -a backup/uploads dist/public
 rsync -a robots.txt dist/public
 
 # build docker image
