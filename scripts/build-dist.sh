@@ -9,6 +9,7 @@ rsync -a --exclude='**/.DS_Store' public/uploads backup
 # clean data folder and regenerate public folder
 rm -rf data && rm -rf public
 npm run webpack
+rsync -a --exclude='**/.DS_Store' backup/uploads public
 
 # recreate dist folder
 rm -rf dist
