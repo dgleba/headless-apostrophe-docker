@@ -4,6 +4,7 @@
 mongodump --db site --out ~/site_perso/backup/db/latest/
 
 # save uploads
+chmod -R 755 public/uploads
 rsync -a --exclude='**/.DS_Store' public/uploads backup
 
 # clean data folder and regenerate public folder

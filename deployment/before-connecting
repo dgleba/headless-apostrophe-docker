@@ -1,4 +1,4 @@
 #!/bin/bash
 
-npm run dockerize
+#npm run dockerize
 echo "Pre-deploy scripts ok"

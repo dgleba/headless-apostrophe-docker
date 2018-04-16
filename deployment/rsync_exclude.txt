@@ -6,6 +6,9 @@ data
 temp
 locales
 scripts
+backup/uploads
+local.example.js
+npm-debug.log
 docker-compose-dev.yml
 local.example.js
 yarn.lock
