@@ -1,15 +1,26 @@
-@import 'mixins.scss';
+@import 'variables.scss';
 
 .at_slider {
   display: flex;
-  flex-wrap: wrap;
   min-height: 200px;
+  align-items: center;
 
   &__container {
     display: flex;
     min-width: 50vw;
-    max-width: 98vw;
+    max-width: 94vw;
     overflow-x: scroll;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    @media (max-width: $large) {
+      max-width: 90vw;
+    }
+
+    @media (max-width: $medium) {
+      max-width: 80vw;
+      margin-left: -5px;
+    }
 
     & div {
       display: flex;
@@ -27,16 +38,9 @@
   }
 
   &__btn {
-    width: fit-content;
-    margin-bottom: 10px;
-    margin-left: 10px;
     box-shadow: none;
-
-    &--next {
-      margin-left: auto;
-    }
-
-    @include arrow-mixin('.at_slider__btn--prev.icon', relative, -1px, -5px, 180deg, 'menu-');
-    @include arrow-mixin('.at_slider__btn--next.icon', relative, -1px, -5px, 0deg);
+    background: transparent;
+    margin: 0;
+    padding: 0;
   }
 }

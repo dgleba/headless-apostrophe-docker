@@ -11,7 +11,7 @@
   <main class="at">
     <section class="at_project at_content">
       <ul class="at_project__list">
-        {% for piece in data.pieces %}
+        {% for piece in data.pieces | sort(true, false, 'publicationDate') %}
           <li class="at_project__element">
             <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="ajax">
               <div class="at_project__container">

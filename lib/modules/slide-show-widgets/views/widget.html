@@ -2,13 +2,9 @@
 
 <div class="at_slider">
   <span class="btn at_slider__btn at_slider__btn--prev">
-    {{ nav.icon("at_slider__btn--prev icon") }}
-    {{ nav.icon("at_slider__btn--prev icon icon--hidden") }}
+    {{ nav.chevron("chevron") }}
   </span>
-  <span class="btn at_slider__btn at_slider__btn--next">
-    {{ nav.icon("at_slider__btn--next icon") }}
-    {{ nav.icon("at_slider__btn--next icon icon--hidden") }}
-  </span>
+
   <div class="at_slider__container">
     {{ apos.area(data.widget, 'slides', {
         widgets: {
@@ -20,4 +16,8 @@
       })
     }}
   </div>
+
+  <span class="btn at_slider__btn at_slider__btn--next">
+    {{ nav.chevron("chevron chevron--forward") }}
+  </span>
 </div>

@@ -16,6 +16,10 @@
     padding: 10px;
     color: $charcoal;
 
+    @media (max-width: $medium) {
+      padding: 0;
+    }
+
     &:nth-child(odd) {
       transform: translate3d(50vw, 0, 0);
     }

@@ -209,6 +209,18 @@ $career-color: $base-menu-color;
       top: 50%;
       right: 1%;
     }
+
+    svg {
+      &.chevron {
+        & path {
+          fill: white;
+        }
+
+        & polygon {
+          fill: white;
+        }
+      }
+    }
   }
 
   .btn {
