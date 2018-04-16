@@ -15,6 +15,7 @@ yarn.lock
 package-lock.json
 .git
 .gitignore
+.DS_Store
 # We don't deploy these anymore, instead we always 'npm install' to ensure
 # that any compiled C++ modules are built for the right architecture
 node_modules

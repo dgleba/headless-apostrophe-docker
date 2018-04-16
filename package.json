@@ -9,7 +9,7 @@
     "dev": "npm run dev:webpack & npm run dev:app",
     "dev:app": "node-dev app.js",
     "dev:webpack": "node app custom:webpack-dev-server",
-    "dockerize": "npm run lint && sh ./scripts/build-dist.sh",
+    "dockerize": "sh ./scripts/build-dist.sh",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "prettier-standard 'lib/**/*.scss' && stylelint 'lib/**/*.scss' --fix",
     "lint:js": "prettier --write 'lib/**/*.js' 'app.js'",

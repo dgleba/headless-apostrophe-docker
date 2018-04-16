@@ -1,4 +1,4 @@
 #!/bin/bash
 
-#npm run dockerize
+sh ./scripts/build-dist.sh
 echo "Pre-deploy scripts ok"

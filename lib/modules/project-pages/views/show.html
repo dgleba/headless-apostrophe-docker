@@ -1,5 +1,6 @@
 {% extends data.outerLayout %}
 {% import "apostrophe-templates:nav.html" as nav %}
+{% import "apostrophe-templates:config.html" as RTE %}
 
 {% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
 
@@ -17,6 +18,14 @@
       {{ apos.area(data.piece, 'content') }}
 
       {{ apos.area(data.piece, 'slides') }}
+
+      {{ RTEConfig | dump }}
+      {{ apos.area(data.page, 'more', {
+        widgets: {
+          'apostrophe-rich-text': RTE.config,
+          'apostrophe-images': { size: 'one-third' }
+        }
+      })}}
 
       {{ nav.links(data, true, true) }}
     </section>
