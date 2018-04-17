@@ -15,17 +15,26 @@
 
       <h2>{{ data.piece.title }}</h2>
 
-      {{ apos.area(data.piece, 'content') }}
+      {{ apos.area(data.piece, 'content', {
+        widgets: {
+          'apostrophe-rich-text': RTE.config,
+          'apostrophe-images': { size: 'full' }
+        }
+      }) }}
 
-      {{ apos.area(data.piece, 'slides') }}
+      {{ apos.area(data.piece, 'slides', {
+        widgets: {
+          'slide-show': {}
+        },
+        limit: 1
+      }) }}
 
-      {{ RTEConfig | dump }}
-      {{ apos.area(data.page, 'more', {
+      {{ apos.area(data.piece, 'more', {
         widgets: {
           'apostrophe-rich-text': RTE.config,
           'apostrophe-images': { size: 'one-third' }
         }
-      })}}
+      }) }}
 
       {{ nav.links(data, true, true) }}
     </section>
