@@ -3,9 +3,11 @@
 # save db
 mongodump --db site --out ~/site_perso/backup/db/latest/
 
-# save uploads
+# save uploads and sync them to remote server
 chmod -R 755 public/uploads
 rsync -a --exclude='**/.DS_Store' public/uploads backup
+rsync -caPzy --no-relative --stats --human-readable -e "ssh -p 50683 -l nodeapps" --exclude='**/.DS_Store' ./backup/uploads/ nodeapps@54.36.182.160:/opt/stagecoach/apps/site/uploads/
+
 
 # clean data folder and regenerate public folder
 rm -rf data && rm -rf public
@@ -30,9 +32,5 @@ rsync -a --exclude='**/.DS_Store' public dist
 rsync -a --exclude='**/.DS_Store' scripts dist
 rsync -a --exclude='**/.DS_Store' nginx dist
 rsync -a --exclude='**/.DS_Store' letsencrypt dist
-rsync -a backup/uploads dist/public
+# rsync -a backup/uploads dist/public
 rsync -a robots.txt dist/public
-
-# build docker image
-# docker-compose build
-# echo Docker ready
