@@ -29,8 +29,7 @@ npx prettier --write 'dist/**/*.js'
 
 # copy other folders
 rsync -a --exclude='**/.DS_Store' public dist
-rsync -a --exclude='**/.DS_Store' scripts dist
 rsync -a --exclude='**/.DS_Store' nginx dist
 rsync -a --exclude='**/.DS_Store' letsencrypt dist
-# rsync -a backup/uploads dist/public
+rsync -a --exclude='**/.DS_Store' backup/uploads public
 rsync -a robots.txt dist/public

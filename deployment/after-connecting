@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# copy files previously saved but not uploaded on the remote server on purpose
-rsync -a --exclude='**/.DS_Store' backup/uploads public
-echo "After-deploy scripts ok"

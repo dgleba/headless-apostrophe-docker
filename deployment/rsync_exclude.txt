@@ -13,7 +13,6 @@ locales
 /backup/db/10-01-18/
 /nginx
 /letsencrypt
-dist/scripts
 tmp
 local.example.js
 npm-debug.log
