@@ -16,6 +16,7 @@
 docker stop falkodev-site-db falkodev-site falkodev-web
 docker rm falkodev-web
 echo "Prune docker images and volumes"
+docker image prune -a --force
 docker system prune --force
 docker volume prune --force
 docker network prune --force

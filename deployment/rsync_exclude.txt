@@ -13,6 +13,7 @@ locales
 /backup/db/10-01-18/
 /nginx
 /letsencrypt
+/robots.txt
 tmp
 local.example.js
 npm-debug.log
@@ -20,7 +21,6 @@ docker-compose-dev.yml
 local.example.js
 yarn.lock
 README.md
-robots.txt
 .git
 .gitignore
 .DS_Store

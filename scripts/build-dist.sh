@@ -28,6 +28,7 @@ npx babel dist -d dist
 npx prettier --write 'dist/**/*.js'
 
 # copy other folders
+rsync -a --exclude='**/.DS_Store' favicons/output/ public/favicons
 rsync -a --exclude='**/.DS_Store' public dist
 rsync -a --exclude='**/.DS_Store' nginx dist
 rsync -a --exclude='**/.DS_Store' letsencrypt dist

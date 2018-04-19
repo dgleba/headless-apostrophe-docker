@@ -71,6 +71,7 @@
     "babel-preset-env": "^1.6.1",
     "chai": "^4.0.2",
     "chai-spies": "^0.7.1",
+    "cli-real-favicon": "0.0.6",
     "compression": "^1.7.0",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.0",
