@@ -8,6 +8,10 @@ $article-color: $base-menu-color;
 
   &--show {
     padding: 0 10px;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   &__list {
