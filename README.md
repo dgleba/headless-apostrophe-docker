@@ -1,4 +1,4 @@
-# Site perso
+# Headless Apostrophe with Docker
 
 Run 'docker-compose up' for production in Docker
 Run 'docker-compose -f docker-compose-dev.yml up' for development in Docker
