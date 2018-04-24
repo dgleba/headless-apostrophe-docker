@@ -74,6 +74,12 @@
       }
 
       &--appeared {
+        cursor: auto;
+
+        &:hover {
+          animation: none;
+        }
+
         #{$menu}__title {
           @media (max-width: $small) {
             position: fixed;

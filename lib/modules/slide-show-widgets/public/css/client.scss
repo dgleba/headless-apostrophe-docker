@@ -35,6 +35,7 @@
     align-items: flex-start;
     background-repeat: no-repeat;
     background-position: center center;
+    box-shadow: 10px 10px 15px -15px $box-shadow-light;
   }
 
   &__btn {

@@ -21,6 +21,7 @@ $article-color: $base-menu-color;
   &__element {
     list-style-type: none;
     margin: 20px auto;
+    box-shadow: 10px 10px 10px -10px $box-shadow-light;
 
     > a {
       // only external links

@@ -65,7 +65,7 @@
         border-radius: $default-radius;
         width: 75%;
         height: 30px;
-        box-shadow: 10px 10px 20px -14px black;
+        box-shadow: 10px 10px 10px -10px black;
         font-size: 18px;
 
         @media (max-width: $large - 1) {
@@ -81,7 +81,7 @@
 
   .btn {
     margin-left: auto;
-    box-shadow: 5px 8px 14px -5px black;
+    box-shadow: 10px 10px 10px -10px black;
 
     @media (max-width: $large - 1) {
       margin-top: 10px;

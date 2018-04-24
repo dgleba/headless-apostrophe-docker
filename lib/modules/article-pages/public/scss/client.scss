@@ -41,7 +41,8 @@ $article-color: $base-menu-color;
     border-radius: $default-radius;
     background: $article-color;
     color: $greyish;
-    box-shadow: none;
+    // box-shadow: none;
+    box-shadow: 10px 10px 10px -10px $box-shadow-light;
 
     @media screen and (max-width: 900px) {
       width: 250px;
