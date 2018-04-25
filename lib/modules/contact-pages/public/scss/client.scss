@@ -103,6 +103,10 @@
   &__social {
     background: $greyish;
 
+    a {
+      display: inline-block; // needed to have a clickable zone all around the icon
+    }
+
     img {
       width: 32px;
       height: 32px;
