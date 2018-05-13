@@ -1,5 +1,7 @@
 FROM node:boron-slim
 
+RUN apt-get update -y && apt-get install -y --no-install-recommends gcc make libpng-dev
+
 # Create app directory
 RUN mkdir -p /app
 WORKDIR /app
