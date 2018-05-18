@@ -73,6 +73,10 @@
       background: transparent;
       border: 1px solid darken($base-menu-color, 30%);
 
+      @media (max-width: $medium) {
+        margin-bottom: 0;
+      }
+
       .btn--label {
         color: darken($base-menu-color, 30%);
       }
