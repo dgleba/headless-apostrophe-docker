@@ -8,7 +8,7 @@ Run 'docker-compose -f docker-compose-dev.yml up' for development in Docker
 'docker-compose build' to rebuild image
 'docker run -ti siteperso_falkodev-site bash' to log into the container
 
-Save local database: mongodump --db site --out ~/site_perso/backup/db/atest/
+Save local database: mongodump --db site --out ~/site_perso/backup/db/latest/
 Restore in container:
 * 'docker-compose build' to get attachments
 * 'docker-compose up' to have containers running

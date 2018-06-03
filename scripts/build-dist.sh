@@ -8,7 +8,6 @@ chmod -R 755 public/uploads
 rsync -a --exclude='**/.DS_Store' public/uploads backup
 rsync -caPzy --no-relative --stats --human-readable -e "ssh -p 50683 -l nodeapps" --exclude='**/.DS_Store' ./backup/uploads/ nodeapps@54.36.182.160:/opt/stagecoach/apps/site/uploads/
 
-
 # clean data folder and regenerate public folder
 rm -rf data && rm -rf public
 npm run webpack
