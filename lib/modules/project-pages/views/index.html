@@ -9,10 +9,12 @@
 
 {% block main %}
   <main class="at">
+    <h1 class="remove">{{ data.page.title }}</h1>
     <section class="at_project at_content">
       <ul class="at_project__list">
         {% for piece in data.pieces | sort(true, false, 'publicationDate') %}
           <li class="at_project__element">
+            <h2 class="remove">{{ piece.title }}</h2>
             <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="ajax">
               <div class="at_project__container">
                 <span>{{ piece.title }}</span>

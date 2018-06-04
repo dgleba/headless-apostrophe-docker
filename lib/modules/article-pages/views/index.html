@@ -9,10 +9,12 @@
 
 {% block main %}
   <main class="at">
+    <h1 class="remove">{{ data.page.title }}</h1>
     <section class="at_content at_article">
       <ul class="at_article__list">
       {% for piece in data.pieces %}
         <li class="at_article__element">
+          <h2 class="remove">{{ piece.title }}</h2>
           <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="ajax">
             <div class="at_article__container">
               <span>{{ piece.title }}</span>

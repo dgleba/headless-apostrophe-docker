@@ -9,6 +9,7 @@
 
 {% block main %}
   <main class="at">
+    <h1 class="remove">{{ data.page.title }}</h1>
     <section class="at_career at_content">
       <ul class="at_career__list">
         {% for piece in data.pieces | sort(true, false, 'startDate') %}
@@ -16,7 +17,8 @@
           {%- if piece.certification %} at_career__element--certification {% endif %}">
             <div class="at_career__container
               {%- if piece.certification %} at_career__container--certification {% endif %}">
-              <time>
+              <h2 class="remove">{{ piece.title }}</h2>
+              <time datetime="{{ piece.startDate | date("YYYY") }}">
                 {{ piece.startDate | date("YYYY") }}
                 {% if piece.endDate | date("YYYY") != piece.startDate | date("YYYY") %} - {{ piece.endDate | date("YYYY") }} {% endif %}
               </time>
@@ -24,6 +26,7 @@
 
               {% if piece.description | length > 0 %}
                 <a href="{{ apos.pages.getBaseUrl(piece._url) }}" class="at_career__link btn ajax" animate="career">
+                  <h3 class="remove">Voir plus</h3>
                   <span class="btn--label">Voir plus</span>
                   {{ nav.icon("at_menu icon") }}
                   {{ nav.icon("at_menu icon icon--hidden") }}

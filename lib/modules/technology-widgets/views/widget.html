@@ -1,13 +1,14 @@
 {% for piece in data.widget._pieces %}
   <div class="at_slider__slides technology technology-{{ loop.index }}">
     <div class="technology__title">{{ piece.title }}</div>
+    <h3 class="remove">{{ piece.title }}</h3>
     <ul>
     {% for content in piece.content %}
       <div class="technology__container">
         <li><div class="technology__content">{{ content.technology }}</div></li>
         {% if content.url %}
           <a class="btn technology__btn ajax"  href="{{ content.url }}" type="{{ content.pageType }}">
-            Exemple
+            Exemple<h4 class="remove">Exemple</h4>
           </a>
         {%- endif %}
       </div>

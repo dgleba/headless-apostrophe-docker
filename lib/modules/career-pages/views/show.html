@@ -9,12 +9,15 @@
 
 {% block main %}
   <main class="at career-show">
+    <h1 class="remove">{{ data.page.title }}</h1>
     <section class="at_career at_content show">
       <ul class="at_career__list">
         <li class="at_career__element in-view hide zoom">
           <div class="at_career__container">
 
-            <time>
+            <h2 class="remove">{{ data.piece.title }}</h2>
+
+            <time datetime="{{ data.piece.startDate | date("YYYY") }}">
               {{ data.piece.startDate | date("MM/YYYY") }}
               {% if data.piece.endDate | date("MM/YYYY") != data.piece.startDate | date("MM/YYYY") %} - {{ data.piece.endDate | date("MM/YYYY") }} {% endif %}
             </time>
