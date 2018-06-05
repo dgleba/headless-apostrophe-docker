@@ -1,7 +1,7 @@
 {% extends data.outerLayout %}
 {% import "apostrophe-templates:nav.html" as nav %}
 
-{% block title %}{{ super() }} | {{ data.page.title }}{% endblock %}
+{% block title %}{{ super() }} | Accueil{% endblock %}
 
 {% block beforeMain %}
   {{ nav.menubar(data.global._menus, data.page._children) }}

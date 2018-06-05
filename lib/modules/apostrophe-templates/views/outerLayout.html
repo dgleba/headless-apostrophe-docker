@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title>{% block title %}Anthony Tarlao | Freelance | Architecte logiciel | Développeur web et mobile{% endblock %}</title>
+    <title>{% block title %}Anthony Tarlao | Freelance{% endblock %}</title>
+    <meta name="description" content="{{ data.page.description or 'Présentation de mon activité d\'architecte logiciel, de consultant agile et de développeur web/mobile.' }}" />
     {% if data.user %}
       {{ apos.assets.stylesheets(data.when) }}
     {% endif %}
