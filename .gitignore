@@ -7,3 +7,5 @@ node_modules
 dist
 .jshintrc
 .DS_Store
+letsencrypt/archive/tarlao.fr/fullchain1.pem
+letsencrypt/archive/tarlao.fr/privkey1.pem
