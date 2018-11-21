@@ -13,7 +13,7 @@
       {{ nav.links(data, true, true) }}
 
       <h1>{{ data.piece.title }}</h1>
-      <time pubdate="{{ data.piece.publicationDate | date('DD/MM/YYYY') }}" class="at_article__date at_article__date--published">Publié le {{ data.piece.publicationDate | date('DD/MM/YYYY') }}</time>
+      <time pubdate="{{ data.piece.publicationDate | date('YYYY-MM-DD') }}" class="at_article__date at_article__date--published">Publié le {{ data.piece.publicationDate | date('DD/MM/YYYY') }}</time>
       {% if data.piece.updateDate %}<span class="at_article__date at_article__date--updated">Mis à jour le {{ data.piece.updateDate | date('DD/MM/YYYY') }}</span>{% endif %}
 
       {% for content in data.piece.contents %}
