@@ -31,6 +31,7 @@ let apos = require('apostrophe')({
     technology: {},
     'technology-widgets': {},
     'slide-show-widgets': {},
+    'video-widgets': {},
     'webpack-custom': {
       webpack: config.get('modules.webpack-custom'),
     },
