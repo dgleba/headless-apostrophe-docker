@@ -17,12 +17,17 @@
       {% if data.piece.updateDate %}<span class="at_article__date at_article__date--updated">Mis à jour le {{ data.piece.updateDate | date('DD/MM/YYYY') }}</span>{% endif %}
 
       {% for content in data.piece.contents %}
+        {% if data.piece.contentPosition and loop.index === data.piece.contentPosition %}
+          {{ apos.area(data.piece, 'content') }}
+        {% endif %}
         {% if not loop.first %} {# first element is for summary #}
           {{ content | safe }}
         {% endif %}
       {% endfor %}
 
-      {{ apos.area(data.piece, 'content') }}
+      {% if not data.piece.contentPosition or data.piece.contentPosition === 0 %}
+        {{ apos.area(data.piece, 'content') }}
+      {% endif %}
 
       {{ nav.links(data, true, true) }}
     </section>
