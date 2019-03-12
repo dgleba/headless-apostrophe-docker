@@ -9,3 +9,5 @@ dist
 .DS_Store
 letsencrypt/archive/tarlao.fr/fullchain1.pem
 letsencrypt/archive/tarlao.fr/privkey1.pem
+yarn.lock
+package-lock.json
