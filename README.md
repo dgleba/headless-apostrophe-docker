@@ -12,6 +12,6 @@ Save local database: mongodump --db site --out ~/site_perso/backup/db/latest/
 Restore in container:
 * 'docker-compose build' to get attachments
 * 'docker-compose up' to have containers running
-* (remote) cd /opt/stagecoach/apps/site/current/ && docker run --rm --link falkodev-site-db:mongo --net siteperso_default -v $(pwd)/backup/db/latest/site/:/dump mongo bash -c 'mongorestore -d site /dump --host mongo:27017 --drop'
+* (remote) cd /opt/stagecoach/apps/site/current/ && docker run --rm --link falkodev-site-db:mongo --net siteperso -v $(pwd)/backup/db/latest/site/:/dump mongo bash -c 'mongorestore -d site /dump --host mongo:27017 --drop'
 
 favicons: npx real-favicon generate ./favicons/faviconDescription.json ./favicons/faviconData.json ./favicons/output
